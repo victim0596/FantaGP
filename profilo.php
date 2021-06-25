@@ -1,11 +1,11 @@
 <?php
-      session_start();
-      if(isset($_POST['Log-out'])){
-        session_destroy();
-        header('Location: index.php');
-        exit;
-      }
-           
+session_start();
+if (isset($_POST['Log-out'])) {
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +18,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.01">
   <link rel="stylesheet" href="css/pronostici.css?n=1.01">
+  <link rel="stylesheet" href="css/profilo.css?n=1.01">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-  <link rel="shortcut icon" href="/logo.ico" />	
-	
+  <link rel="shortcut icon" href="/logo.ico" />
 </head>
 <body>
 
@@ -39,77 +39,124 @@
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
       <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
       <a class="nav-link" href="pronostici.php">Pronostici</a>
-      <?php if (isset($_SESSION['session_id'])) { ?>
-      <a class="nav-link active" href="profilo.php"><?php echo $_SESSION['session_user'];?></a>  
-       <?php } else { ?>    
-      <a class="nav-link" href="login.php">Login</a><?php }?> 
+      <?php if (isset($_SESSION['session_id'])) {?>
+      <a class="nav-link active" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
+       <?php } else {?>
+      <a class="nav-link" href="login.php">Login</a><?php }?>
     </div>
-  </div> 
+  </div>
 </nav>
-<!---- CAROUSEL --->
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
-="carousel">
-    <div class="carousel-inner" role="listbox">      
-      <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
-        <div class="carousel-caption d-none d-md-block">
+
+<div class="accordion" id="accordionExample">
+      <div class="">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="buttondiv" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <img src="element/down-chevron.png">
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <!--inserisci i div dei pulsanti -->
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalqualy">Modifica Pronostici Qualifica</div>
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalrace">Modifica Pronostici Gara</div>
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalpron">Riepilogo Pronostici</div>
+            <?php if (isset($_SESSION['session_id'])) { 
+              if ($_SESSION['session_user'] == "Oliver") { ?>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdq">Aggiungi risultati Qualifiche</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdr">Aggiungi risultati Gara</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+            <?php         
+              }
+            }
+                ?>
+          </div>
+          </div>
         </div>
-      </div>      
-      <div class="carousel-item" style="background-image: url(img/img3.jpg)">
-        <div class="carousel-caption d-none d-md-block">
-          </div>
       </div>
-      <div class="carousel-item" style="background-image: url(img/img2.jpg)">
-        <div class="carousel-caption d-none d-md-block">          
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 barraLaterale">
+          <div class="containerOpzioni barra ">
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalqualy">Modifica Pronostici Qualifica</div>
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalrace">Modifica Pronostici Gara</div>
+            <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalpron">Riepilogo Pronostici</div>
+            <?php if (isset($_SESSION['session_id'])) { 
+              if ($_SESSION['session_user'] == "Oliver") { ?>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdq">Aggiungi risultati Qualifiche</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdr">Aggiungi risultati Gara</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+            <?php         
+              }
+            }
+                ?>
+          </div>
         </div>
-      </div>
-      <div class="carousel-item" style="background-image: url(img/img1.jpg)">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="col-3" id="columnSpace"></div>
+        <div class="col">
+          <div class="profilo">
+            <div class="row">
+              <div class="col">
+                <div class="row p-3">
+                  <div class="col-10">
+                    <img src="img/piloti/Alonso.png" class="pilotino" id="pilotino1">
+                    <div class="text-center" id="nomePilota1"></div>
+                  </div>
+                </div>  
+              </div>
+              <div class="col">
+              <div class="row p-3">
+                  <div class="col"></div>
+                  <div class="col-10">
+                    <img src="img/piloti/Alonso.png" class="pilotino" id="pilotino2">
+                    <div class="text-center" id="nomePilota2"></div>
+                  </div>
+                </div>
+              </div>  
+            </div>                       
+            <div class="divider" id="nomeScuderia"></div>
+            <div class="divider" id="nomeSquadra"></div>
+            <div class="punteggi divider">
+              <div class="row">
+                <?php include 'profilo2.php'; ?>
+                <div class="col p-3 text-center">
+                  <div><?php echo $textPtTotali; ?></div>
+                  <div>Punti totali</div>
+                </div>
+                <div class="col p-3 text-center">
+                  <div><?php echo $textPtPron; ?></div>
+                  <div>Punti Pronostici</div>
+                </div>
+                <div class="col p-3 text-center">
+                  <div><?php echo $textPtPag; ?></div>
+                  <div>Punti Pagelle</div>
+                </div>
+              </div>
+            </div>
+            <div class="footer text-center">
+              <form method="post" action="">
+                <button type="submit" class="btn btn_logout" name="Log-out">Logout</button>
+              </form>
+            </div>
           </div>
+        </div>
+        <div class="col-3" id="columnSpace"></div>
       </div>
-      <div class="carousel-item" style="background-image: url(img/img5.jpg)">
-        <div class="carousel-caption d-none d-md-block">
-          </div>
-      </div>
-      <div class="carousel-item" style="background-image: url(img/img6.jpg)">
-        <div class="carousel-caption d-none d-md-block">
-          </div>
-      </div>
-      <div class="carousel-item" style="background-image: url(img/img7.jpg)">
-        <div class="carousel-caption d-none d-md-block">
-          </div>
-      </div>
-      <div class="carousel-item" style="background-image: url(img/img8.jpg)">
-        <div class="carousel-caption d-none d-md-block">
-          </div>
-      </div>
-      
-      <?php include 'riepilogo_pronostici.php'; ?>
-      <?php include 'mod_quali.php'; ?>
-      <?php include 'mod_race.php'; ?>
+    </div>
+
+
+      <?php include 'riepilogo_pronostici.php';?>
+      <?php include 'mod_quali.php';?>
+      <?php include 'mod_race.php';?>
       <div class="text_modpron"><?php echo $text; ?></div>
 
-      <div class="position-absolute form_login">
-        <form method="post" action="">
-          <button type="submit" class="btn btn_logout" name="Log-out">Logout</button>
-        </form>
-      </div>
 
 
-      <!-- Button Qualifica -->
-    <button type="button" class="btn btn-primary btn_mq position-absolute" data-bs-toggle="modal" data-bs-target="#modalqualy">
-      Modifica Pronostici Qualifica
-    </button>
-    <!-- Button Gara -->
-    <button type="button" class="btn btn-primary btn_mr position-absolute" data-bs-toggle="modal" data-bs-target="#modalrace">
-     Modifica Pronostici Gara
-    </button>
-    <!-- Button Pronostici Attuali -->
-    <button type="button" class="btn btn-primary btn_pratt position-absolute" data-bs-toggle="modal" data-bs-target="#modalpron">
-     Riepilogo Pronostici
-    </button>
-
-  
   <!-- Modal Riepilogo pronostici -->
   <div class="modal fade" id="modalpron" tabindex="-1" aria-labelledby="modalpron" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-sm">
@@ -117,22 +164,22 @@
           <div class="modal-header">
             <h5 class="modal-title" id="modalpron">Riepilogo Pronostici</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              
+
             </button>
           </div>
           <div class="modal-body">
-            Gara:<span style="margin-left:20px;"><?php echo $nomegara;?></span></br>
-            Qualifica P1:<span style="margin-left:20px;"><?php echo $qualifica1;?></span></br>
-            Qualifica P2:<span style="margin-left:20px;"><?php echo $qualifica2;?></span></br>
-            Qualifica P3:<span style="margin-left:20px;"><?php echo $qualifica3;?></span></br>
-            Gara P1:<span style="margin-left:20px;"><?php echo $gara1;?></span></br>
-            Gara P2:<span style="margin-left:20px;"><?php echo $gara2;?></span></br>
-            Gara P3:<span style="margin-left:20px;"><?php echo $gara3;?></span></br>
-            Giro veloce:<span style="margin-left:20px;"><?php echo $giroveloce;?></span></br>
-            Numero ritirati:<span style="margin-left:20px;"><?php echo $nrit;?></span></br>
-            VSC:<span style="margin-left:20px;"><?php echo $vsc;?></span></br>
-            SC:<span style="margin-left:20px;"><?php echo $sc;?></span></br>
-          </div>          
+            Gara:<span style="margin-left:20px;"><?php echo $nomegara; ?></span></br>
+            Qualifica P1:<span style="margin-left:20px;"><?php echo $qualifica1; ?></span></br>
+            Qualifica P2:<span style="margin-left:20px;"><?php echo $qualifica2; ?></span></br>
+            Qualifica P3:<span style="margin-left:20px;"><?php echo $qualifica3; ?></span></br>
+            Gara P1:<span style="margin-left:20px;"><?php echo $gara1; ?></span></br>
+            Gara P2:<span style="margin-left:20px;"><?php echo $gara2; ?></span></br>
+            Gara P3:<span style="margin-left:20px;"><?php echo $gara3; ?></span></br>
+            Giro veloce:<span style="margin-left:20px;"><?php echo $giroveloce; ?></span></br>
+            Numero ritirati:<span style="margin-left:20px;"><?php echo $nrit; ?></span></br>
+            VSC:<span style="margin-left:20px;"><?php echo $vsc; ?></span></br>
+            SC:<span style="margin-left:20px;"><?php echo $sc; ?></span></br>
+          </div>
         </div>
       </div>
     </div>
@@ -170,7 +217,7 @@
               </div>
         </form>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -180,11 +227,11 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalrace">Modifica Pronostici Gara</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>              
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </button>
           </div>
           <div class="modal-body">
-            
+
             <form method="post" action="">
               <div class="form-group ">
               <label for="listrace"></label>
@@ -224,13 +271,13 @@
             </form>
 
           </div>
-          
+
         </div>
       </div>
     </div>
 
     <datalist id="list_race">
-        
+
         <option value="Bahrein">
         <option value="Italia-Imola">
         <option value="Portogallo">
@@ -298,33 +345,19 @@
         <option value="Gara">
         <option value="Qualifica">
       </datalist>
-      
+
 
       <?php if (isset($_SESSION['session_id'])) {
-      //Sessione Admin
-               
-              if($_SESSION['session_user']=="Oliver"){ 
-                include 'calcolo_punteggi.php'; 
-                include 'add_rit.php';
-                include 'add_qualy.php';
-                include 'add_race.php';
-                include 'add_pagelle.php';
-                ?>
-              <button type="button" class="btn btn-primary position-absolute addq" data-bs-toggle="modal" data-bs-target="#modaladdq">
-               Aggiungi risultati Qualifiche
-              </button>
-              <button type="button" class="btn btn-primary position-absolute addr" data-bs-toggle="modal" data-bs-target="#modaladdr">
-               Aggiungi risultati Gara
-              </button>
-              <button type="button" class="btn btn-primary position-absolute addp" data-bs-toggle="modal" data-bs-target="#modaladdp">
-               Aggiungi pagelle
-              </button>
-              <button type="button" class="btn btn-primary position-absolute addc" data-bs-toggle="modal" data-bs-target="#modalcalcolo">
-                 Calcola Punteggi
-              </button>
-              <button type="button" class="btn btn-primary position-absolute addrit" data-bs-toggle="modal" data-bs-target="#modaladdrit">
-               Aggiungi ritirati
-              </button>
+    //Sessione Admin
+
+    if ($_SESSION['session_user'] == "Oliver") {
+        include 'calcolo_punteggi.php';
+        include 'add_rit.php';
+        include 'add_qualy.php';
+        include 'add_race.php';
+        include 'add_pagelle.php';
+        ?>
+
               <div class="position-absolute text"><?php echo $text; ?></div>
               <div class="position-absolute text_addrit"><?php echo $text1; ?></div>
               <!-- Modal Aggiungi risultati Qualifica -->
@@ -333,7 +366,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdq">Aggiungi risultati Qualifica</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                     </div>
                     <div class="modal-body">
@@ -360,22 +393,22 @@
                         </div>
                   </form>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
-              
+
               <!-- Modal Aggiungi risultati Gara -->
               <div class="modal fade" id="modaladdr" tabindex="-1" aria-labelledby="modaladdr" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdr">Aggiungi risultati Gara</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                     </div>
                     <div class="modal-body">
-                      
+
                       <form method="post" action="">
                         <div class="form-group ">
                         <label for="listrace"></label>
@@ -414,7 +447,7 @@
                         </div>
                       </form>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
@@ -425,7 +458,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdp">Aggiungi Pagelle</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                       
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                     </div>
                     <div class="modal-body">
@@ -456,7 +489,7 @@
                         </div>
                   </form>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
@@ -467,7 +500,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdrit">Aggiungi Ritirato</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>          
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                     </div>
                     <div class="modal-body">
@@ -501,7 +534,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modalcalcolo">Calcolo Punteggi</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </button>
                     </div>
                     <div class="modal-body">
@@ -521,13 +554,11 @@
               </div>
 
 
-             <?php  } } ?>
-
-    </div>
-  </div>
-</header>
+             <?php }}?>
 
 
+
+             <script src="js/profilo.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

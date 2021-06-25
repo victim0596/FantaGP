@@ -1,0 +1,135 @@
+body {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: url(../img/img1.jpg);
+}
+
+.barraLaterale{
+    height: 100vh;
+    background-color: rgba(33, 33, 41, 0.7);
+    color: white;
+}
+
+.opzioniLaterali:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.opzioniLaterali{
+    padding: 5px;
+}
+.containerOpzioni{
+    margin-top: 20vh;
+    margin-bottom: 40vh;
+}
+.profilo{
+    position: relative;
+    color: white;
+    min-width: 280px;
+    height: auto;
+    margin-top: 10vh;
+    background-color: rgba(33, 33, 41, 0.7);
+}
+
+.pilotino{
+    object-fit: cover;
+    max-width:100%;
+    max-height:100%;
+}
+
+.divider{
+    border-bottom: 2px solid green;
+}
+
+#nomeScuderia, #nomeSquadra {
+    padding: 5px;
+    text-align: center;
+}
+.punteggi{
+    height: 10vh;
+    max-height: 120px;
+    background-color: rgba(33, 33, 41, 0.9);
+
+}
+.footer{
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.accordion{
+    display: none;
+}
+
+.buttondiv{
+    background-color: transparent;
+    border: none;
+}
+.buttondiv img{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+}
+#collapseOne, .accordion-header{
+    text-align: center;
+}
+.accordion-body{
+    background-color: rgba(33, 33, 41, 0.7);
+    color: white; 
+}
+.accordion-header{
+    margin-top: 10%;
+}
+
+@media (max-width: 768px){
+    .barraLaterale{
+        font-size: small;
+        background-color: rgba(33, 33, 41, 0);
+    }
+    .barra{
+        visibility: hidden;
+    }
+    .accordion{
+        display: block;
+    }
+}
+
+@media (max-width: 576px){
+    .barraLaterale{
+        width: 0%;
+    }
+    #columnSpace{
+        width: 0%;
+    }
+}
+
+@media (max-width: 368px){
+   .row>*{
+       padding-left: 0px;
+       padding-right: 0px;
+   }
+   img{
+       padding: 5px;
+   }
+   .row{
+       margin-right: 0px;
+       margin-left: 0px;
+   }
+}
+
+
+.row{
+    flex-wrap:wrap !important;
+}
+
+
+@media (max-width: 1140px){
+    .punteggi{
+        font-size: x-small;
+        max-height: 70px;
+    }
+} 

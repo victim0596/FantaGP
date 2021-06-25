@@ -77,11 +77,11 @@
 
 <div class="position-absolute form_login">
   <form class="px-4 py-3" method="post" action="login2.php">
-    <div class="form-group">
+    <div class="mb-3">
       <label for="n_utente">Nome Utente</label>
       <input type="text" class="form-control" id="n_utente" name="n_utente" placeholder="Nome utente">
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <label for="psw">Password</label>
       <input type="password" class="form-control" id="psw" name="psw" placeholder="Password">
     </div>
