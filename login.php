@@ -7,7 +7,7 @@
 	<meta name="description" content="Sito per il fantaGP">
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/main.css?n=1.01">
+	<link rel="stylesheet" href="css/main.css?n=1.02">
   <link rel="stylesheet" href="css/login.css">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />	
