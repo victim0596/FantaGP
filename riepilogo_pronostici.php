@@ -41,7 +41,6 @@ if (isset($_SESSION['session_id'])){
             }        
             
               }
-      $conn->close();
     }
     $conn->close();   
 }   	
