@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
     <link rel="apple-touch-icon" sizes="128x128" href="applogo.png">
-	
+
 </head>
 <body>
 
@@ -31,29 +31,26 @@
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
       <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
       <a class="nav-link" href="pronostici.php">Pronostici</a>
-      <?php if (isset($_SESSION['session_id'])) { ?>
-    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user'];?></a>  
-     <?php } else { ?>    
-      <a class="nav-link" href="login.php">Login</a><?php }?>  
+      <?php if (isset($_SESSION['session_id'])) {?>
+    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
+     <?php } else {?>
+      <a class="nav-link" href="login.php">Login</a><?php }?>
     </div>
-  </div> 
+  </div>
 </nav>
 <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url(img/img3.jpg)">
         <div class="carousel-caption d-none d-md-block">
           </div>
       </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url(img/img2.jpg)">
-        <div class="carousel-caption d-none d-md-block">          
+        <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img1.jpg)">
@@ -76,7 +73,7 @@
         <div class="carousel-caption d-none d-md-block">
           </div>
       </div>
-      
+
       <div class="timer_quali">
         <h3>TEMPO RIMANENTE QUALIFICHE</h3>
         <div class="timer row">
@@ -89,8 +86,8 @@
             <span class="col">GIORNI</span>
             <span class="col">ORE</span>
             <span class="col">MINUTI</span>
-            <span class="col sec">SECONDI</span>       
-          </div>    
+            <span class="col sec">SECONDI</span>
+          </div>
     </div>
     <div class="timer_gara">
         <h3>TEMPO RIMANENTE GARA</h3>
@@ -110,12 +107,11 @@
   <h1 data-text="fantagp2021"><span>fantagp2021</span></h1>
   <h1 data-text="design by Terzo Oliver" class="design"><span>design by Terzo Oliver</span></h1>
 
-
     </div>
   </div>
-  
+
 </header>
- 
+
 
 
   <script src="js/main.js?n=1.040"></script>
