@@ -89,6 +89,7 @@ body {
     .barraLaterale{
         font-size: small;
         background-color: rgba(33, 33, 41, 0);
+        width: 0%;
     }
     .barra{
         visibility: hidden;
@@ -96,16 +97,11 @@ body {
     .accordion{
         display: block;
     }
-}
-
-@media (max-width: 576px){
-    .barraLaterale{
-        width: 0%;
-    }
     #columnSpace{
         width: 0%;
     }
 }
+
 
 @media (max-width: 368px){
    .row>*{
