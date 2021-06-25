@@ -15,8 +15,8 @@
 	<title>FantaGP 2021</title>
 	<meta name="description" content="Sito per il fantaGP">
 	<meta name="author" content="Oliver Terzo">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css?n=1.01">
   <link rel="stylesheet" href="css/pronostici.css?n=1.01">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />	
@@ -29,7 +29,7 @@
   <a class="navbar-brand" href="index.php">
   	<img src="element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
@@ -48,7 +48,8 @@
 </nav>
 <!---- CAROUSEL --->
 <header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
+="carousel">
     <div class="carousel-inner" role="listbox">      
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
         <div class="carousel-caption d-none d-md-block">
@@ -96,15 +97,15 @@
 
 
       <!-- Button Qualifica -->
-    <button type="button" class="btn btn-primary btn_mq position-absolute" data-toggle="modal" data-target="#modalqualy">
+    <button type="button" class="btn btn-primary btn_mq position-absolute" data-bs-toggle="modal" data-bs-target="#modalqualy">
       Modifica Pronostici Qualifica
     </button>
     <!-- Button Gara -->
-    <button type="button" class="btn btn-primary btn_mr position-absolute" data-toggle="modal" data-target="#modalrace">
+    <button type="button" class="btn btn-primary btn_mr position-absolute" data-bs-toggle="modal" data-bs-target="#modalrace">
      Modifica Pronostici Gara
     </button>
     <!-- Button Pronostici Attuali -->
-    <button type="button" class="btn btn-primary btn_pratt position-absolute" data-toggle="modal" data-target="#modalpron">
+    <button type="button" class="btn btn-primary btn_pratt position-absolute" data-bs-toggle="modal" data-bs-target="#modalpron">
      Riepilogo Pronostici
     </button>
 
@@ -115,8 +116,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalpron">Riepilogo Pronostici</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
             </button>
           </div>
           <div class="modal-body">
@@ -142,8 +143,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalqualy">Modifica Pronostici Qualifica</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </button>
           </div>
           <div class="modal-body">
@@ -180,8 +180,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalrace">Modifica Pronostici Gara</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>              
             </button>
           </div>
           <div class="modal-body">
@@ -311,19 +310,19 @@
                 include 'add_race.php';
                 include 'add_pagelle.php';
                 ?>
-              <button type="button" class="btn btn-primary position-absolute addq" data-toggle="modal" data-target="#modaladdq">
+              <button type="button" class="btn btn-primary position-absolute addq" data-bs-toggle="modal" data-bs-target="#modaladdq">
                Aggiungi risultati Qualifiche
               </button>
-              <button type="button" class="btn btn-primary position-absolute addr" data-toggle="modal" data-target="#modaladdr">
+              <button type="button" class="btn btn-primary position-absolute addr" data-bs-toggle="modal" data-bs-target="#modaladdr">
                Aggiungi risultati Gara
               </button>
-              <button type="button" class="btn btn-primary position-absolute addp" data-toggle="modal" data-target="#modaladdp">
+              <button type="button" class="btn btn-primary position-absolute addp" data-bs-toggle="modal" data-bs-target="#modaladdp">
                Aggiungi pagelle
               </button>
-              <button type="button" class="btn btn-primary position-absolute addc" data-toggle="modal" data-target="#modalcalcolo">
+              <button type="button" class="btn btn-primary position-absolute addc" data-bs-toggle="modal" data-bs-target="#modalcalcolo">
                  Calcola Punteggi
               </button>
-              <button type="button" class="btn btn-primary position-absolute addrit" data-toggle="modal" data-target="#modaladdrit">
+              <button type="button" class="btn btn-primary position-absolute addrit" data-bs-toggle="modal" data-bs-target="#modaladdrit">
                Aggiungi ritirati
               </button>
               <div class="position-absolute text"><?php echo $text; ?></div>
@@ -334,8 +333,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdq">Aggiungi risultati Qualifica</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
                       </button>
                     </div>
                     <div class="modal-body">
@@ -373,8 +371,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdr">Aggiungi risultati Gara</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
                       </button>
                     </div>
                     <div class="modal-body">
@@ -428,8 +425,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdp">Aggiungi Pagelle</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                       
                       </button>
                     </div>
                     <div class="modal-body">
@@ -471,8 +467,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modaladdrit">Aggiungi Ritirato</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>          
                       </button>
                     </div>
                     <div class="modal-body">
@@ -506,8 +501,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modalcalcolo">Calcolo Punteggi</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                        
                       </button>
                     </div>
                     <div class="modal-body">
@@ -535,9 +529,6 @@
 
 
 
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

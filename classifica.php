@@ -11,8 +11,8 @@
 	<title>FantaGP 2021</title>
 	<meta name="description" content="Sito per il fantaGP">
 	<meta name="author" content="Oliver Terzo">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css?n=1.01">
   <link rel="stylesheet" href="css/classifica.css?n=1.01">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />	
@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <a class="navbar-brand" href="index.php">
     <img src="element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
@@ -43,7 +43,8 @@
 </nav>
 <!---- CAROUSEL --->
 <header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
+="carousel">
     <div class="carousel-inner" role="listbox">      
       
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
@@ -83,21 +84,21 @@
     <!-- button per classifiche -->
       <div class="container_btn">
 		<!-- Button Classifica generale -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalclassificagenerale" id="class_gen" >
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificagenerale" id="class_gen" >
 		  <div>
 			  <img src="img/class_1.jpg">
 			  <div><span>Classifica Generale</span></div>
 		  </div>
 		</button>
 		<!-- Button Classifica Pagelle -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalclassificapagelle" id="class_pag">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapagelle" id="class_pag">
 		  <div>
 			  <img src="img/class_2.jpg">
 			  <div><span>Classifica Pagelle</span></div>
 		  </div>
 		</button>
     <!-- Button Classifica Pronostici -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalclassificapronostici" id="class_pron">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapronostici" id="class_pron">
 		  <div>
 			  <img src="img/class_3.jpg">
 			  <div><span>Classifica Pronostici</span></div>
@@ -112,9 +113,7 @@
     <div class="modal-content modal_table">
       <div class="modal-header">
         <h5 class="modal-title" id="modalclassificagenerale">Classifica</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true" style="color:white">&times;</span>
-		        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table class="table-responsive">
@@ -128,52 +127,52 @@
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data1['id_p'];?>" name="chart<?php echo $data1['id_p'];?>"><img src="element/chart.png"></button><?php echo $data1['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data1['id_p'];?>" name="chart<?php echo $data1['id_p'];?>"><img src="element/chart.png"></button><?php echo $data1['id_p'];?></td>
       <td><?php echo $data1['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data2['id_p'];?>" name="chart<?php echo $data2['id_p'];?>"><img src="element/chart.png"></button><?php echo $data2['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data2['id_p'];?>" name="chart<?php echo $data2['id_p'];?>"><img src="element/chart.png"></button><?php echo $data2['id_p'];?></td>
       <td><?php echo $data2['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data3['id_p'];?>" name="chart<?php echo $data3['id_p'];?>"><img src="element/chart.png"></button><?php echo $data3['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data3['id_p'];?>" name="chart<?php echo $data3['id_p'];?>"><img src="element/chart.png"></button><?php echo $data3['id_p'];?></td>
       <td><?php echo $data3['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data4['id_p'];?>" name="chart<?php echo $data4['id_p'];?>"><img src="element/chart.png"></button><?php echo $data4['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data4['id_p'];?>" name="chart<?php echo $data4['id_p'];?>"><img src="element/chart.png"></button><?php echo $data4['id_p'];?></td>
       <td><?php echo $data4['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data5['id_p'];?>" name="chart<?php echo $data5['id_p'];?>"><img src="element/chart.png"></button><?php echo $data5['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data5['id_p'];?>" name="chart<?php echo $data5['id_p'];?>"><img src="element/chart.png"></button><?php echo $data5['id_p'];?></td>
       <td><?php echo $data5['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data6['id_p'];?>" name="chart<?php echo $data6['id_p'];?>"><img src="element/chart.png"></button><?php echo $data6['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data6['id_p'];?>" name="chart<?php echo $data6['id_p'];?>"><img src="element/chart.png"></button><?php echo $data6['id_p'];?></td>
       <td><?php echo $data6['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data7['id_p'];?>" name="chart<?php echo $data7['id_p'];?>"><img src="element/chart.png"></button><?php echo $data7['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data7['id_p'];?>" name="chart<?php echo $data7['id_p'];?>"><img src="element/chart.png"></button><?php echo $data7['id_p'];?></td>
       <td><?php echo $data7['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data8['id_p'];?>" name="chart<?php echo $data8['id_p'];?>"><img src="element/chart.png"></button><?php echo $data8['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data8['id_p'];?>" name="chart<?php echo $data8['id_p'];?>"><img src="element/chart.png"></button><?php echo $data8['id_p'];?></td>
       <td><?php echo $data8['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data9['id_p'];?>" name="chart<?php echo $data9['id_p'];?>"><img src="element/chart.png"></button><?php echo $data9['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data9['id_p'];?>" name="chart<?php echo $data9['id_p'];?>"><img src="element/chart.png"></button><?php echo $data9['id_p'];?></td>
       <td><?php echo $data9['sum(punti)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data10['id_p'];?>" name="chart<?php echo $data10['id_p'];?>"><img src="element/chart.png"></button><?php echo $data10['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data10['id_p'];?>" name="chart<?php echo $data10['id_p'];?>"><img src="element/chart.png"></button><?php echo $data10['id_p'];?></td>
       <td><?php echo $data10['sum(punti)'];?></td>
     </tr>
   </tbody>
@@ -189,9 +188,7 @@
     <div class="modal-content modal_table">
       <div class="modal-header">
         <h5 class="modal-title" id="modalclassificapagelle">Classifica Pagelle</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true" style="color:white">&times;</span>
-		        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table class="table-responsive">
@@ -205,52 +202,52 @@
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data11['id_p'];?>" name="chart<?php echo $data11['id_p'];?>"><img src="element/chart.png"></button><?php echo $data11['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data11['id_p'];?>" name="chart<?php echo $data11['id_p'];?>"><img src="element/chart.png"></button><?php echo $data11['id_p'];?></td>
       <td><?php echo $data11['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data12['id_p'];?>" name="chart<?php echo $data12['id_p'];?>"><img src="element/chart.png"></button><?php echo $data12['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data12['id_p'];?>" name="chart<?php echo $data12['id_p'];?>"><img src="element/chart.png"></button><?php echo $data12['id_p'];?></td>
       <td><?php echo $data12['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data13['id_p'];?>" name="chart<?php echo $data13['id_p'];?>"><img src="element/chart.png"></button><?php echo $data13['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data13['id_p'];?>" name="chart<?php echo $data13['id_p'];?>"><img src="element/chart.png"></button><?php echo $data13['id_p'];?></td>
       <td><?php echo $data13['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data14['id_p'];?>" name="chart<?php echo $data14['id_p'];?>"><img src="element/chart.png"></button><?php echo $data14['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data14['id_p'];?>" name="chart<?php echo $data14['id_p'];?>"><img src="element/chart.png"></button><?php echo $data14['id_p'];?></td>
       <td><?php echo $data14['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data15['id_p'];?>" name="chart<?php echo $data15['id_p'];?>"><img src="element/chart.png"></button><?php echo $data15['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data15['id_p'];?>" name="chart<?php echo $data15['id_p'];?>"><img src="element/chart.png"></button><?php echo $data15['id_p'];?></td>
       <td><?php echo $data15['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data16['id_p'];?>" name="chart<?php echo $data16['id_p'];?>"><img src="element/chart.png"></button><?php echo $data16['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data16['id_p'];?>" name="chart<?php echo $data16['id_p'];?>"><img src="element/chart.png"></button><?php echo $data16['id_p'];?></td>
       <td><?php echo $data16['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data17['id_p'];?>" name="chart<?php echo $data17['id_p'];?>"><img src="element/chart.png"></button><?php echo $data17['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data17['id_p'];?>" name="chart<?php echo $data17['id_p'];?>"><img src="element/chart.png"></button><?php echo $data17['id_p'];?></td>
       <td><?php echo $data17['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data18['id_p'];?>" name="chart<?php echo $data18['id_p'];?>"><img src="element/chart.png"></button><?php echo $data18['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data18['id_p'];?>" name="chart<?php echo $data18['id_p'];?>"><img src="element/chart.png"></button><?php echo $data18['id_p'];?></td>
       <td><?php echo $data18['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data19['id_p'];?>" name="chart<?php echo $data19['id_p'];?>"><img src="element/chart.png"></button><?php echo $data19['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data19['id_p'];?>" name="chart<?php echo $data19['id_p'];?>"><img src="element/chart.png"></button><?php echo $data19['id_p'];?></td>
       <td><?php echo $data19['sum(punti_pag)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data20['id_p'];?>" name="chart<?php echo $data20['id_p'];?>"><img src="element/chart.png"></button><?php echo $data20['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data20['id_p'];?>" name="chart<?php echo $data20['id_p'];?>"><img src="element/chart.png"></button><?php echo $data20['id_p'];?></td>
       <td><?php echo $data20['sum(punti_pag)'];?></td>
     </tr>
   </tbody>
@@ -266,9 +263,7 @@
     <div class="modal-content modal_table">
       <div class="modal-header">
         <h5 class="modal-title" id="modalclassificapronostici">Classifica Pronostici</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true" style="color:white">&times;</span>
-		        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <table class="table-responsive">
@@ -282,52 +277,52 @@
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data21['id_p'];?>" name="chart<?php echo $data21['id_p'];?>"><img src="element/chart.png"></button><?php echo $data21['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data21['id_p'];?>" name="chart<?php echo $data21['id_p'];?>"><img src="element/chart.png"></button><?php echo $data21['id_p'];?></td>
       <td><?php echo $data21['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data22['id_p'];?>" name="chart<?php echo $data22['id_p'];?>"><img src="element/chart.png"></button><?php echo $data22['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data22['id_p'];?>" name="chart<?php echo $data22['id_p'];?>"><img src="element/chart.png"></button><?php echo $data22['id_p'];?></td>
       <td><?php echo $data22['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data23['id_p'];?>" name="chart<?php echo $data23['id_p'];?>"><img src="element/chart.png"></button><?php echo $data23['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data23['id_p'];?>" name="chart<?php echo $data23['id_p'];?>"><img src="element/chart.png"></button><?php echo $data23['id_p'];?></td>
       <td><?php echo $data23['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data24['id_p'];?>" name="chart<?php echo $data24['id_p'];?>"><img src="element/chart.png"></button><?php echo $data24['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data24['id_p'];?>" name="chart<?php echo $data24['id_p'];?>"><img src="element/chart.png"></button><?php echo $data24['id_p'];?></td>
       <td><?php echo $data24['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data25['id_p'];?>" name="chart<?php echo $data25['id_p'];?>"><img src="element/chart.png"></button><?php echo $data25['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data25['id_p'];?>" name="chart<?php echo $data25['id_p'];?>"><img src="element/chart.png"></button><?php echo $data25['id_p'];?></td>
       <td><?php echo $data25['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data26['id_p'];?>" name="chart<?php echo $data26['id_p'];?>"><img src="element/chart.png"></button><?php echo $data26['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data26['id_p'];?>" name="chart<?php echo $data26['id_p'];?>"><img src="element/chart.png"></button><?php echo $data26['id_p'];?></td>
       <td><?php echo $data26['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data27['id_p'];?>" name="chart<?php echo $data27['id_p'];?>"><img src="element/chart.png"></button><?php echo $data27['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data27['id_p'];?>" name="chart<?php echo $data27['id_p'];?>"><img src="element/chart.png"></button><?php echo $data27['id_p'];?></td>
       <td><?php echo $data27['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data28['id_p'];?>" name="chart<?php echo $data28['id_p'];?>"><img src="element/chart.png"></button><?php echo $data28['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data28['id_p'];?>" name="chart<?php echo $data28['id_p'];?>"><img src="element/chart.png"></button><?php echo $data28['id_p'];?></td>
       <td><?php echo $data28['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data29['id_p'];?>" name="chart<?php echo $data29['id_p'];?>"><img src="element/chart.png"></button><?php echo $data29['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data29['id_p'];?>" name="chart<?php echo $data29['id_p'];?>"><img src="element/chart.png"></button><?php echo $data29['id_p'];?></td>
       <td><?php echo $data29['sum(punti_pron)'];?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-toggle="modal" class="chart" data-target="#modalchart<?php echo $data30['id_p'];?>" name="chart<?php echo $data30['id_p'];?>"><img src="element/chart.png"></button><?php echo $data30['id_p'];?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data30['id_p'];?>" name="chart<?php echo $data30['id_p'];?>"><img src="element/chart.png"></button><?php echo $data30['id_p'];?></td>
       <td><?php echo $data30['sum(punti_pron)'];?></td>
     </tr>
   </tbody>
@@ -352,9 +347,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartDario">Andamento punti per gara Dario</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartDario" width="400" height="400"></canvas>
@@ -368,9 +361,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartgianpaolo">Andamento punti per gara gianpaolo</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="Chartgianpaolo" width="400" height="400"></canvas>
@@ -384,9 +375,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartToto">Andamento punti per gara Toto</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartToto" width="400" height="400"></canvas>
@@ -400,9 +389,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartAndrea">Andamento punti per gara Andrea</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartAndrea" width="400" height="400"></canvas>
@@ -416,9 +403,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartSpiritoBlu">Andamento punti per gara SpiritoBlu</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartSpiritoBlu" width="400" height="400"></canvas>
@@ -432,9 +417,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartOliver">Andamento punti per gara Oliver</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartOliver" width="400" height="400"></canvas>
@@ -448,9 +431,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartpinguinoSquadraCorse">Andamento punti per gara pinguinoSquadraCorse</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartpinguinoSquadraCorse" width="400" height="400"></canvas>
@@ -464,9 +445,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartalessiodom97">Andamento punti per gara alessiodom97</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="Chartalessiodom97" width="400" height="400"></canvas>
@@ -480,9 +459,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartErmenegildo">Andamento punti per gara Ermenegildo</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartErmenegildo" width="400" height="400"></canvas>
@@ -496,9 +473,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="modalchartCiccio">Andamento punti per gara Ciccio</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
+            <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
 		      <canvas id="ChartCiccio" width="400" height="400"></canvas>
@@ -524,8 +499,7 @@
   
 
 <!--Script bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
