@@ -238,9 +238,9 @@
         <option value="Spagna">
         <option value="Monaco">
         <option value="Azerbaigian">
-        <option value="Turchia">
         <option value="Francia">
         <option value="Austria">
+        <option value="Austria-2">
         <option value="Gran Bretagna">
         <option value="Ungheria">
         <option value="Belgio">

@@ -22,14 +22,13 @@
 		if(strcasecmp($nome_gara,"Azerbaigian")==0){
 			$race_date='2021-06-05 00:00:00';
 		}
-		/*sostituire con turchia */
-		if(strcasecmp($nome_gara,"Canada")==0){
-			$race_date='2021-06-12 00:00:00';
-		}
 		if(strcasecmp($nome_gara,"Francia")==0){
-			$race_date='2021-06-26 00:00:00';
+			$race_date='2021-06-19 00:00:00';
 		}
 		if(strcasecmp($nome_gara,"Austria")==0){
+			$race_date='2021-06-26 00:00:00';
+		}
+        if(strcasecmp($nome_gara,"Austria-2")==0){
 			$race_date='2021-07-03 00:00:00';
 		}
 		if(strcasecmp($nome_gara,"Gran Bretagna")==0){
@@ -100,14 +99,13 @@
 		if(strcasecmp($nome_gara,"Azerbaigian")==0){
 			$race_date='2021-06-06 11:00:00';
 		}
-		/*da sostituire con turchia */
-		if(strcasecmp($nome_gara,"Canada")==0){
-			$race_date='2021-06-13 17:00:00';
-		}
 		if(strcasecmp($nome_gara,"Francia")==0){
-			$race_date='2021-06-27 12:00:00';
+			$race_date='2021-06-20 12:00:00';
 		}
 		if(strcasecmp($nome_gara,"Austria")==0){
+			$race_date='2021-06-27 12:00:00';
+		}
+        if(strcasecmp($nome_gara,"Austria-2")==0){
 			$race_date='2021-07-04 12:00:00';
 		}
 		if(strcasecmp($nome_gara,"Gran Bretagna")==0){

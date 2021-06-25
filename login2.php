@@ -25,7 +25,8 @@ if (isset($_SESSION['session_id'])) {
 				  session_regenerate_id();
 	          	  $_SESSION['session_id'] = session_id();
 	           	  $_SESSION['session_user'] = $n_ut;
-	           	  header('Location: index.php');	         
+	           	  header('Location: index.php');
+              	  $conn->close();
 	              exit;
 			}
 			else{
@@ -33,6 +34,7 @@ if (isset($_SESSION['session_id'])) {
 				$conn->close();
 			}
 		}
+		$conn->close();	
 	}
 	else{
 		echo "Non hai messo tutti i dati";

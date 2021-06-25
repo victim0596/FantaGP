@@ -11,7 +11,7 @@ if (isset($_SESSION['session_id'])){
 	$n_ritirati=filter_input(INPUT_POST, 'n_ritirati');
 	$VSC=filter_input(INPUT_POST, 'vsc');
 	$SC=filter_input(INPUT_POST, 'sc');
-	if(!empty($id_p) and !empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and !empty($n_ritirati) and !empty($VSC) and !empty($SC)){
+	if(!empty($id_p) and !empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and $n_ritirati>=0 and !empty($VSC) and !empty($SC)){
 
 		include 'connection.php';
 		if(mysqli_connect_error()){
@@ -27,8 +27,9 @@ if (isset($_SESSION['session_id'])){
 					else{
 						$text= "Error: ".$sql."<br>".$conn->error;
 					}
-					$conn->close();
+					
 		}
+		$conn->close();
 	}
 	else{
 		$text= "Non hai messo tutti i dati";

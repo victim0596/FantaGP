@@ -18,9 +18,9 @@ var giornig = document.getElementById('giornig');
 
 
  setInterval(function(){
-      date_future = new Date(new Date().getFullYear(),4,8); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le qualifiche
+      date_future = new Date(new Date().getFullYear(),5,26); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le qualifiche
       date_now = new Date();
-      date_future_race= new Date(new Date().getFullYear(),4,9,12); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le gare formato(day/month/hour)
+      date_future_race= new Date(new Date().getFullYear(),5,27,12); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le gare formato(day/month/hour)
       //calcolo tempo per le qualifiche
       dsecondi = Math.floor((date_future - (date_now))/1000);
       dminuti = Math.floor(dsecondi/60);

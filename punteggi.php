@@ -15,7 +15,7 @@
       $pt="";
       $text="";
         if(isset($_POST['submit_button'])){
-          if(strcasecmp($_POST['listrace'],"Spagna")!=0){
+          if(strcasecmp($_POST['listrace'],"Austria")!=0){
             include 'connection.php';
             if(mysqli_connect_error()){
               die('Errore di connessione ('.mysqli_connect_error().')');
@@ -43,9 +43,10 @@
                   $sc=$data['SC'];
                   $vsc=$data['VSC'];
                   $pt=$data['punti'];
-                  $conn->close();
               }
+              $conn->close();
             }
+            $conn->close();
         }
         else $text="Non puoi ancora vedere i risultati per questa gara";
       }    
@@ -157,9 +158,9 @@
         <option value="Spagna">
         <option value="Monaco">
         <option value="Azerbaigian">
-        <option value="Turchia">
         <option value="Francia">
         <option value="Austria">
+        <option value="Austria-2">
         <option value="Gran Bretagna">
         <option value="Ungheria">
         <option value="Belgio">

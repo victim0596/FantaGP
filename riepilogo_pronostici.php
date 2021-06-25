@@ -1,7 +1,7 @@
 <?php
 
 $text="";
-$nomegara = "Spagna";
+$nomegara = "Francia";
 $nomeutente = "";
 $qualifica1="";
 $qualifica2="";
@@ -39,9 +39,11 @@ if (isset($_SESSION['session_id'])){
                 $sc=$data['SC'];
                 $vsc=$data['VSC'];
             }        
-            $conn->close();
+            
               }
-    }   
+      $conn->close();
+    }
+    $conn->close();   
 }   	
 
 ?>

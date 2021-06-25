@@ -29,9 +29,9 @@ $text1="";
 					else{
 						echo "Error: ".$sql."<br>".$conn->error;
 					}
-					$conn->close();
 				}
 			  }
+			  $conn->close();
 			}
 		else{
 			$text1="Non hai messo tutti i dati";

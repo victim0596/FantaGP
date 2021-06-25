@@ -64,6 +64,7 @@
 	     	else $punti=$punti-1;
 		  } 
 		 }
+      $conn->close();
       return $punti;
 	}
 
@@ -236,14 +237,15 @@
           	  //calcolo punti
           	  $punti=$media_pilota1+$media_pilota2+$media_scuderia;
 	  	}
+      	$conn->close();
 	  	return $punti;
 	}
 
 	$text="";
-	include 'connection.php';
 	if(isset($_POST['calcolo_punti'])){
 	   $nome_gara=filter_input(INPUT_POST, 'nome_gara');
 	   if(!empty($nome_gara)){
+		include 'connection.php';
 	   		//  $link=mysql_connect($host, $dbusername, $dbpassword);  php 5
 			//  mysql_select_db($dbname,$link);		 php 5  
 				$utenti=array("Oliver","Ciccio","SpiritoBlu","Dario","gianpaolo","Andrea","Ermenegildo","Toto","alessiodom97","pinguinoSquadracorse"); 

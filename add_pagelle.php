@@ -32,9 +32,10 @@ if (isset($_SESSION['session_id'])){
 				else{
 					$text= "Error: ".$sql."<br>".$conn->error;
 				}
-				$conn->close();
+				
 			}
 		  }
+		  $conn->close();
 		}
 	else{
 		$text= "Non hai messo tutti i dati";

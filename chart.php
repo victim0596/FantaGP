@@ -106,7 +106,7 @@ while($row = $result_chart->fetch_assoc()){ // loop to store the data in an asso
 	$index++;
 }
 
-
+$conn->close();
 
 
 

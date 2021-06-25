@@ -39,6 +39,7 @@ if (isset($_SESSION['session_id'])){
 						}
 				}
 			else $text= "Tempo limite superato, non puoi piú modificare i pronostici";
+			$conn->close();	
 		}
 	else{
 		$text= "Non hai messo tutti i dati";

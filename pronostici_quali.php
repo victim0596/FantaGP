@@ -51,6 +51,7 @@ if (isset($_SESSION['session_id'])){
 			}
 		}
 		else $text= "Tempo limite superato";
+		$conn->close();
 	}
 	else{
 		$text= "Non hai messo tutti i dati";

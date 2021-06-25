@@ -76,7 +76,7 @@
 
 <div class="position-absolute form_login">
   <form class="px-4 py-3" method="post" action="login2.php">
-  <div class="form-group">
+    <div class="form-group">
       <label for="n_utente">Nome Utente</label>
       <input type="text" class="form-control" id="n_utente" name="n_utente" placeholder="Nome utente">
     </div>

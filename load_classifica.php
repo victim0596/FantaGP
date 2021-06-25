@@ -128,6 +128,6 @@
     $result30=$conn->query($sql30);
     $data30 = $result30->fetch_assoc();
 
-  mysqli_close($conn); 
+  $conn->close();
 
 ?>
