@@ -78,7 +78,6 @@
 /* TIMER */
 .timer_quali {
   position: relative;
-  color: white;
   left: 4%;
   margin-top: 5%;
   width: 500px;
@@ -86,7 +85,6 @@
 
 .timer_gara {
   position: relative;
-  color: white;
   left: 4%;
   margin-top: 2%;
   width: 500px;
