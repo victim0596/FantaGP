@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_SESSION['session_id'])){
 	if(isset($_POST['add_res_race'])){
 	$id_p= $_SESSION['session_user'];
