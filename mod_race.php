@@ -12,39 +12,36 @@ if (isset($_SESSION['session_id'])) {
         $VSC = filter_input(INPUT_POST, 'vsc');
         $SC = filter_input(INPUT_POST, 'sc');
         if (!empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and $n_ritirati >= 0 and !empty($VSC) and !empty($SC)) {
-
             include 'connection.php';
             include 'time_limit.php';
             if (mysqli_connect_error()) {
                 die('Errore di connessione (' . mysqli_connect_error() . ')');
-            } else {if (check_date_race($nome_gara) == 1) {
-                //    $link=mysql_connect($host, $dbusername, $dbpassword); php 5
-                //    mysql_select_db($dbname,$link);   php 5
-                $sql = "SELECT * from pronostici where id_p='$id_p' and nome_gara='$nome_gara'";
-                $result = $conn->query($sql);
-                $num_row = $result->num_rows;
-                if ($num_row == 1) {
-                    $data = $result->fetch_assoc();
-                    //aggiorna i dati
-                    $sql = "UPDATE pronostici set gp1='$gp1',gp2='$gp2',gp3='$gp3', giro_veloce='$giro_veloce', n_ritirati='$n_ritirati', vsc='$VSC', sc='$SC' where id_p='$id_p' and nome_gara='$nome_gara'";
-                    if ($conn->query($sql)) {
-                        $text = "I dati sono stati inseriti correttamente";
-                    } else {
-                        $text = "Error: " . $sql . "<br>" . $conn->error;
-                    }
-                    $conn->close();
-                } else {
-                    $text = "Non hai ancora inserito nessun pronostico";
-                    $conn->close();
-                }
             } else {
-                $text = "Tempo limite superato, non puoi piú modificare i pronostici";
-            }
+                if (check_date_race($nome_gara) == 1) {
+                    //    $link=mysql_connect($host, $dbusername, $dbpassword); php 5
+                    //    mysql_select_db($dbname,$link);   php 5
+                    $sql = "SELECT * from pronostici where id_p='$id_p' and nome_gara='$nome_gara'";
+                    $result = $conn->query($sql);
+                    $num_row = $result->num_rows;
+                    if ($num_row == 1) {
+                        $data = $result->fetch_assoc();
+                        //aggiorna i dati
+                        $sql = "UPDATE pronostici set gp1='$gp1',gp2='$gp2',gp3='$gp3', giro_veloce='$giro_veloce', n_ritirati='$n_ritirati', vsc='$VSC', sc='$SC' where id_p='$id_p' and nome_gara='$nome_gara'";
+                        if ($conn->query($sql)) {
+                            $text = "I dati sono stati inseriti correttamente";
+                        } else {
+                            $text = "Error: " . $sql . "<br>" . $conn->error;
+                        }
+                    } else {
+                        $text = "Non hai ancora inserito nessun pronostico";
+                    }
+                } else {
+                    $text = "Tempo limite superato, non puoi piú modificare i pronostici";
+                }
             }
             $conn->close();
         } else {
             $text = "Non hai messo tutti i dati";
-
         }
     }
 } else {
