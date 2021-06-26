@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="css/main.css?n=1.02">
   <link rel="stylesheet" href="css/login.css">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-    <link rel="shortcut icon" href="/logo.ico" />	
-	
+    <link rel="shortcut icon" href="/logo.ico" />
+
 </head>
 <body>
 
@@ -30,28 +30,28 @@
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
       <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
       <a class="nav-link" href="pronostici.php">Pronostici</a>
-      <?php if (isset($_SESSION['session_id'])) { ?>
-    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user'];?></a>  
-     <?php } else { ?>    
-      <a class="nav-link" href="login.php">Login</a><?php }?> 
+      <?php if (isset($_SESSION['session_id'])) {?>
+    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
+     <?php } else {?>
+      <a class="nav-link" href="login.php">Login</a><?php }?>
     </div>
-  </div> 
+  </div>
 </nav>
 <!---- CAROUSEL --->
 <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
 ="carousel">
-    <div class="carousel-inner" role="listbox">      
+    <div class="carousel-inner" role="listbox">
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
         <div class="carousel-caption d-none d-md-block">
         </div>
-      </div>      
+      </div>
       <div class="carousel-item" style="background-image: url(img/img3.jpg)">
         <div class="carousel-caption d-none d-md-block">
           </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img2.jpg)">
-        <div class="carousel-caption d-none d-md-block">          
+        <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img1.jpg)">

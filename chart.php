@@ -3,112 +3,107 @@
 include 'connection.php';
 
 //creo degli array per memorizzare i punti delle gare
-$pt_race_dario=array();
-$pt_race_gianpaolo=array();
-$pt_race_oliver=array();
-$pt_race_alessioc=array();
-$pt_race_alessiod=array();
-$pt_race_pino=array();
-$pt_race_andrea=array();
-$pt_race_toto=array();
-$pt_race_luca=array();
-$pt_race_ciccio=array();
-
-
+$pt_race_dario = array();
+$pt_race_gianpaolo = array();
+$pt_race_oliver = array();
+$pt_race_alessioc = array();
+$pt_race_alessiod = array();
+$pt_race_pino = array();
+$pt_race_andrea = array();
+$pt_race_toto = array();
+$pt_race_luca = array();
+$pt_race_ciccio = array();
 
 //query per i punti di dario
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Dario'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Dario'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-  $pt_race_dario[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_dario[$index] = $row;
+    $index++;
 }
 //query per i punti di gianpaolo
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='gianpaolo'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='gianpaolo'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_gianpaolo[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_gianpaolo[$index] = $row;
+    $index++;
 }
 
 //query per i punti di Oliver
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Oliver'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Oliver'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_oliver[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_oliver[$index] = $row;
+    $index++;
 }
 
 //query per i punti di Ermenegildo
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Ermenegildo'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Ermenegildo'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_alessioc[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_alessioc[$index] = $row;
+    $index++;
 }
 
 //query per i punti di alessiodom97
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='alessiodom97'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='alessiodom97'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_alessiod[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_alessiod[$index] = $row;
+    $index++;
 }
 
 //query per i punti di SpiritoBlu
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='SpiritoBlu'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='SpiritoBlu'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_luca[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_luca[$index] = $row;
+    $index++;
 }
 
 //query per i punti di pinguinoSquadracorse
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='pinguinoSquadracorse'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='pinguinoSquadracorse'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_pino[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_pino[$index] = $row;
+    $index++;
 }
 
 //query per i punti di Andrea
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Andrea'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Andrea'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_andrea[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_andrea[$index] = $row;
+    $index++;
 }
 
-
 //query per i punti di Toto
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Toto'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Toto'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_toto[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_toto[$index] = $row;
+    $index++;
 }
 
 //query per i punti di Ciccio
-$sql_chart="SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Ciccio'";
-$result_chart=$conn->query($sql_chart);
+$sql_chart = "SELECT punti,punti_pag,punti_pron FROM pronostici WHERE id_p='Ciccio'";
+$result_chart = $conn->query($sql_chart);
 $index = 0;
-while($row = $result_chart->fetch_assoc()){ // loop to store the data in an associative array.
-	$pt_race_ciccio[$index] = $row;
-	$index++;
+while ($row = $result_chart->fetch_assoc()) { // loop to store the data in an associative array.
+    $pt_race_ciccio[$index] = $row;
+    $index++;
 }
 
 $conn->close();
-
-
 
 ?>
 
@@ -234,7 +229,7 @@ $conn->close();
     return e.punti_pag;
   });
 	addData(chart_alessiod, values9);
-  	
+
   function update_class_gen(){
     updateData(chart_dario, values);
     updateData(chart_gianpaolo, values1);
