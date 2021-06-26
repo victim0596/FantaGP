@@ -12,9 +12,9 @@ if (isset($_SESSION['session_id'])){
     $sql = "SELECT id_p, SUM(punti) as puntiTot, SUM(punti_pag) as puntiPag, SUM(punti_pron) as puntiPron from pronostici where id_p= '$id_p' GROUP BY id_p";
     $result = $conn->query($sql);
     $row = $result->fetch_row();
+    $conn->close();
     $textPtTotali = $row[1];
     $textPtPron = $row[2];
-    $textPtPag = $row[3];
-    $conn->close();
+    $textPtPag = $row[3];  
 }
 ?>
