@@ -1,0 +1,6 @@
+# Aggiornamenti da fare
+
+- Cambiare UI al profilo (25/06/2021)
+- ottimizzare il codice backend di tutte le pagine
+- non permettere di poter mettere uno stesso pilota in piu campi nei pronostici/mod pronostici
+- mettere visibile solo il gp attuale nell'inserimento dei pronostici
