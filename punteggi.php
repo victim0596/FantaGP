@@ -1,57 +1,56 @@
 <?php
 
-      $nomegara = "";
-      $nomeutente = "";
-      $qualifica1="";
-      $qualifica2="";
-      $qualifica3="";
-      $gara1="";
-      $gara2="";
-      $gara3="";
-      $giroveloce="";
-      $nrit="";
-      $sc="";
-      $vsc="";
-      $pt="";
-      $text="";
-        if(isset($_POST['submit_button'])){
-          if(strcasecmp($_POST['listrace'],"Austria")!=0){
-            include 'connection.php';
-            if(mysqli_connect_error()){
-              die('Errore di connessione ('.mysqli_connect_error().')');
-            }
-            else{
+$nomegara = "";
+$nomeutente = "";
+$qualifica1 = "";
+$qualifica2 = "";
+$qualifica3 = "";
+$gara1 = "";
+$gara2 = "";
+$gara3 = "";
+$giroveloce = "";
+$nrit = "";
+$sc = "";
+$vsc = "";
+$pt = "";
+$text = "";
+if (isset($_POST['submit_button'])) {
+    if (strcasecmp($_POST['listrace'], "Austria") != 0) {
+        include 'connection.php';
+        if (mysqli_connect_error()) {
+            die('Errore di connessione (' . mysqli_connect_error() . ')');
+        } else {
             // $link=mysql_connect($host, $dbusername, $dbpassword); per php 5
             // mysql_select_db($dbname,$link); per php 5
-              $nomegara = $_POST['listrace'];
-              $nomeutente = $_POST['utente'];
-              $sql="SELECT * from pronostici where id_p='$nomeutente' and nome_gara='$nomegara'";
-              $result=$conn->query($sql);
-              $num_row=$result->num_rows;
-              if($num_row==0) $text="Non ci sono risultati per questa gara";
-              else{
-                  $result=$conn->query($sql);
-                  $data = $result->fetch_assoc();
-                  $qualifica1=$data['qp1'];
-                  $qualifica2=$data['qp2'];
-                  $qualifica3=$data['qp3'];
-                  $gara1=$data['gp1'];
-                  $gara2=$data['gp2'];
-                  $gara3=$data['gp3'];
-                  $giroveloce=$data['giro_veloce'];
-                  $nrit=$data['n_ritirati'];
-                  $sc=$data['SC'];
-                  $vsc=$data['VSC'];
-                  $pt=$data['punti'];
-              }
-              $conn->close();
+            $nomegara = $_POST['listrace'];
+            $nomeutente = $_POST['utente'];
+            $sql = "SELECT * from pronostici where id_p='$nomeutente' and nome_gara='$nomegara'";
+            $result = $conn->query($sql);
+            $num_row = $result->num_rows;
+            if ($num_row == 0) {
+                $text = "Non ci sono risultati per questa gara";
+            } else {
+                $result = $conn->query($sql);
+                $data = $result->fetch_assoc();
+                $qualifica1 = $data['qp1'];
+                $qualifica2 = $data['qp2'];
+                $qualifica3 = $data['qp3'];
+                $gara1 = $data['gp1'];
+                $gara2 = $data['gp2'];
+                $gara3 = $data['gp3'];
+                $giroveloce = $data['giro_veloce'];
+                $nrit = $data['n_ritirati'];
+                $sc = $data['SC'];
+                $vsc = $data['VSC'];
+                $pt = $data['punti'];
             }
-            $conn->close();
         }
-        else $text="Non puoi ancora vedere i risultati per questa gara";
-      }    
-      
-      
+        $conn->close();
+    } else {
+        $text = "Non puoi ancora vedere i risultati per questa gara";
+    }
+
+}
 
 ?>
 <?php session_start()?>
@@ -67,8 +66,8 @@
   <link rel="stylesheet" href="css/punteggi.css">
   <link rel="stylesheet" href="css/partecipanti.css">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-  <link rel="shortcut icon" href="/logo.ico" />	
-	
+  <link rel="shortcut icon" href="/logo.ico" />
+
 </head>
 <body>
 
@@ -87,28 +86,28 @@
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
       <a class="nav-link active" href="punteggi.php">Punteggi per gara</a>
       <a class="nav-link" href="pronostici.php">Pronostici</a>
-      <?php if (isset($_SESSION['session_id'])) { ?>
-    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user'];?></a>  
-     <?php } else { ?>    
+      <?php if (isset($_SESSION['session_id'])) {?>
+    <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
+     <?php } else {?>
       <a class="nav-link" href="login.php">Login</a><?php }?>
     </div>
-  </div> 
+  </div>
 </nav>
 <!---- CAROUSEL --->
 <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
 ="carousel">
-    <div class="carousel-inner" role="listbox">      
+    <div class="carousel-inner" role="listbox">
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
         <div class="carousel-caption d-none d-md-block">
         </div>
-      </div>      
+      </div>
       <div class="carousel-item" style="background-image: url(img/img3.jpg)">
         <div class="carousel-caption d-none d-md-block">
           </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img2.jpg)">
-        <div class="carousel-caption d-none d-md-block">          
+        <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img1.jpg)">
@@ -132,7 +131,7 @@
           </div>
       </div>
 
-      <div class="text_ris"><?php echo $text;?></div>
+      <div class="text_ris"><?php echo $text; ?></div>
 
       <form method="post" action="" class="punteggi">
         <div class="form-row">
@@ -151,7 +150,7 @@
           <button class="btn btn-primary button_send"  name="submit_button">INVIA</button>
         </div>
       </div>
-      
+
       <datalist id="list_race">
         <option value="Bahrein">
         <option value="Italia-Imola">
@@ -188,7 +187,7 @@
         <option value="SpiritoBlu">
         <option value="pinguinoSquadracorse">
         <option value="Ermenegildo">
-        <option value="alessiodom97">      
+        <option value="alessiodom97">
       </datalist>
 
   <table class="table-responsive portrait">
@@ -198,67 +197,67 @@
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Nome Utente</td>
-      <td name="qp1"><?php echo $nomeutente;?></td>
+      <td name="qp1"><?php echo $nomeutente; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Nome Gara</td>
-      <td name="qp1"><?php echo $nomegara;?></td>
+      <td name="qp1"><?php echo $nomegara; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P1</td>
-      <td name="qp1"><?php echo $qualifica1;?></td>
+      <td name="qp1"><?php echo $qualifica1; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P2</td>
-      <td id="qp2"><?php echo $qualifica2;?></td>
+      <td id="qp2"><?php echo $qualifica2; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P3</td>
-      <td id="qp3"><?php echo $qualifica3;?></td>
+      <td id="qp3"><?php echo $qualifica3; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P1</td>
-      <td id="gp1"><?php echo $gara1;?></td>
+      <td id="gp1"><?php echo $gara1; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P2</td>
-      <td id="gp2"><?php echo $gara2;?></td>
+      <td id="gp2"><?php echo $gara2; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P3</td>
-      <td id="gp3"><?php echo $gara3;?></td>
+      <td id="gp3"><?php echo $gara3; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Giro Veloce</td>
-      <td id="giro_veloce"><?php echo $giroveloce;?></td>
+      <td id="giro_veloce"><?php echo $giroveloce; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Safety Car</td>
-      <td id="sc"><?php echo $sc;?></td>
+      <td id="sc"><?php echo $sc; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Virtual Safety Car</td>
-      <td id="vsc"><?php echo $vsc;?></td>
+      <td id="vsc"><?php echo $vsc; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Numero Ritirati</td>
-      <td id="n_rit"><?php echo $nrit;?></td>
+      <td id="n_rit"><?php echo $nrit; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Punti</td>
-      <td id="punti"><?php echo $pt;?></td>
+      <td id="punti"><?php echo $pt; ?></td>
     </tr>
   </tbody>
   </table>
@@ -271,32 +270,32 @@
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Nome Utente</td>
-      <td name="qp1"><?php echo $nomeutente;?></td>
+      <td name="qp1"><?php echo $nomeutente; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Nome Gara</td>
-      <td name="qp1"><?php echo $nomegara;?></td>
+      <td name="qp1"><?php echo $nomegara; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P1</td>
-      <td name="qp1"><?php echo $qualifica1;?></td>
+      <td name="qp1"><?php echo $qualifica1; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P2</td>
-      <td id="qp2"><?php echo $qualifica2;?></td>
+      <td id="qp2"><?php echo $qualifica2; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Qualifica P3</td>
-      <td id="qp3"><?php echo $qualifica3;?></td>
+      <td id="qp3"><?php echo $qualifica3; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Safety Car</td>
-      <td id="sc"><?php echo $sc;?></td>
+      <td id="sc"><?php echo $sc; ?></td>
     </tr>
     </tbody>
   </table>
@@ -308,37 +307,37 @@
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P1</td>
-      <td id="gp1"><?php echo $gara1;?></td>
+      <td id="gp1"><?php echo $gara1; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P2</td>
-      <td id="gp2"><?php echo $gara2;?></td>
+      <td id="gp2"><?php echo $gara2; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Gara P3</td>
-      <td id="gp3"><?php echo $gara3;?></td>
+      <td id="gp3"><?php echo $gara3; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Giro Veloce</td>
-      <td id="giro_veloce"><?php echo $giroveloce;?></td>
+      <td id="giro_veloce"><?php echo $giroveloce; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Virtual Safety Car</td>
-      <td id="vsc"><?php echo $vsc;?></td>
+      <td id="vsc"><?php echo $vsc; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Numero Ritirati</td>
-      <td id="n_rit"><?php echo $nrit;?></td>
+      <td id="n_rit"><?php echo $nrit; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row"></th>
       <td>Punti</td>
-      <td id="punti"><?php echo $pt;?></td>
+      <td id="punti"><?php echo $pt; ?></td>
     </tr>
   </tbody>
   </table>
@@ -347,7 +346,7 @@
       </form>
 
 
-      
+
 
     </div>
   </div>

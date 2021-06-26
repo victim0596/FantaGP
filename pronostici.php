@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/main.css?n=1.01">
 	<link rel="stylesheet" href="css/pronostici.css?n=1">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-	<link rel="shortcut icon" href="/logo.ico" />	
+	<link rel="shortcut icon" href="/logo.ico" />
 </head>
 <body>
 
@@ -30,28 +30,28 @@
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
       <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
       <a class="nav-link active" href="pronostici.php">Pronostici</a>
-      <?php if (isset($_SESSION['session_id'])) { ?>
-	  <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user'];?></a>	
-	   <?php } else { ?>		
-      <a class="nav-link" href="login.php">Login</a><?php }?>	
+      <?php if (isset($_SESSION['session_id'])) {?>
+	  <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
+	   <?php } else {?>
+      <a class="nav-link" href="login.php">Login</a><?php }?>
     </div>
-  </div> 
+  </div>
 </nav>
 <!---- CAROUSEL --->
 <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride
 ="carousel">
-    <div class="carousel-inner" role="listbox">      
+    <div class="carousel-inner" role="listbox">
       <div class="carousel-item active" style="background-image: url(img/img4.jpg)">
         <div class="carousel-caption d-none d-md-block">
         </div>
-      </div>      
+      </div>
       <div class="carousel-item" style="background-image: url(img/img3.jpg)">
         <div class="carousel-caption d-none d-md-block">
           </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img2.jpg)">
-        <div class="carousel-caption d-none d-md-block">          
+        <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item" style="background-image: url(img/img1.jpg)">
@@ -76,8 +76,8 @@
       </div>
 
 	  <?php include 'pronostici_quali.php';?>
-		
-      	
+
+
 	<div class="container_btn">
 		<!-- Button Qualifica -->
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalqualy">
@@ -95,7 +95,7 @@
 		</button>
 		<div><span class="text_pron"><?php echo $text; ?></span></div>
 	</div>
-		
+
 
 		<!-- Modal Qualifica -->
 		<div class="modal fade" id="modalqualy" tabindex="-1" aria-labelledby="modalqualy" aria-hidden="true">
@@ -129,16 +129,12 @@
 		      	  </div>
 				</form>
 		      </div>
-		      
+
 		    </div>
 		  </div>
 		</div>
 
 
-		
-		
-		
-		
 
 		<!-- Modal Gara -->
 		<div class="modal fade" id="modalrace" tabindex="-1" aria-labelledby="modalrace" aria-hidden="true">
@@ -187,13 +183,13 @@
 				      </div>
 		        </form>
 		      </div>
-		      
+
 		    </div>
 		  </div>
 		</div>
-		
+
 		<datalist id="list_race">
-				
+
 				<option value="Bahrein">
 				<option value="Italia-Imola">
 				<option value="Portogallo">
@@ -261,8 +257,8 @@
     </div>
   </div>
 </header>
-		
-	
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
