@@ -14,7 +14,7 @@ if (isset($_SESSION['session_id'])){
     $row = $result->fetch_row();
     $conn->close();
     $textPtTotali = $row[1];
-    $textPtPron = $row[2];
-    $textPtPag = $row[3];  
+    $textPtPron = $row[3];
+    $textPtPag = $row[2];  
 }
 ?>
