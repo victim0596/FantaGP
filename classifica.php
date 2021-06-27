@@ -127,53 +127,53 @@ include 'load_classifica.php';
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data1['id_p']; ?>" name="chart<?php echo $data1['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data1['id_p']; ?></td>
-      <td><?php echo $data1['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[0]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[0]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[0]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[0]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data2['id_p']; ?>" name="chart<?php echo $data2['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data2['id_p']; ?></td>
-      <td><?php echo $data2['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[1]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[1]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[1]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[1]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data3['id_p']; ?>" name="chart<?php echo $data3['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data3['id_p']; ?></td>
-      <td><?php echo $data3['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[2]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[2]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[2]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[2]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data4['id_p']; ?>" name="chart<?php echo $data4['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data4['id_p']; ?></td>
-      <td><?php echo $data4['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[3]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[3]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[3]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[3]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data5['id_p']; ?>" name="chart<?php echo $data5['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data5['id_p']; ?></td>
-      <td><?php echo $data5['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[4]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[4]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[4]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[4]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data6['id_p']; ?>" name="chart<?php echo $data6['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data6['id_p']; ?></td>
-      <td><?php echo $data6['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[5]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[5]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[5]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[5]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data7['id_p']; ?>" name="chart<?php echo $data7['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data7['id_p']; ?></td>
-      <td><?php echo $data7['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[6]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[6]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[6]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[6]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data8['id_p']; ?>" name="chart<?php echo $data8['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data8['id_p']; ?></td>
-      <td><?php echo $data8['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[7]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[7]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[7]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[7]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data9['id_p']; ?>" name="chart<?php echo $data9['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data9['id_p']; ?></td>
-      <td><?php echo $data9['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[8]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[8]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[8]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[8]["puntiGen"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data10['id_p']; ?>" name="chart<?php echo $data10['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data10['id_p']; ?></td>
-      <td><?php echo $data10['sum(punti)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaGenerale[9]["id_p"]; ?>" name="chart<?php echo $arrayClassificaGenerale[9]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaGenerale[9]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaGenerale[9]["puntiGen"]; ?></td>
     </tr>
   </tbody>
   </table>
@@ -202,53 +202,53 @@ include 'load_classifica.php';
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data11['id_p']; ?>" name="chart<?php echo $data11['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data11['id_p']; ?></td>
-      <td><?php echo $data11['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[0]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[0]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[0]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[0]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data12['id_p']; ?>" name="chart<?php echo $data12['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data12['id_p']; ?></td>
-      <td><?php echo $data12['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[1]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[1]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[1]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[1]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data13['id_p']; ?>" name="chart<?php echo $data13['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data13['id_p']; ?></td>
-      <td><?php echo $data13['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[2]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[2]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[2]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[2]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data14['id_p']; ?>" name="chart<?php echo $data14['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data14['id_p']; ?></td>
-      <td><?php echo $data14['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[3]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[3]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[3]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[3]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data15['id_p']; ?>" name="chart<?php echo $data15['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data15['id_p']; ?></td>
-      <td><?php echo $data15['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[4]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[4]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[4]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[4]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data16['id_p']; ?>" name="chart<?php echo $data16['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data16['id_p']; ?></td>
-      <td><?php echo $data16['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[5]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[5]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[5]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[5]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data17['id_p']; ?>" name="chart<?php echo $data17['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data17['id_p']; ?></td>
-      <td><?php echo $data17['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[6]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[6]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[6]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[6]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data18['id_p']; ?>" name="chart<?php echo $data18['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data18['id_p']; ?></td>
-      <td><?php echo $data18['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[7]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[7]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[7]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[7]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data19['id_p']; ?>" name="chart<?php echo $data19['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data19['id_p']; ?></td>
-      <td><?php echo $data19['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[8]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[8]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[8]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[8]["puntiPag"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data20['id_p']; ?>" name="chart<?php echo $data20['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data20['id_p']; ?></td>
-      <td><?php echo $data20['sum(punti_pag)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPagelle[9]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPagelle[9]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPagelle[9]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPagelle[9]["puntiPag"]; ?></td>
     </tr>
   </tbody>
   </table>
@@ -277,53 +277,53 @@ include 'load_classifica.php';
     <tbody>
     <tr>
       <th class="colonna" scope="row">1</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data21['id_p']; ?>" name="chart<?php echo $data21['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data21['id_p']; ?></td>
-      <td><?php echo $data21['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[0]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[0]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[0]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[0]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">2</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data22['id_p']; ?>" name="chart<?php echo $data22['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data22['id_p']; ?></td>
-      <td><?php echo $data22['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[1]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[1]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[1]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[1]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">3</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data23['id_p']; ?>" name="chart<?php echo $data23['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data23['id_p']; ?></td>
-      <td><?php echo $data23['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[2]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[2]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[2]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[2]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">4</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data24['id_p']; ?>" name="chart<?php echo $data24['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data24['id_p']; ?></td>
-      <td><?php echo $data24['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[3]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[3]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[3]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[3]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">5</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data25['id_p']; ?>" name="chart<?php echo $data25['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data25['id_p']; ?></td>
-      <td><?php echo $data25['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[4]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[4]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[4]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[4]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">6</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data26['id_p']; ?>" name="chart<?php echo $data26['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data26['id_p']; ?></td>
-      <td><?php echo $data26['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[5]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[5]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[5]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[5]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">7</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data27['id_p']; ?>" name="chart<?php echo $data27['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data27['id_p']; ?></td>
-      <td><?php echo $data27['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[6]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[6]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[6]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[6]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">8</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data28['id_p']; ?>" name="chart<?php echo $data28['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data28['id_p']; ?></td>
-      <td><?php echo $data28['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[7]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[7]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[7]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[7]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">9</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data29['id_p']; ?>" name="chart<?php echo $data29['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data29['id_p']; ?></td>
-      <td><?php echo $data29['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[8]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[8]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[8]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[8]["puntiPron"]; ?></td>
     </tr>
     <tr>
       <th class="colonna" scope="row">10</th>
-      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $data30['id_p']; ?>" name="chart<?php echo $data30['id_p']; ?>"><img src="element/chart.png"></button><?php echo $data30['id_p']; ?></td>
-      <td><?php echo $data30['sum(punti_pron)']; ?></td>
+      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?php echo $arrayClassificaPronostici[9]["id_p"]; ?>" name="chart<?php echo $arrayClassificaPronostici[9]["id_p"]; ?>"><img src="element/chart.png"></button><?php echo $arrayClassificaPronostici[9]["id_p"]; ?></td>
+      <td><?php echo $arrayClassificaPronostici[9]["puntiPron"]; ?></td>
     </tr>
   </tbody>
   </table>
