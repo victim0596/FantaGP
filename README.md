@@ -6,4 +6,4 @@
 - mettere visibile solo il gp attuale nell'inserimento dei pronostici
 - aggiungere controlli sugli input nei pronostici/mod pronostici
 - creare funzione per controllo input (controllare tipo ed esistenza di input)
-- semplificare query della classifica
+- semplificare query della classifica (27/06/2021)
