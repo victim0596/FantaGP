@@ -26,8 +26,9 @@ if (isset($_SESSION['session_id'])) {
                     } else {
                         $text = "Error: " . $sql . "<br>" . $conn->error;
                     }
+                }else{
+                    $text = "Hai giá inserito i risultati della gara";
                 }
-				$text = "Hai giá inserito i risultati della gara";
             }
             $conn->close();
         } else {
