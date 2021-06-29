@@ -2,7 +2,7 @@
 
 $text = "";
 if (isset($_SESSION['session_id'])) {
-    if (isset($_POST['mod_quali'])) {
+    if (isset($_POST['invia_quali'])) {
         $id_p = $_SESSION['session_user'];
         $nome_gara = filter_input(INPUT_POST, 'nome_gara');
         $qp1 = filter_input(INPUT_POST, 'qp1');

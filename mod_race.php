@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_SESSION['session_id'])) {
-    if (isset($_POST['mod_race'])) {
+    if (isset($_POST['invia_race'])) {
         $id_p = $_SESSION['session_user'];
         $nome_gara = filter_input(INPUT_POST, 'nome_gara');
         $gp1 = filter_input(INPUT_POST, 'gp1');
