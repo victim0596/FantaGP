@@ -110,19 +110,19 @@
 		        <form method="post" action="">
 				  <div class="form-group ">
 				    <label for="listrace"></label>
-				    <input list="list_race" class="form-control form-control-sm" name="nome_gara" placeholder="Nome Gara">
+				    <input list="list_race" class="form-control form-control-sm" name="nome_gara" placeholder="Nome Gara" required>
 				  </div>
 				  <div class="form-group">
 				    <label for="qp1"></label>
-				    <input list="list_driver" class="form-control form-control-sm" name="qp1" placeholder="Qualifica P1">
+				    <input list="list_driver" class="form-control form-control-sm" name="qp1" placeholder="Qualifica P1" required>
 				  </div>
 				  <div class="form-group">
 				    <label for="qp2"></label>
-				    <input list="list_driver" class="form-control form-control-sm" name="qp2" placeholder="Qualifica P2">
+				    <input list="list_driver" class="form-control form-control-sm" name="qp2" placeholder="Qualifica P2" required>
 				  </div>
 				  <div class="form-group">
 				    <label for="qp3"></label>
-				    <input list="list_driver" class="form-control form-control-sm" name="qp3" placeholder="Qualifica P3">
+				    <input list="list_driver" class="form-control form-control-sm" name="qp3" placeholder="Qualifica P3" required>
 				  </div>
 				  <div class="modal-footer">
 		        	<button type="submit" class="btn btn_send" name="invia_quali">Invia</button>
@@ -148,35 +148,35 @@
 		        <form method="post" action="">
 		        	<div class="form-group ">
 				    	<label for="listrace"></label>
-				    	<input list="list_race" class="form-control form-control-sm" name="nome_gara" placeholder="Nome Gara">
+				    	<input list="list_race" class="form-control form-control-sm" name="nome_gara" placeholder="Nome Gara" required>
 				  	</div>
 		        	<div class="form-group">
 					    <label for="gp1"></label>
-					    <input list="list_driver" class="form-control form-control-sm" name="gp1" placeholder="Gara P1">
+					    <input list="list_driver" class="form-control form-control-sm" name="gp1" placeholder="Gara P1" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="gp2"></label>
-					    <input list="list_driver" class="form-control form-control-sm" name="gp2" placeholder="Gara P2">
+					    <input list="list_driver" class="form-control form-control-sm" name="gp2" placeholder="Gara P2" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="gp3"></label>
-					    <input list="list_driver" class="form-control form-control-sm" name="gp3" placeholder="Gara P3">
+					    <input list="list_driver" class="form-control form-control-sm" name="gp3" placeholder="Gara P3" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="giro_veloce"></label>
-					    <input list="list_driver" class="form-control form-control-sm" name="giro_veloce" placeholder="Giro Veloce">
+					    <input list="list_driver" class="form-control form-control-sm" name="giro_veloce" placeholder="Giro Veloce" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="n_ritirati"></label>
-					    <input list="n_rit" class="form-control form-control-sm" name="n_ritirati" placeholder="Numero ritirati">
+					    <input list="n_rit" type="number" min="0" max="10"class="form-control form-control-sm" name="n_ritirati" placeholder="Numero ritirati" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="vsc"></label>
-					    <input list="bool" class="form-control form-control-sm" name="vsc" placeholder="Virtual Safety Car">
+					    <input list="bool" class="form-control form-control-sm" name="vsc" placeholder="Virtual Safety Car" pattern="Si|No" required>
 					  </div>
 					  <div class="form-group">
 					    <label for="sc"></label>
-					    <input list="bool" class="form-control form-control-sm" name="sc" placeholder="Safety Car">
+					    <input list="bool" class="form-control form-control-sm" name="sc" placeholder="Safety Car" pattern="Si|No" required>
 					  </div>
 					  <div class="modal-footer">
 				        <button type="submit" class="btn btn_send" name="invia_race">Invia</button>
@@ -258,7 +258,7 @@
   </div>
 </header>
 
-
+<script src="js/pronoValidation.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
