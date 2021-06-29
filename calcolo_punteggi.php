@@ -80,7 +80,7 @@ function calcolo_punti_pronostici($nome_gara, $nome_utente)
         }
 
         //calcolo punti n_rit
-        if ($nrit == $nrit_risultati && !empty($nrit)) {
+        if ($nrit == $nrit_risultati && $nrit>=0) {
             $punti = $punti + 25;
         }
 
