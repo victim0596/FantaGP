@@ -34,7 +34,6 @@ function changeRace(){
     for (var key in DateRace) {
         if(actualDate < DateRace[key]){
             raceData.setAttribute("value", key);
-            console.log(key);
             break;
         }
     }
