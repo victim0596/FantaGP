@@ -187,32 +187,10 @@
 		  </div>
 		</div>
 
-		<datalist id="list_race">
-
-				<option value="Bahrein">
-				<option value="Italia-Imola">
-				<option value="Portogallo">
-				<option value="Spagna">
-				<option value="Monaco">
-				<option value="Azerbaigian">
-				<option value="Francia">
-				<option value="Austria">
-                <option value="Austria-2">
-				<option value="Gran Bretagna">
-				<option value="Ungheria">
-				<option value="Belgio">
-				<option value="Olanda">
-				<option value="Italia-Monza">
-				<option value="Russia">
-				<option value="Singapore">
-				<option value="Giappone">
-				<option value="USA">
-				<option value="Messico">
-				<option value="Brasile">
-				<option value="Australia">
-				<option value="Arabia Saudita">
-				<option value="Emirati Arabi">
+			<datalist id="list_race">
+				<option class="raceValue" value="Australia"></option>
 			</datalist>
+
 			<datalist id="list_driver">
 				<option value="Hamilton">
 				<option value="Bottas">
@@ -258,6 +236,7 @@
 </header>
 
 <script src="js/pronoValidation.js?n=1.0"></script>
+<script src="js/actualRace.js?n=1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
