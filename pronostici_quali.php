@@ -7,7 +7,8 @@ if (isset($_SESSION['session_id'])) {
         $qp1 = filter_input(INPUT_POST, 'qp1');
         $qp2 = filter_input(INPUT_POST, 'qp2');
         $qp3 = filter_input(INPUT_POST, 'qp3');
-        if (!empty($nome_gara) and !empty($qp1) and !empty($qp2) and !empty($qp3)) {
+        include 'inputValid.php';
+        if (!empty($nome_gara) and !empty($qp1) and !empty($qp2) and !empty($qp3) and $checkVarQualy) {
             include 'connection.php';
             include 'time_limit.php';
             if (mysqli_connect_error()) {
@@ -46,7 +47,8 @@ if (isset($_SESSION['session_id'])) {
             }
             $conn->close();
         } else {
-            $text = "Non hai messo tutti i dati";
+            if($checkVarQualy == false) $text = "Hai inserito uno stesso pilota in uno degli altri campi";
+            else $text = "Non hai messo tutti i dati";
         }
     }
 } else {

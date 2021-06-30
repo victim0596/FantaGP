@@ -135,7 +135,6 @@
 		</div>
 
 
-
 		<!-- Modal Gara -->
 		<div class="modal fade" id="modalrace" tabindex="-1" aria-labelledby="modalrace" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered modal-sm">

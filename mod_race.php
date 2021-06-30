@@ -11,7 +11,8 @@ if (isset($_SESSION['session_id'])) {
         $n_ritirati = filter_input(INPUT_POST, 'n_ritirati');
         $VSC = filter_input(INPUT_POST, 'vsc');
         $SC = filter_input(INPUT_POST, 'sc');
-        if (!empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and $n_ritirati >= 0 and !empty($VSC) and !empty($SC)) {
+        include 'inputValid.php';
+        if (!empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and $n_ritirati >= 0 and !empty($VSC) and !empty($SC) and $checkVarRace) {
             include 'connection.php';
             include 'time_limit.php';
             if (mysqli_connect_error()) {
@@ -40,8 +41,10 @@ if (isset($_SESSION['session_id'])) {
                 }
             }
             $conn->close();
+            $checkVar = false;
         } else {
-            $text = "Non hai messo tutti i dati";
+            if($checkVarRace == false) $text = "Hai inserito uno stesso pilota in uno degli altri campi";
+            else $text = "Non hai messo tutti i dati";
         }
     }
 } else {
