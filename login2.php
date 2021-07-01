@@ -8,7 +8,7 @@ if (isset($_SESSION['session_id'])) {
 if (isset($_POST['login'])) {
     $n_ut = filter_input(INPUT_POST, 'n_utente');
     $n_psw = filter_input(INPUT_POST, 'psw');
-    if (!empty($n_ut) || !empty($n_psw)) {
+    if (!empty($n_ut) && !empty($n_psw)) {
         include 'connection.php';
         if (mysqli_connect_error()) {
             die('Errore di connessione (' . mysqli_connect_error() . ')');
