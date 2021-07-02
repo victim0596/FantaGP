@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if (isset($_SESSION['session_id'])) {
     header('Location: index.php');
@@ -25,10 +24,10 @@ if (isset($_POST['login'])) {
                 $salt = "0x618f0554f66153b508be1813c76c26bb";
                 $psw_salted = hash_hmac("sha256", $n_psw, $salt);
                 if(password_verify($psw_salted,$password)){
-                    session_regenerate_id();
+                    session_start();
                     $_SESSION['session_id'] = session_id();
                     $_SESSION['session_user'] = $n_ut;
-                    header('Location: index.php');
+                    header('Location: profilo.php');
                     exit;
                 } else echo "Hai inserito una password sbagliata";
             } else {
