@@ -15,12 +15,52 @@ var oreg = document.getElementById('oreg');
 var giorni = document.getElementById('giorni');
 var giornig = document.getElementById('giornig');
 
+var date_future_race;
+var date_future;
 
+var DateRace = {
+  "Bahrein": new Date(2021, 02, 28, 14),
+  "Italia-Imola": new Date(2021, 03, 18, 12),
+  "Portogallo": new Date(2021, 04, 02, 13),
+  "Spagna": new Date(2021, 04, 09 ,12),
+  "Monaco": new Date(2021, 04, 23 ,12),
+  "Azerbaigian": new Date(2021, 05, 06, 11),
+  "Francia": new Date(2021, 05, 20 ,12),
+  "Austria": new Date(2021, 05, 27 ,12),
+  "Austria-2": new Date(2021, 06, 04, 12),
+  "Gran Bretagna": new Date(2021, 06, 18, 13),
+  "Ungheria": new Date(2021, 07, 01 ,12),
+  "Belgio": new Date(2021, 07, 29 ,12),
+  "Olanda": new Date(2021, 08, 05 ,12),
+  "Italia-Monza": new Date(2021, 08, 12, 12),
+  "Russia": new Date(2021, 08, 26 ,11),
+  "Singapore": new Date(2021, 09, 03, 11),
+  "Giappone": new Date(2021, 09, 10 ,04),
+  "USA": new Date(2021, 09, 24 ,18),
+  "Messico": new Date(2021, 09, 31 ,17),
+  "Brasile": new Date(2021, 10, 07 ,15),
+  "Australia": new Date(2021, 10, 21 ,04),
+  "Arabia Saudita": new Date(2021, 11, 05 ,14),
+  "Emirati Arabi": new Date(2021, 11, 12 ,11)
+}
+
+function changeRace() {
+  var actualDate = new Date();
+  for (var key in DateRace) {
+      if (actualDate < DateRace[key]) {
+          date_future_race = DateRace[key];  //data gara
+          date_future = new Date(date_future_race.getTime());
+          date_future.setDate(date_future.getDate()-1);
+          date_future.setHours(date_future.getHours()-DateRace[key].getHours());
+          break;
+      }
+  }
+}
+
+changeRace();
 
  setInterval(function(){
-      date_future = new Date(new Date().getFullYear(),5,26); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le qualifiche
       date_now = new Date();
-      date_future_race= new Date(new Date().getFullYear(),5,27,12); //date da modificare ad ogni gara, NB: i mesi vanno messi attuale-1, é la data per le gare formato(day/month/hour)
       //calcolo tempo per le qualifiche
       dsecondi = Math.floor((date_future - (date_now))/1000);
       dminuti = Math.floor(dsecondi/60);
