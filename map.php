@@ -4,9 +4,10 @@ include 'connection.php';
 if (mysqli_connect_error()) {
     die('Errore di connessione (' . mysqli_connect_error() . ')');
 }
+//estraggo tutti i pronostici
 $arrayGara = array();
 $index = 0;
-$sql = "SELECT id_p,nome_gara,qp1,qp2,qp3,gp1,gp2,gp3,giro_veloce,n_ritirati,VSC,SC,punti FROM pronostici ORDER BY id_p,nome_gara";
+$sql = "SELECT id_p,nome_gara,qp1,qp2,qp3,gp1,gp2,gp3,giro_veloce,n_ritirati,VSC,SC,punti FROM pronostici WHERE punti IS NOT NULL ORDER BY id_p,nome_gara";
 $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) { // loop to store the data in an associative array.
     $arrayPlayer[$index] = $row;
@@ -14,6 +15,16 @@ while ($row = $result->fetch_assoc()) { // loop to store the data in an associat
 }
 $num_row = ($result->num_rows) / 10;
 $arrayGara = array_chunk($arrayPlayer, $num_row);
+//estraggo i risultati delle gare
+$arrayRisultati = array();
+$sql = "SELECT * FROM risultati";
+$result = $conn->query($sql);
+$index = 0;
+while ($row = $result->fetch_assoc()) { // loop to store the data in an associative array.
+    $arrayRisultati[$index] = $row;
+    $index++;
+}
+
 $conn->close();
 
 ?>
@@ -21,8 +32,14 @@ $conn->close();
 
 <script>
 
-var elem= <?php echo json_encode($arrayGara); ?>;
+var elem= <?php echo json_encode($arrayGara); ?>; //var che contiene i pronostici in formato json
+var risultati = <?php echo json_encode($arrayRisultati); ?> //var che contiene i risultati delle gare in formato json
+
 am4core.ready(function() {
+
+    //enable className
+    am4core.options.autoSetClassName = true;
+
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -68,7 +85,7 @@ am4core.ready(function() {
                     <img class="imgTooltip" src="./img/bandiere/{stato}.png">
                 </div>
                 <div>
-                    <p>{stato}</p>
+                    <p class="stato">{stato}</p>
                 </div>
             </div>
             <div class="col colTooltip">
@@ -165,38 +182,69 @@ am4core.ready(function() {
     }
 
     var colorSet = new am4core.ColorSet();
-    updateChart(elem[0]);
+    updateChart(elem[0]);   //carico di default le info di alessiodom
 
     document.getElementsByName("alessiodom97")[0].addEventListener("click", function(){
       updateChart(elem[0]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "alessiodom97";
     });
     document.getElementsByName("Oliver")[0].addEventListener("click", function(){
       updateChart(elem[6]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Oliver";
     });
     document.getElementsByName("Toto")[0].addEventListener("click", function(){
       updateChart(elem[9]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Toto";
     });
     document.getElementsByName("Ciccio")[0].addEventListener("click", function(){
       updateChart(elem[2]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Ciccio";
     });
     document.getElementsByName("SpiritoBlu")[0].addEventListener("click", function(){
       updateChart(elem[8]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "SpiritoBlu";
     });
     document.getElementsByName("gianpaolo")[0].addEventListener("click", function(){
       updateChart(elem[5]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "gianpaolo";
     });
     document.getElementsByName("Andrea")[0].addEventListener("click", function(){
       updateChart(elem[1]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Andrea";
     });
     document.getElementsByName("Dario")[0].addEventListener("click", function(){
       updateChart(elem[3]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Dario";
     });
     document.getElementsByName("pinguinoSquadraCorse")[0].addEventListener("click", function(){
       updateChart(elem[7]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "pinguinoSquadraCorse";
     });
     document.getElementsByName("Ermenegildo")[0].addEventListener("click", function(){
       updateChart(elem[4]);
+      removeEvent();
+      setTimeout(loadEvent, 500);
+      document.getElementById("nomeUtenteGraf").innerHTML = "Ermenegildo";
     });
+
 
     function updateChart(e){
       imageSeries.data = [ {
@@ -505,7 +553,6 @@ am4core.ready(function() {
         "color":colorSet.next()
       }];
       var lenght = imageSeries.data.length;
-      console.log(lenght);
       for(var i=0; i<lenght; i++){
        for(var j=0; j<e.length; j++){
          if(imageSeries.data[i].stato == e[j].nome_gara){
@@ -523,9 +570,45 @@ am4core.ready(function() {
          }
        }
       }
-
     }
   })
+  var circleDom = document.getElementsByClassName("amcharts-Sprite-group amcharts-Container-group amcharts-MapObject-group amcharts-MapImage-group");
+  var statoDom = document.getElementsByClassName("stato");
+  function loadEvent(){
+    for(var i=0; i<circleDom.length; i++){
+      circleDom[i].addEventListener('mouseover', function(){
+        changeColor();
+      })
+    }
+  }
+  function removeEvent(){
+    for(var i=0; i<circleDom.length; i++){
+      circleDom[i].removeEventListener('mouseover', function(){
+        changeColor();
+      })
+    }
+  }
+
+  setTimeout(loadEvent, 500);
+  function changeColor(){
+    var domTooltip = document.querySelectorAll(".pronosticiRow .col p:nth-child(2)");
+    for(var j=0; j<risultati.length; j++){
+      if(statoDom[0].innerHTML == risultati[j].nome_gara) {
+        if(domTooltip[0].innerHTML == risultati[j].qp1) domTooltip[0].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[1].innerHTML == risultati[j].qp2) domTooltip[1].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[2].innerHTML == risultati[j].qp3) domTooltip[2].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[3].innerHTML == risultati[j].gp1) domTooltip[3].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[4].innerHTML == risultati[j].gp2) domTooltip[4].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[5].innerHTML == risultati[j].gp3) domTooltip[5].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[6].innerHTML == risultati[j].giro_veloce) domTooltip[6].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[7].innerHTML == risultati[j].n_ritirati) domTooltip[7].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[8].innerHTML == risultati[j].SC) domTooltip[8].style.color = "rgba(113, 255, 47, 1)";
+        if(domTooltip[9].innerHTML == risultati[j].VSC) domTooltip[9].style.color = "rgba(113, 255, 47, 1)";
+        break;
+      }
+    }
+  }
+
 
   </script>
 

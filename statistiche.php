@@ -56,7 +56,79 @@
             </div>
         </div>
         <div class="col">
-        <div id="chartdiv"></div>  
+          <div id="chartdiv"></div>
+          <p id="nomeUtenteGraf"></p>
+          <div class="row contStat">
+            <div class="col">
+              <div class="col stat">
+                <div class="row">
+                  <div class="col-2">25%
+                  <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                  </div>
+                    
+                  <div class="col">Pronostici gara indovinati</div>
+                </div>
+                <div class="row">
+                  <div class="col-2">157pt</div>
+                  <div class="col">Gara con piu punti</div>
+                </div>
+                <div class="row">
+                  <div class="col-2">85pt</div>
+                  <div class="col">Gara con meno punti</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="col stat">
+                  <div class="row">
+                    <div class="col-2">15%
+                    <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                    </div>
+                    <div class="col">Pronostici Qualifiche indovinati</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">2%
+                    <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                    </div>
+                    <div class="col">N.ritirati indovinati</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">80%
+                    <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                    </div>
+                    <div class="col">VSC indovinata</div>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+              <div class="col stat">
+                  <div class="row">
+                    <div class="col-2">5%
+                    <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                    </div>
+                    <div class="col">Giro Veloce indovinati</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">90%
+                    <svg height="200" width="200">
+                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    </svg>
+                    </div>
+                    <div class="col">SC indovinata</div>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
     </div>
 </div>
