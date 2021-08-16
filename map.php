@@ -189,60 +189,80 @@ am4core.ready(function() {
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "alessiodom97";
+      changePerc(elem[0]);
+      changeProgress();
     });
     document.getElementsByName("Oliver")[0].addEventListener("click", function(){
       updateChart(elem[6]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Oliver";
+      changePerc(elem[6]);
+      changeProgress();
     });
     document.getElementsByName("Toto")[0].addEventListener("click", function(){
       updateChart(elem[9]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Toto";
+      changePerc(elem[9]);
+      changeProgress();
     });
     document.getElementsByName("Ciccio")[0].addEventListener("click", function(){
       updateChart(elem[2]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Ciccio";
+      changePerc(elem[2]);
+      changeProgress();
     });
     document.getElementsByName("SpiritoBlu")[0].addEventListener("click", function(){
       updateChart(elem[8]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "SpiritoBlu";
+      changePerc(elem[8]);
+      changeProgress();
     });
     document.getElementsByName("gianpaolo")[0].addEventListener("click", function(){
       updateChart(elem[5]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "gianpaolo";
+      changePerc(elem[5]);
+      changeProgress();
     });
     document.getElementsByName("Andrea")[0].addEventListener("click", function(){
       updateChart(elem[1]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Andrea";
+      changePerc(elem[1]);
+      changeProgress();
     });
     document.getElementsByName("Dario")[0].addEventListener("click", function(){
       updateChart(elem[3]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Dario";
+      changePerc(elem[3]);
+      changeProgress();
     });
     document.getElementsByName("pinguinoSquadraCorse")[0].addEventListener("click", function(){
       updateChart(elem[7]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "pinguinoSquadraCorse";
+      changePerc(elem[7]);
+      changeProgress();
     });
     document.getElementsByName("Ermenegildo")[0].addEventListener("click", function(){
       updateChart(elem[4]);
       removeEvent();
       setTimeout(loadEvent, 500);
       document.getElementById("nomeUtenteGraf").innerHTML = "Ermenegildo";
+      changePerc(elem[4]);
+      changeProgress();
     });
 
 
@@ -609,6 +629,54 @@ am4core.ready(function() {
     }
   }
 
+  function changePerc(player){
+    var qualiNum = 0;
+    var garaNum = 0;
+    var nritNum = 0;
+    var vscNum = 0;
+    var scNum = 0;
+    var giroVeloceNum = 0;
+    var maxPt = 0;
+    var minPt = 1000;
+
+    for(var i=0; i<risultati.length; i++){
+      for(var j=0; j<player.length; j++){
+        if(risultati[i].nome_gara == player[j].nome_gara){
+          if(risultati[i].qp1 == player[j].qp1 && risultati[i].qp2 == player[j].qp2 && risultati[i].qp3 == player[j].qp3 ){
+            qualiNum++;
+          }
+          if(risultati[i].gp1 == player[j].gp1 && risultati[i].gp2 == player[j].gp2 && risultati[i].gp3 == player[j].gp3 ){
+            garaNum++;
+          }
+          if(risultati[i].giro_veloce == player[j].giro_veloce){
+            giroVeloceNum++;
+          }
+          if(risultati[i].VSC == player[j].VSC){
+            vscNum++;
+          }
+          if(risultati[i].SC == player[j].SC){
+            scNum++;
+          }
+          if(risultati[i].n_ritirati == player[j].n_ritirati){
+            nritNum++;
+          }
+          if(parseInt(player[j].punti) > parseInt(maxPt)) maxPt = player[j].punti;
+          if(parseInt(player[j].punti) < parseInt(minPt)) minPt= player[j].punti;
+
+        }
+      }
+    }
+    var domElement = document.getElementsByClassName("valorePerc");
+    var risLength = risultati.length;
+    domElement[0].innerHTML =  (100*garaNum /risLength).toFixed()+"%";
+    domElement[1].innerHTML =  (100*qualiNum /risLength).toFixed()+"%"; 
+    domElement[2].innerHTML =  (100*nritNum /risLength).toFixed()+"%";
+    domElement[3].innerHTML =  (100*vscNum /risLength).toFixed()+"%";
+    domElement[4].innerHTML =  (100*scNum /risLength).toFixed()+"%";
+    domElement[5].innerHTML =  (100*giroVeloceNum /risLength).toFixed()+"%";
+    document.getElementsByClassName("ptMax")[0].innerHTML = maxPt+"pt";
+    document.getElementsByClassName("ptMin")[0].innerHTML = minPt+"pt";
+  }
 
   </script>
 

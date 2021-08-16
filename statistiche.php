@@ -8,7 +8,7 @@
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.022">
-  <link rel="stylesheet" href="css/stat.css">
+  <link rel="stylesheet" href="css/stat.css?n=1.0">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
@@ -62,7 +62,8 @@
             <div class="col">
               <div class="col stat">
                 <div class="row">
-                  <div class="col-2">25%
+                  <div class="col-2">
+                    <span class="valorePerc">0%</span>
                   <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -71,11 +72,11 @@
                   <div class="col">Pronostici gara indovinati</div>
                 </div>
                 <div class="row">
-                  <div class="col-2">157pt</div>
+                  <div class="col-2 ptMax">0pt</div>
                   <div class="col">Gara con piu punti</div>
                 </div>
                 <div class="row">
-                  <div class="col-2">85pt</div>
+                  <div class="col-2 ptMin">0pt</div>
                   <div class="col">Gara con meno punti</div>
                 </div>
               </div>
@@ -83,7 +84,8 @@
             <div class="col">
               <div class="col stat">
                   <div class="row">
-                    <div class="col-2">15%
+                    <div class="col-2">
+                      <span class="valorePerc">0%</span> 
                     <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -91,7 +93,8 @@
                     <div class="col">Pronostici Qualifiche indovinati</div>
                   </div>
                   <div class="row">
-                    <div class="col-2">2%
+                    <div class="col-2">
+                    <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -99,7 +102,8 @@
                     <div class="col">N.ritirati indovinati</div>
                   </div>
                   <div class="row">
-                    <div class="col-2">80%
+                    <div class="col-2">
+                    <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -111,7 +115,8 @@
             <div class="col">
               <div class="col stat">
                   <div class="row">
-                    <div class="col-2">5%
+                    <div class="col-2">
+                    <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -119,7 +124,8 @@
                     <div class="col">Giro Veloce indovinati</div>
                   </div>
                   <div class="row">
-                    <div class="col-2">90%
+                    <div class="col-2">
+                    <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
                       <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
                     </svg>
@@ -139,6 +145,7 @@
 <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 <?php include 'map.php' ?>
+<script src="js/circleAnim.js"></script>
 
 
 
