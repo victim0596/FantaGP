@@ -1,109 +1,100 @@
-
-.row{
-    margin-bottom: 50px;
+.row {
+  margin-bottom: 50px;
 }
 
-.colUser, .contStat{
-    background-color: rgba(33, 33, 41, 0.7);
+.colUser,
+.contStat {
+  background-color: rgba(33, 33, 41, 0.7);
 }
 
-body{
-    background-image: url("../img/img1.jpg"); /*da cambiare */
+body {
+  background-image: url("../img/img1.jpg"); /*da cambiare */
 }
 
-.barraLaterale{
-    margin-top: 20vh;
-    color: white;
+.barraLaterale {
+  margin-top: 20vh;
+  color: white;
 }
 
-.mb-3:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
+.mb-3:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
 
-.mb-3{
-    padding: 5px;
+.mb-3 {
+  padding: 5px;
 }
 
 #chartdiv {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-  }
-
-.imgTooltip{
-    width: auto;
-    height: 75px;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
 }
 
-.textCircuito{
-    text-align: center;
-    font-size: 12px;
+.imgTooltip {
+  width: auto;
+  height: 75px;
+}
+
+.textCircuito {
+  text-align: center;
+  font-size: 12px;
 }
 
 .pronosticiRow .col p:first-child {
-    font-family: sans-serif;
-    font-weight: bolder;
-    font-style: italic;
-    font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 20px;
 }
 
 .pronosticiRow .col p:nth-child(2) {
-    font-size: 12px;
+  font-size: 12px;
 }
 
-.colUser{
-    height: 100vh;
+.colUser {
+  height: 100vh;
 }
 
-#nomeUtenteGraf{
-    color: white;
-    font-size: 22px;
+#nomeUtenteGraf {
+  color: white;
+  font-size: 22px;
 }
 
-.col{
-    color: white;
+.col {
+  color: white;
 }
 
-.stat .row .col-2:first-child{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
+.stat .row .col-2:first-child {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
 }
 
-svg{
-    position: absolute;
-}
-.circle {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-    animation: stroke 3s ease-out forwards;
-    animation-delay: 2s;
-  }
-  
-  @keyframes stroke {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
 
 
 .stat .row {
-    margin-top: 20px;
-    margin-left: 30px;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 
-.stat .row .col:nth-child(2){
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.stat .row .col:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
+svg {
+    position: absolute;
+}
 
-
-
+.circle {
+    transition: 1s stroke-dashoffset;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
