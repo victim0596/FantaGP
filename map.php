@@ -77,8 +77,85 @@ am4core.ready(function() {
     var imageSeries = chart.series.push(new am4maps.MapImageSeries());
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-    imageSeries.mapImages.template.tooltipHTML = `
-    <div class="container" style="border-bottom: 2px solid white">
+    if(window.innerWidth<=991){
+      imageSeries.mapImages.template.tooltipHTML = `
+    <div class="container toolCont" style="border-bottom: 2px solid white">
+        <div class="row" style="text-align: center">
+            <div class="col colTooltip">
+                <div>
+                    <img class="imgTooltip" src="./img/bandiere/{stato}.png">
+                </div>
+                <div>
+                    <p class="stato">{stato}</p>
+                </div>
+            </div>
+            <div class="col colTooltip">
+                <div>
+                    <img class="imgTooltip" src="./img/circuiti/{title}.png">
+                </div>
+                <div>
+                    <p class="textCircuito">{circuito}</p>
+                </div>
+            </div>
+            </div>
+    </div>
+    <div class="container" style="border-bottom: white;">
+        <div class="row" style="text-align: center">
+            <div class="col colTooltip">
+                <div style="padding: 5px">
+                    <p>Punti: {punti}</p>
+                </div>
+                <div class="row-sm pronosticiRow">
+                    <div class= "col">
+                        <p>QP1</p>
+                        <p>{qp1}</p>
+                    </div>
+                    <div class= "col">
+                        <p>QP2</p>
+                        <p>{qp2}</p>
+                    </div>
+                    <div class= "col">
+                        <p>QP3</p>
+                        <p>{qp3}</p>
+                    </div>
+                    <div class= "col">
+                        <p>GP1</p>
+                        <p>{gp1}</p>
+                    </div>
+                    <div class= "col">
+                        <p>GP2</p>
+                        <p>{gp2}</p>
+                    </div>
+                    <div class= "col">
+                        <p>GP3</p>
+                        <p>{gp3}</p>
+                    </div>
+                    <div class= "col">
+                        <p>GV</p>
+                        <p>{gv}</p>
+                    </div>
+                    <div class= "col">
+                        <p>NRIT</p>
+                        <p>{nrit}</p>
+                    </div>
+                    <div class= "col">
+                        <p>SC</p>
+                        <p>{sc}</p>
+                    </div>
+                    <div class= "col">
+                        <p>VSC</p>
+                        <p>{vsc}</p>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+    </div>
+
+    `;
+    } else{
+      imageSeries.mapImages.template.tooltipHTML = `
+    <div class="container toolCont" style="border-bottom: 2px solid white">
         <div class="row" style="text-align: center">
             <div class="col colTooltip">
                 <div>
@@ -152,6 +229,8 @@ am4core.ready(function() {
     </div>
 
     `;
+    }
+    
     imageSeries.mapImages.template.propertyFields.url = "url";
 
     imageSeries.tooltip.getFillFromObject = false;
@@ -596,16 +675,28 @@ am4core.ready(function() {
   var statoDom = document.getElementsByClassName("stato");
   function loadEvent(){
     for(var i=0; i<circleDom.length; i++){
-      circleDom[i].addEventListener('mouseover', function(){
-        changeColor();
-      })
+      if(window.innerWidth<=991){
+          circleDom[i].addEventListener('touchstart', function(){
+          changeColor();
+        })
+      }else{
+          circleDom[i].addEventListener('mouseover', function(){
+          changeColor();
+        })
+      }
     }
   }
   function removeEvent(){
     for(var i=0; i<circleDom.length; i++){
-      circleDom[i].removeEventListener('mouseover', function(){
-        changeColor();
-      })
+      if(window.innerWidth<=991){
+          circleDom[i].removeEventListener('touchstart', function(){
+          changeColor();
+        })
+      }else{
+          circleDom[i].removeEventListener('mouseover', function(){
+          changeColor();
+        })
+      }  
     }
   }
 
@@ -692,6 +783,7 @@ am4core.ready(function() {
         }
     }
 }
+
   </script>
 
 

@@ -8,6 +8,6 @@
 - creare funzione per controllo input (controllare tipo ed esistenza di input) (29/06/2021 aggiunto tramite js)
 - semplificare query della classifica (27/06/2021)
 - aggiungere controllo stesso pilota, lato php  (30/06/2021)
-- eliminare pagina punteggi e sostituirla con la pagina statistiche
+- eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
 - aggiornare il design della homepage
 

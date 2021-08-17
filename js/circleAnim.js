@@ -21,3 +21,18 @@ function changeProgress(){
         setProgress(input, circle[i]);
     }
 }
+
+function removeDomElement(){
+    if(window.innerWidth<=991){
+        /*rimuovo e aggiungo l'accordion*/
+        var barraElem = document.getElementsByClassName("barraLaterale")[0];
+        document.getElementsByClassName("colUser")[0].removeChild(document.getElementsByClassName("barraLaterale")[0]);
+        var accordionBody = document.getElementsByClassName("accordion-body")[0];
+        accordionBody.appendChild(barraElem);
+        /*modifico il pannello delle statistiche rendendo visibili solo 2 colonne*/
+        var contStat = document.getElementsByClassName("contStat")[0];
+        contStat.classList.add("row-cols-2");
+    }
+}
+
+removeDomElement();

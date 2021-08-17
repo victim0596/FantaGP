@@ -9,7 +9,10 @@
 body {
   background-color: black;
   height: 100vh;
-  overflow: hidden;
+}
+
+.row{
+  flex-wrap: wrap !important;
 }
 
 .barraLaterale {
@@ -108,10 +111,109 @@ svg {
 
 .contStat {
   visibility: hidden;
+  margin-right: 30px;
 }
 
 .row .p-2 {
   border: 2px solid white;
   background-color: rgba(33, 33, 41, 0.7);
- 
 }
+
+.accordion{
+  display: none;
+}
+
+.accordion-header{
+  margin-top: 10%;
+}
+
+.accordion-body{
+  background-color: rgba(33, 33, 41, 0.7);
+  color: white; 
+}
+
+.buttondiv{
+  background-color: transparent;
+  border: none;
+}
+.buttondiv img{
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#collapseOne, .accordion-header{
+  text-align: center;
+}
+
+.accordion-item{
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1400px){
+  .colUser{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1098px){
+  .colUser{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 991px){
+  body{
+    overflow: visible;
+  }
+  .colUser{
+    visibility: hidden;
+  }
+  .col-2{
+    width: 0px;
+    padding: 0px;
+  }
+  .accordion{
+    display: block;
+  }
+  .barraLaterale{
+    margin-top: 0;
+  }
+
+  .imgTooltip {
+    width: auto;
+    height: 45px;
+  }
+  
+  .textCircuito {
+    text-align: center;
+    font-size: 11px;
+  }
+  .stato{
+    font-size: 11px;
+  }
+  
+  .pronosticiRow .col p:first-child {
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 18px;
+    display: inline-block;
+  }
+  
+  .pronosticiRow .col p:nth-child(2) {
+    font-size: 12px;
+    display: inline-block;
+  }
+  .toolCont{
+    max-height: 95px;
+    max-width: 300px;
+  }
+  #chartdiv{
+    height: 500px;
+  }
+  
+}
+
+

@@ -48,7 +48,7 @@ if (isset($_POST['Log-out'])) {
 </nav>
 
 <div class="accordion" id="accordionExample">
-      <div class="">
+      <div>
         <h2 class="accordion-header" id="headingOne">
           <button class="buttondiv" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <img src="element/down-chevron.png">

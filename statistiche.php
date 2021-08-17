@@ -8,7 +8,7 @@
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.022">
-  <link rel="stylesheet" href="css/stat.css?n=1.06">
+  <link rel="stylesheet" href="css/stat.css?n=1.08">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
@@ -37,6 +37,22 @@
     </div>
   </div>
 </nav>
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="buttondiv" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <img src="element/down-chevron.png">
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container-fluid">
     <div class="row">
@@ -142,6 +158,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Per la mappa -->
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
