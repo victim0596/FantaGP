@@ -28,7 +28,7 @@
       <a class="nav-link" href="index.php">Home</a>
       <a class="nav-link" href="classifica.php">Classifica</a>
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
-      <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
+      <a class="nav-link" href="statistiche.php">Statistiche</a>
       <a class="nav-link active" href="pronostici.php">Pronostici</a>
       <?php if (isset($_SESSION['session_id'])) {?>
 	  <a class="nav-link" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>

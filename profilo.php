@@ -37,7 +37,7 @@ if (isset($_POST['Log-out'])) {
       <a class="nav-link" href="index.php">Home</a>
       <a class="nav-link" href="classifica.php">Classifica</a>
       <a class="nav-link" href="partecipanti.php">Partecipanti</a>
-      <a class="nav-link" href="punteggi.php">Punteggi per gara</a>
+      <a class="nav-link" href="statistiche.php">Statistiche</a>
       <a class="nav-link" href="pronostici.php">Pronostici</a>
       <?php if (isset($_SESSION['session_id'])) {?>
       <a class="nav-link active" href="profilo.php"><?php echo $_SESSION['session_user']; ?></a>
@@ -60,17 +60,17 @@ if (isset($_POST['Log-out'])) {
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalqualy">Modifica Pronostici Qualifica</div>
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalrace">Modifica Pronostici Gara</div>
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalpron">Riepilogo Pronostici</div>
-            <?php if (isset($_SESSION['session_id'])) { 
-              if ($_SESSION['session_user'] == "Oliver") { ?>
+            <?php if (isset($_SESSION['session_id'])) {
+    if ($_SESSION['session_user'] == "Oliver") {?>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdq">Aggiungi risultati Qualifiche</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdr">Aggiungi risultati Gara</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
-            <?php         
-              }
-            }
-                ?>
+            <?php
+}
+}
+?>
           </div>
           </div>
         </div>
@@ -84,17 +84,17 @@ if (isset($_POST['Log-out'])) {
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalqualy">Modifica Pronostici Qualifica</div>
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalrace">Modifica Pronostici Gara</div>
             <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalpron">Riepilogo Pronostici</div>
-            <?php if (isset($_SESSION['session_id'])) { 
-              if ($_SESSION['session_user'] == "Oliver") { ?>
+            <?php if (isset($_SESSION['session_id'])) {
+    if ($_SESSION['session_user'] == "Oliver") {?>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdq">Aggiungi risultati Qualifiche</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdr">Aggiungi risultati Gara</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
-            <?php         
-              }
-            }
-                ?>
+            <?php
+}
+}
+?>
           </div>
         </div>
         <div class="col-3" id="columnSpace"></div>
@@ -107,7 +107,7 @@ if (isset($_POST['Log-out'])) {
                     <img src="img/piloti/Alonso.png" class="pilotino" id="pilotino1">
                     <div class="text-center" id="nomePilota1"></div>
                   </div>
-                </div>  
+                </div>
               </div>
               <div class="col">
               <div class="row p-3">
@@ -117,13 +117,13 @@ if (isset($_POST['Log-out'])) {
                     <div class="text-center" id="nomePilota2"></div>
                   </div>
                 </div>
-              </div>  
-            </div>                       
+              </div>
+            </div>
             <div class="divider" id="nomeScuderia"></div>
             <div class="divider" id="nomeSquadra"></div>
             <div class="punteggi divider">
               <div class="row">
-                <?php include 'profilo2.php'; ?>
+                <?php include 'profilo2.php';?>
                 <div class="col p-3 text-center">
                   <div><?php echo $textPtTotali; ?></div>
                   <div>Punti totali</div>
