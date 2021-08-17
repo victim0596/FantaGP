@@ -188,7 +188,7 @@ am4core.ready(function() {
       updateChart(elem[0]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "alessiodom97";
+      activeElement("alessiodom97");
       changePerc(elem[0]);
       changeProgress();
     });
@@ -196,7 +196,7 @@ am4core.ready(function() {
       updateChart(elem[6]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Oliver";
+      activeElement("Oliver");
       changePerc(elem[6]);
       changeProgress();
     });
@@ -204,7 +204,7 @@ am4core.ready(function() {
       updateChart(elem[9]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Toto";
+      activeElement("Toto");
       changePerc(elem[9]);
       changeProgress();
     });
@@ -212,7 +212,7 @@ am4core.ready(function() {
       updateChart(elem[2]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Ciccio";
+      activeElement("Ciccio");
       changePerc(elem[2]);
       changeProgress();
     });
@@ -220,7 +220,7 @@ am4core.ready(function() {
       updateChart(elem[8]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "SpiritoBlu";
+      activeElement("SpiritoBlu");
       changePerc(elem[8]);
       changeProgress();
     });
@@ -228,7 +228,7 @@ am4core.ready(function() {
       updateChart(elem[5]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "gianpaolo";
+      activeElement("gianpaolo");
       changePerc(elem[5]);
       changeProgress();
     });
@@ -236,7 +236,7 @@ am4core.ready(function() {
       updateChart(elem[1]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Andrea";
+      activeElement("Andrea");
       changePerc(elem[1]);
       changeProgress();
     });
@@ -244,7 +244,7 @@ am4core.ready(function() {
       updateChart(elem[3]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Dario";
+      activeElement("Dario");
       changePerc(elem[3]);
       changeProgress();
     });
@@ -252,7 +252,7 @@ am4core.ready(function() {
       updateChart(elem[7]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "pinguinoSquadraCorse";
+      activeElement("pinguinoSquadraCorse");
       changePerc(elem[7]);
       changeProgress();
     });
@@ -260,7 +260,7 @@ am4core.ready(function() {
       updateChart(elem[4]);
       removeEvent();
       setTimeout(loadEvent, 500);
-      document.getElementById("nomeUtenteGraf").innerHTML = "Ermenegildo";
+      activeElement("Ermenegildo");
       changePerc(elem[4]);
       changeProgress();
     });
@@ -678,6 +678,20 @@ am4core.ready(function() {
     document.getElementsByClassName("ptMin")[0].innerHTML = minPt+"pt";
   }
 
+  function activeElement(nome){
+    var arrName = ["Oliver", "alessiodom97", "Toto", "Ciccio", "SpiritoBlu", "gianpaolo", "Ermenegildo", "Dario", "Andrea", "pinguinoSquadraCorse"];
+    var element = document.getElementsByName(nome)[0];
+    for(var i=0; i< arrName.length; i++){
+        if(arrName[i] == nome){
+            if(!element.classList.contains('attiva')){
+                element.className +=" attiva";
+                document.getElementsByClassName("contStat")[0].style.visibility = "visible";
+            }
+        }else{
+            document.getElementsByName(arrName[i])[0].classList.remove('attiva');
+        }
+    }
+}
   </script>
 
 

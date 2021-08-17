@@ -8,7 +8,7 @@
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.022">
-  <link rel="stylesheet" href="css/stat.css?n=1.0">
+  <link rel="stylesheet" href="css/stat.css?n=1.06">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
@@ -16,7 +16,6 @@
 
 </head>
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <a class="navbar-brand" href="index.php">
       <img src="element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
@@ -57,7 +56,6 @@
         </div>
         <div class="col">
           <div id="chartdiv"></div>
-          <p id="nomeUtenteGraf"></p>
           <div class="row contStat">
             <div class="col">
               <div class="col stat">
@@ -65,7 +63,13 @@
                   <div class="col-2">
                     <span class="valorePerc">0%</span>
                   <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <defs>
+                    <linearGradient spreadMethod="pad" id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" style="stop-color:rgb(0,255,235);stop-opacity:1.00" />
+                      <stop offset="100%" style="stop-color:rgb(7,58,187);stop-opacity:1.00" />
+                    </linearGradient>
+                    </defs>
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                   </div>
                     
@@ -87,7 +91,7 @@
                     <div class="col-2">
                       <span class="valorePerc">0%</span> 
                     <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                     </div>
                     <div class="col">Pronostici Qualifiche indovinati</div>
@@ -96,7 +100,7 @@
                     <div class="col-2">
                     <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                     </div>
                     <div class="col">N.ritirati indovinati</div>
@@ -105,7 +109,7 @@
                     <div class="col-2">
                     <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                     </div>
                     <div class="col">VSC indovinata</div>
@@ -118,7 +122,14 @@
                     <div class="col-2">
                     <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <defs>
+                    <linearGradient spreadMethod="pad" id="gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgb(244, 0, 0);stop-opacity:1;" />
+                        <stop offset="50%" style="stop-color:rgb(244, 241, 0);stop-opacity:1;" />
+                        <stop offset="100%" style="stop-color:rgb(112, 252, 0);stop-opacity:1;" />
+                    </linearGradient>
+                    </defs>
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                     </div>
                     <div class="col">Giro Veloce indovinati</div>
@@ -127,7 +138,14 @@
                     <div class="col-2">
                     <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
-                      <circle class="circle" cx="100" cy="100" r="35" stroke="red" stroke-width="5px" fill-opacity="0" />
+                    <defs>
+                    <linearGradient spreadMethod="pad" id="gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgb(244, 0, 0);stop-opacity:1;" />
+                        <stop offset="50%" style="stop-color:rgb(244, 241, 0);stop-opacity:1;" />
+                        <stop offset="100%" style="stop-color:rgb(112, 252, 0);stop-opacity:1;" />
+                    </linearGradient>
+                    </defs>
+                    <circle class="circle" cx="100" cy="100" r="35" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
                     </div>
                     <div class="col">SC indovinata</div>

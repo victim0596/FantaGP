@@ -2,13 +2,13 @@
   margin-bottom: 50px;
 }
 
-.colUser,
-.contStat {
+.colUser {
   background-color: rgba(33, 33, 41, 0.7);
 }
 
 body {
-  background-image: url("../img/img1.jpg"); /*da cambiare */
+  background-color: black;
+  height: 100vh;
 }
 
 .barraLaterale {
@@ -97,4 +97,14 @@ svg {
     transition: 1s stroke-dashoffset;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
+}
+
+.attiva{
+    background-color: white;
+    color: black;
+}
+
+.contStat {
+  visibility: hidden;
+
 }
