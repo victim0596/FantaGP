@@ -9,6 +9,7 @@
 body {
   background-color: black;
   height: 100vh;
+  overflow: hidden;
 }
 
 .barraLaterale {
@@ -28,8 +29,9 @@ body {
 
 #chartdiv {
   width: 100%;
-  height: 500px;
+  height: 400px;
   overflow: hidden;
+  background-color: rgba(33, 33, 41, 0.7);
 }
 
 .imgTooltip {
@@ -106,5 +108,10 @@ svg {
 
 .contStat {
   visibility: hidden;
+}
 
+.row .p-2 {
+  border: 2px solid white;
+  background-color: rgba(33, 33, 41, 0.7);
+ 
 }
