@@ -8,7 +8,7 @@
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.022">
-  <link rel="stylesheet" href="css/stat.css?n=1.08">
+  <link rel="stylesheet" href="css/stat.css?n=1.09">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
@@ -114,7 +114,7 @@
                   </div>
                   <div class="row p-2">
                     <div class="col-2">
-                    <span class="valorePerc">0%</span>
+                      <span class="valorePerc">0%</span>
                     <svg height="200" width="200">
                     <circle class="circle" cx="100" cy="100" r="30" stroke="url(#gradient)" stroke-width="5px" fill-opacity="0" />
                     </svg>
