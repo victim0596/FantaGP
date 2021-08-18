@@ -35,6 +35,14 @@ body {
   height: 400px;
   overflow: hidden;
   background-color: rgba(33, 33, 41, 0.7);
+  animation-name: op;
+  animation-duration: 8s;
+}
+
+@keyframes op {
+  from{
+    opacity: 0;
+  }
 }
 
 .imgTooltip {
