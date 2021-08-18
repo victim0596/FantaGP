@@ -213,7 +213,23 @@ svg {
   #chartdiv{
     height: 500px;
   }
-  
 }
+
+@media screen and (max-width: 576px){
+  .stat .row .col:nth-child(2){
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .row .p-2 {
+    min-height: 166px;
+  }
+
+  .stat .row .col-2:first-child{
+    height: auto;
+    width: 100%;
+  }
+}
+
 
 
