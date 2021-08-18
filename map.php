@@ -782,6 +782,12 @@ am4core.ready(function() {
             document.getElementsByName(arrName[i])[0].classList.remove('attiva');
         }
     }
+    setTimeout(function(){
+      var myCollapse = document.getElementById('collapseOne')
+      var bsCollapse = new bootstrap.Collapse(myCollapse, {
+        hide: false
+      })
+    },250);
 }
 
   </script>
