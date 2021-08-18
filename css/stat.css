@@ -124,7 +124,7 @@ svg {
 }
 
 .accordion-header{
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .accordion-body{
@@ -211,7 +211,7 @@ svg {
     max-width: 300px;
   }
   #chartdiv{
-    height: 500px;
+    height: 440px;
   }
 }
 
