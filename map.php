@@ -596,14 +596,6 @@ am4core.ready(function() {
         "color":colorSet.next()
       },
       {
-        "title": "Suzuka",
-        "stato": "Giappone",
-        "circuito": "Circuito di Suzuka",
-        "latitude": 34.701,
-        "longitude": 136.538,
-        "color":colorSet.next()
-      },
-      {
         "title": "Austin",
         "stato": "USA",
         "circuito": "Circuito delle Americhe",

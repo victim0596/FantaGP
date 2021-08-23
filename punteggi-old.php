@@ -168,7 +168,6 @@ if (isset($_POST['submit_button'])) {
         <option value="Italia-Monza">
         <option value="Russia">
         <option value="Singapore">
-        <option value="Giappone">
         <option value="USA">
         <option value="Messico">
         <option value="Brasile">

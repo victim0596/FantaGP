@@ -19,7 +19,6 @@ var DateRace = {
     "Italia-Monza": new Date(2021, 08, 12, 12),
     "Russia": new Date(2021, 08, 26 ,11),
     "Singapore": new Date(2021, 09, 03, 11),
-    "Giappone": new Date(2021, 09, 10 ,04),
     "USA": new Date(2021, 09, 24 ,18),
     "Messico": new Date(2021, 09, 31 ,17),
     "Brasile": new Date(2021, 10, 07 ,15),

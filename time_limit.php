@@ -54,9 +54,6 @@ function check_date_quali($nome_gara)
     if (strcasecmp($nome_gara, "Singapore") == 0) {
         $race_date = '2021-10-02 00:00:00';
     }
-    if (strcasecmp($nome_gara, "Giappone") == 0) {
-        $race_date = '2021-10-09 00:00:00';
-    }
     if (strcasecmp($nome_gara, "USA") == 0) {
         $race_date = '2021-10-23 00:00:00';
     }
@@ -135,9 +132,6 @@ function check_date_race($nome_gara)
     }
     if (strcasecmp($nome_gara, "Singapore") == 0) {
         $race_date = '2021-10-03 11:00:00';
-    }
-    if (strcasecmp($nome_gara, "Giappone") == 0) {
-        $race_date = '2021-10-10 04:00:00';
     }
     if (strcasecmp($nome_gara, "USA") == 0) {
         $race_date = '2021-10-24 18:00:00';
