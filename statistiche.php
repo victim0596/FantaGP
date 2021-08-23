@@ -8,7 +8,7 @@
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.022">
-  <link rel="stylesheet" href="css/stat.css?n=1.10">
+  <link rel="stylesheet" href="css/stat.css?n=1.104">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
     <link rel="shortcut icon" href="/logo.ico" />
     <link rel="icon" sizes="192x192" href="applogo.png">
@@ -91,13 +91,21 @@
 
                   <div class="col">Pronostici gara indovinati</div>
                 </div>
-                <div class="row p-2">
+                <div class="row p-2 contPtMax">
                   <div class="col-2 ptMax">0pt</div>
                   <div class="col">Gara con piu punti</div>
+                  <div class="tooltipPtMax">
+                    <img src="" alt="" class="tooltipPtMaxImgStato">
+                    <div class="tooltipPtMaxCircuito"></div>
+                  </div>
                 </div>
-                <div class="row p-2">
+                <div class="row p-2 contPtMin">
                   <div class="col-2 ptMin">0pt</div>
                   <div class="col">Gara con meno punti</div>
+                  <div class="tooltipPtMin">
+                    <img src="" alt="" class="tooltipPtMinImgStato">
+                    <div class="tooltipPtMinCircuito"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -167,6 +175,7 @@
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 <?php include 'map.php'?>
 <script src="js/circleAnim.js"></script>
+<script src="js/tooltipAni.js?n=0.1"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

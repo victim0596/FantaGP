@@ -721,6 +721,8 @@ am4core.ready(function() {
     var giroVeloceNum = 0;
     var maxPt = 0;
     var minPt = 1000;
+    var nomeGaraMinPt = "";
+    var nomeGaraMaxPt = "";
 
     for(var i=0; i<risultati.length; i++){
       for(var j=0; j<player.length; j++){
@@ -743,9 +745,14 @@ am4core.ready(function() {
           if(risultati[i].n_ritirati == player[j].n_ritirati){
             nritNum++;
           }
-          if(parseInt(player[j].punti) > parseInt(maxPt)) maxPt = player[j].punti;
-          if(parseInt(player[j].punti) < parseInt(minPt)) minPt= player[j].punti;
-
+          if(parseInt(player[j].punti) > parseInt(maxPt)) {
+            maxPt = player[j].punti;
+            nomeGaraMaxPt = player[j].nome_gara; //memorizzo il nome della gara
+          }
+          if(parseInt(player[j].punti) < parseInt(minPt)) {
+            minPt= player[j].punti;
+            nomeGaraMinPt = player[j].nome_gara; //memorizzo il nome della gara
+          }
         }
       }
     }
@@ -759,6 +766,12 @@ am4core.ready(function() {
     domElement[5].innerHTML =  (100*giroVeloceNum /risLength).toFixed()+"%";
     document.getElementsByClassName("ptMax")[0].innerHTML = maxPt+"pt";
     document.getElementsByClassName("ptMin")[0].innerHTML = minPt+"pt";
+    //cambio il src delle img del tooltip dei ptMax e ptMin
+    document.getElementsByClassName("tooltipPtMinImgStato")[0].src = "img/bandiere/"+nomeGaraMinPt+".png";
+    document.getElementsByClassName("tooltipPtMaxImgStato")[0].src = "img/bandiere/"+nomeGaraMaxPt+".png";
+    document.getElementsByClassName("tooltipPtMaxCircuito")[0].innerHTML = nomeGaraMaxPt;
+    document.getElementsByClassName("tooltipPtMinCircuito")[0].innerHTML = nomeGaraMinPt;
+
   }
 
   function activeElement(nome){

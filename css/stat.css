@@ -159,6 +159,29 @@ svg {
   background-color: transparent;
 }
 
+.contPtMax, .contPtMin{
+  position: relative;
+  color: white;
+}
+.tooltipPtMax, .tooltipPtMin{
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: black;
+  opacity: 0;
+  padding: 5px;
+  text-align: center;
+  top: -30px;
+  transition: opacity 0.5s;
+}
+
+.tooltipPtMinImgStato, .tooltipPtMaxImgStato{
+  height: 30px;
+  max-width: 60px;
+}
+
+
+
 @media screen and (max-width: 1400px){
   .colUser{
     font-size: 12px;
