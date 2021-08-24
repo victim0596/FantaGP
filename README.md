@@ -9,5 +9,5 @@
 - semplificare query della classifica (27/06/2021)
 - aggiungere controllo stesso pilota, lato php  (30/06/2021)
 - eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
-- aggiornare UI della homepage
+- aggiornare UI della homepage (24/08/2021)
 
