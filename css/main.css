@@ -51,6 +51,7 @@
 .navbar-light .navbar-nav .nav-link {
   color: white;
   padding: 10px 32px;
+  transition: background-color 0.3s linear, color 0.3s linear;
 }
 .navbar-light .navbar-brand {
   color: white;
@@ -79,32 +80,30 @@
 .timer_quali {
   position: relative;
   left: 4%;
-  margin-top: 5%;
+  top: 60px;
   width: 500px;
 }
 
 .timer_gara {
   position: relative;
   left: 4%;
-  margin-top: 2%;
+  margin-top: 70px;
   width: 500px;
 }
 
 .timer {
   font-family: "Digital-7" !important;
   font-size: 22px;
-  color: rgb(5, 205, 249);
+  color:white;
+
 }
 
 .timer_gara,
 .timer_quali {
-  background-color: rgb(12, 12, 20);
   font-size: 22px;
-  color: rgb(5, 205, 249);
   padding: 8px;
-  border: 2px solid;
   height: auto;
-  border-color: rgb(1, 46, 80);
+  color: white;
 }
 
 .timer span:nth-child(1),
