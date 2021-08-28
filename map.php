@@ -7,7 +7,7 @@ if (mysqli_connect_error()) {
 //estraggo tutti i pronostici
 $arrayGara = array();
 $index = 0;
-$sql = "SELECT id_p,nome_gara,qp1,qp2,qp3,gp1,gp2,gp3,giro_veloce,n_ritirati,VSC,SC,punti FROM pronostici WHERE punti IS NOT NULL ORDER BY id_p,nome_gara";
+$sql = "SELECT id_p,nome_gara,qp1,qp2,qp3,gp1,gp2,gp3,giro_veloce,n_ritirati,VSC,SC,punti FROM pronostici WHERE punti>0 ORDER BY id_p,nome_gara";
 $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) { // loop to store the data in an associative array.
     $arrayPlayer[$index] = $row;
