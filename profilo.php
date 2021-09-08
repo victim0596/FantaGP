@@ -67,6 +67,7 @@ if (isset($_POST['Log-out'])) {
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalQuery">Esegui Query</div>
             <?php
 }
 }
@@ -91,6 +92,7 @@ if (isset($_POST['Log-out'])) {
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
               <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+              <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalQuery">Esegui Query</div>
             <?php
 }
 }
@@ -322,6 +324,11 @@ if (isset($_POST['Log-out'])) {
         <option value="Gara">
         <option value="Qualifica">
       </datalist>
+      <datalist id="listaMetodi">
+        <option value="UPDATE"></option>
+        <option value="SELECT"></option>
+        <option value="INSERT"></option>
+      </datalist>
 
 
       <?php if (isset($_SESSION['session_id'])) {
@@ -529,6 +536,34 @@ if (isset($_POST['Log-out'])) {
                   </div>
                 </div>
               </div>
+
+              <!-- Inserimento query -->
+              <div class="modal fade" id="modalQuery" tabindex="-1" aria-labelledby="modalQuery" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalQuery">Inserimento Query</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="qexec.php">
+                    <div class="form-group ">
+                      <label for="metodo"></label>
+                      <input list="listaMetodi" class="form-control form-control-sm" name="metodo" placeholder="Metodo" required>
+                      <label for="Query"></label>
+                      <input class="form-control form-control-sm" name="queryText" placeholder="Query" required>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn_send" name="calcolo_punti">Invia</button>
+                    </div>
+                  </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
 
 
              <?php }}?>
