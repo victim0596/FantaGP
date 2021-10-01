@@ -51,7 +51,7 @@ function check_date_quali($nome_gara)
     if (strcasecmp($nome_gara, "Russia") == 0) {
         $race_date = '2021-09-25 00:00:00';
     }
-    if (strcasecmp($nome_gara, "Singapore") == 0) {
+    if (strcasecmp($nome_gara, "Turchia") == 0) {
         $race_date = '2021-10-02 00:00:00';
     }
     if (strcasecmp($nome_gara, "USA") == 0) {
@@ -130,7 +130,7 @@ function check_date_race($nome_gara)
     if (strcasecmp($nome_gara, "Russia") == 0) {
         $race_date = '2021-09-26 11:00:00';
     }
-    if (strcasecmp($nome_gara, "Singapore") == 0) {
+    if (strcasecmp($nome_gara, "Turchia") == 0) {
         $race_date = '2021-10-03 11:00:00';
     }
     if (strcasecmp($nome_gara, "USA") == 0) {
