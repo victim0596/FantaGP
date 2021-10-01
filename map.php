@@ -620,14 +620,6 @@ am4core.ready(function() {
         "color":colorSet.next()
       },
       {
-        "title": "Melbourne",
-        "stato": "Australia",
-        "circuito": "Circuito Albert Park",
-        "latitude": -37.988,
-        "longitude": 144.97,
-        "color":colorSet.next()
-      },
-      {
         "title": "Gedda",
         "stato": "Arabia Saudita",
         "circuito": "Gedda Street Circuit",
