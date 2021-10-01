@@ -34,7 +34,7 @@ var DateRace = {
   "Olanda": new Date(2021, 08, 05, 12),
   "Italia-Monza": new Date(2021, 08, 12, 12),
   "Russia": new Date(2021, 08, 26, 11),
-  "Turchia": new Date(2021, 09, 03, 11),
+  "Turchia": new Date(2021, 09, 10, 12),
   "USA": new Date(2021, 09, 24, 18),
   "Messico": new Date(2021, 09, 31, 17),
   "Brasile": new Date(2021, 10, 07, 15),
