@@ -588,11 +588,11 @@ am4core.ready(function() {
         "color":colorSet.next()
       },
       {
-        "title": "Marina Bay",
-        "stato": "Singapore",
-        "circuito": "Marina Bay Street Circuit",
-        "latitude": 1.121,
-        "longitude": 103.865,
+        "title": "Istanbul",
+        "stato": "Turchia",
+        "circuito": "Istanbul Park",
+        "latitude": 40.824,
+        "longitude": 29.405,
         "color":colorSet.next()
       },
       {
@@ -633,6 +633,14 @@ am4core.ready(function() {
         "circuito": "Gedda Street Circuit",
         "latitude": 21.474,
         "longitude": 39.106,
+        "color":colorSet.next()
+      },
+      {
+        "title": "Losail",
+        "stato": "Qatar",
+        "circuito": "Losail International Circuit",
+        "latitude": 25.4644,
+        "longitude": 51.4517,
         "color":colorSet.next()
       },
       {
