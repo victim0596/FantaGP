@@ -58,12 +58,12 @@ function check_date_quali($nome_gara)
         $race_date = '2021-10-23 00:00:00';
     }
     if (strcasecmp($nome_gara, "Messico") == 0) {
-        $race_date = '2021-10-30 00:00:00';
-    }
-    if (strcasecmp($nome_gara, "Brasile") == 0) {
         $race_date = '2021-11-06 00:00:00';
     }
-    if (strcasecmp($nome_gara, "Australia") == 0) {
+    if (strcasecmp($nome_gara, "Brasile") == 0) {
+        $race_date = '2021-11-13 00:00:00';
+    }
+    if (strcasecmp($nome_gara, "Qatar") == 0) {
         $race_date = '2021-11-20 00:00:00';
     }
     if (strcasecmp($nome_gara, "Arabia Saudita") == 0) {
@@ -137,13 +137,13 @@ function check_date_race($nome_gara)
         $race_date = '2021-10-24 18:00:00';
     }
     if (strcasecmp($nome_gara, "Messico") == 0) {
-        $race_date = '2021-10-31 17:00:00';
+        $race_date = '2021-11-07 17:00:00';
     }
     if (strcasecmp($nome_gara, "Brasile") == 0) {
-        $race_date = '2021-11-07 15:00:00';
+        $race_date = '2021-11-14 15:00:00';
     }
-    if (strcasecmp($nome_gara, "Australia") == 0) {
-        $race_date = '2021-11-21 04:00:00';
+    if (strcasecmp($nome_gara, "Qatar") == 0) {
+        $race_date = '2021-11-21 12:00:00';
     }
     if (strcasecmp($nome_gara, "Arabia Saudita") == 0) {
         $race_date = '2021-12-05 14:00:00';
