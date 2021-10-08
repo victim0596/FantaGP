@@ -13,43 +13,57 @@ if (isset($_SESSION['session_id'])) {
         $SC = filter_input(INPUT_POST, 'sc');
         include 'inputValid.php';
         if (!empty($nome_gara) and !empty($gp1) and !empty($gp2) and !empty($gp3) and !empty($giro_veloce) and $n_ritirati >= 0 and !empty($VSC) and !empty($SC) and $checkVarRace) {
-            include 'connection.php';
+            include 'newconn.php';
             include 'time_limit.php';
-            if (mysqli_connect_error()) {
-                die('Errore di connessione (' . mysqli_connect_error() . ')');
-            } else {
                 if (check_date_race($nome_gara) == 1) {
-                    //$link=mysql_connect($host, $dbusername, $dbpassword); php 5
-                    //mysql_select_db($dbname,$link); php 5
-                    $sql = "SELECT * from pronostici where id_p='$id_p' and nome_gara='$nome_gara'";
-                    $result = $conn->query($sql);
-                    $num_row = $result->num_rows;
-                    if ($num_row == 1) {
-                        $data = $result->fetch_assoc();
-                        //se é gia presente il pronostico delle qualifiche, ma non della gara
-                        if (empty($data['gp1'])) {
-                            $sql = "UPDATE pronostici set gp1='$gp1',gp2='$gp2',gp3='$gp3', giro_veloce='$giro_veloce', n_ritirati='$n_ritirati', vsc='$VSC', sc='$SC' where id_p='$id_p' and nome_gara='$nome_gara'";
-                            if ($conn->query($sql)) {
-                                $text = "I pronostici sono stati inseriti correttamente";
+                    try{
+                        $sql = "SELECT * from pronostici where id_p=:id_p and nome_gara=:nome_gara";
+                        $sth = $pdo->prepare($sql);
+                        $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+                        $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+                        $sth->execute();
+                        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+                        if (!empty($result)) {
+                            //se é gia presente il pronostico delle qualifiche, ma non della gara
+                            if (empty($result[0]['gp1'])) {
+                                $sql = "UPDATE pronostici set gp1=:gp1,gp2=:gp2,gp3=:gp3, giro_veloce=:giro_veloce, n_ritirati=:n_ritirati, vsc=:VSC, sc=:SC where id_p=:id_p and nome_gara=:nome_gara";
+                                $sth = $pdo->prepare($sql);
+                                $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+                                $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+                                $sth->bindValue(':gp1', $gp1, PDO::PARAM_STR);
+                                $sth->bindValue(':gp2', $gp2, PDO::PARAM_STR);
+                                $sth->bindValue(':gp3', $gp3, PDO::PARAM_STR);
+                                $sth->bindValue(':giro_veloce', $giro_veloce, PDO::PARAM_STR);
+                                $sth->bindValue(':n_ritirati', $n_ritirati, PDO::PARAM_INT);
+                                $sth->bindValue(':VSC', $VSC, PDO::PARAM_STR);
+                                $sth->bindValue(':SC', $SC, PDO::PARAM_STR);
+                                $sth->execute();
+                                $text = "I pronostici sono stati inseriti correttamente";                            
                             } else {
-                                $text = "Error: " . $sql . "<br>" . $conn->error;
+                                $text = "Hai giá inserito i pronostici della gara";
                             }
                         } else {
-                            $text = "Hai giá inserito i pronostici della gara";
-                        }
-                    } else {
-                        $sql = "INSERT INTO pronostici (id_p,nome_gara,gp1,gp2,gp3,giro_veloce,n_ritirati,vsc,sc) values ('$id_p','$nome_gara','$gp1','$gp2', '$gp3','$giro_veloce', '$n_ritirati', '$VSC','$SC')";
-                        if ($conn->query($sql)) {
+                            $sql = "INSERT INTO pronostici (id_p,nome_gara,gp1,gp2,gp3,giro_veloce,n_ritirati,vsc,sc) values (:id_p,:nome_gara,:gp1,:gp2, :gp3, :giro_veloce, :n_ritirati, :VSC,:SC)";
+                            $sth = $pdo->prepare($sql);
+                            $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+                            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+                            $sth->bindValue(':gp1', $gp1, PDO::PARAM_STR);
+                            $sth->bindValue(':gp2', $gp2, PDO::PARAM_STR);
+                            $sth->bindValue(':gp3', $gp3, PDO::PARAM_STR);
+                            $sth->bindValue(':giro_veloce', $giro_veloce, PDO::PARAM_STR);
+                            $sth->bindValue(':n_ritirati', $n_ritirati, PDO::PARAM_INT);
+                            $sth->bindValue(':VSC', $VSC, PDO::PARAM_STR);
+                            $sth->bindValue(':SC', $SC, PDO::PARAM_STR);
+                            $sth->execute();
                             $text = "I pronostici sono stati inseriti correttamente";
-                        } else {
-                            $text = "Error: " . $sql . "<br>" . $conn->error;
-                        }
-                    }
+                            }
+                        }catch (PDOException $e) {
+                        $text = $e->getMessage();
+                        exit();
+                    }    
                 } else {
                     $text = "Tempo limite superato";
                 }
-            }
-            $conn->close();
         } else {
             if($checkVarRace == false) $text = "Hai inserito uno stesso pilota in uno degli altri campi";
             else $text = "Non hai messo tutti i dati";

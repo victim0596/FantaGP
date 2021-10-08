@@ -9,19 +9,15 @@ if (isset($_POST['login'])) {
     $n_ut = str_replace(" ", "", $n_ut_input);
     $n_psw = filter_input(INPUT_POST, 'psw');
     if (!empty($n_ut) && !empty($n_psw)) {
-        include 'connection.php';
-        if (mysqli_connect_error()) {
-            die('Errore di connessione (' . mysqli_connect_error() . ')');
-        } else {
-            $sql = "SELECT username,password from utenti where username= ? ";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $n_ut);
-            $stmt->execute();
-            $stmt->store_result();
-            $num_row = $stmt->num_rows;
-            if ($num_row == 1) {
-                $stmt->bind_result($id, $password);
-                $stmt->fetch();
+        include 'newconn.php';
+        try{
+            $sql = "SELECT username,password from utenti where username= :username";
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':username', $n_ut, PDO::PARAM_STR);
+            $sth->execute();
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+            if(!empty($result) && count($result) == 1){
+                $password = $result[0]['password'];
                 $salt = "0x618f0554f66153b508be1813c76c26bb";
                 $psw_salted = hash_hmac("sha256", $n_psw, $salt);
                 if (password_verify($psw_salted, $password)) {
@@ -33,13 +29,13 @@ if (isset($_POST['login'])) {
                 } else {
                     echo "Hai inserito una password sbagliata";
                 }
-
             } else {
                 echo "Hai inserito dati errati";
+            }       
+        } catch (PDOException $e) {
+                $text = $e->getMessage();
+                exit();
             }
-        }
-        $stmt->close();
-        $conn->close();
     } else {
         echo "Non hai messo tutti i dati";
         die();

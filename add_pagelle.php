@@ -7,33 +7,34 @@ if (isset($_SESSION['session_id'])) {
         $sito2 = filter_input(INPUT_POST, 'sito2');
         $sito3 = filter_input(INPUT_POST, 'sito3');
         if (!empty($nome_gara) and !empty($pilota) and !empty($sito1) and !empty($sito2) and !empty($sito3)) {
-            include 'connection.php';
-            if (mysqli_connect_error()) {
-                die('Errore di connessione (' . mysqli_connect_error() . ')');
-            } else {
-                //$link=mysql_connect($host, $dbusername, $dbpassword);  php 5
-                //mysql_select_db($dbname,$link);  php 5
-                $sql = "SELECT * from pagelle where nome_gara='$nome_gara' and pilota='$pilota'";
-                $result = $conn->query($sql);
-                $num_row = $result->num_rows;
-                //se é presente la pagella
-                if ($num_row == 1) {
-                    $text = "Hai gia inserito la pagella di questo pilota";
+            include 'newconn.php';
+            try {
+                $sql = "SELECT * from pagelle where nome_gara=:nomeGara and pilota=:nomePilota";
+                $sth = $pdo->prepare($sql);
+                $sth->bindValue(':nomeGara', $nome_gara, PDO::PARAM_STR);
+                $sth->bindValue(':nomePilota', $pilota, PDO::PARAM_STR);
+                $sth->execute();
+                $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($result)) {
+                    $sql = "INSERT INTO pagelle (nome_gara,pilota,sito1,sito2,sito3) values (:nomeGara,:nomePilota,:sito1,:sito2,:sito3)";
+                    $sth = $pdo->prepare($sql);
+                    $sth->bindValue(':nomeGara', $nome_gara, PDO::PARAM_STR);
+                    $sth->bindValue(':nomePilota', $pilota, PDO::PARAM_STR);
+                    $sth->bindValue(':sito1', $sito1, PDO::PARAM_STR);
+                    $sth->bindValue(':sito2', $sito2, PDO::PARAM_STR);
+                    $sth->bindValue(':sito3', $sito3, PDO::PARAM_STR);
+                    $sth->execute();
+                    $text = "I dati sono stati inseriti correttamente";
                 } else {
-                    $sql = "INSERT INTO pagelle (nome_gara,pilota,sito1,sito2,sito3) values ('$nome_gara','$pilota','$sito1','$sito2','$sito3')";
-                    if ($conn->query($sql)) {
-                        $text = "I dati sono stati inseriti correttamente";
-                    } else {
-                        $text = "Error: " . $sql . "<br>" . $conn->error;
-                    }
-
+                    $text = "Hai gia inserito la pagella di questo pilota";
                 }
+            } catch (PDOException $e) {
+                $text = $e->getMessage();
+                exit();
             }
-            $conn->close();
         } else {
             $text = "Non hai messo tutti i dati";
         }
-
     }
 } else {
     $text = "Effettua prima il login";

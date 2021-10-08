@@ -3,102 +3,100 @@
 //funzione per il calcolo dei punti dei pronostici
 function calcolo_punti_pronostici($nome_gara, $nome_utente)
 {
-    include 'connection.php';
-    if (mysqli_connect_error()) {
-        die('Errore di connessione (' . mysqli_connect_error() . ')');
-    } else {
-        //  $link=mysql_connect($host, $dbusername, $dbpassword);  php5
-        //  mysql_select_db($dbname,$link);  php5
-        $punti = 0.0;
-        $sql = "SELECT * from pronostici where id_p='$nome_utente' and nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        //memorizzo tutti i pronostici di utente[i] in delle variabili
-        $qualifica1 = $data['qp1'];
-        $qualifica2 = $data['qp2'];
-        $qualifica3 = $data['qp3'];
-        $gara1 = $data['gp1'];
-        $gara2 = $data['gp2'];
-        $gara3 = $data['gp3'];
-        $giroveloce = $data['giro_veloce'];
-        $nrit = $data['n_ritirati'];
-        $sc = $data['SC'];
-        $vsc = $data['VSC'];
-        //query per risultati
-        $sql = "SELECT * from risultati where nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-		$conn->close();
-        //memorizzo i risultati della gara in delle variabili
-        $qualifica1_risultati = $data['qp1'];
-        $qualifica2_risultati = $data['qp2'];
-        $qualifica3_risultati = $data['qp3'];
-        $gara1_risultati = $data['gp1'];
-        $gara2_risultati = $data['gp2'];
-        $gara3_risultati = $data['gp3'];
-        $giroveloce_risultati = $data['giro_veloce'];
-        $nrit_risultati = $data['n_ritirati'];
-        $sc_risultati = $data['SC'];
-        $vsc_risultati = $data['VSC'];
-        //calcolo punti qualifiche
-        if ($qualifica1 == $qualifica1_risultati && !empty($qualifica1)) {
-            $punti = $punti + 10;
-        }
+    include 'newconn.php';
+    $punti = 0.0;
+    $sql = "SELECT * from pronostici where id_p=:nome_utente and nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_utente', $nome_utente, PDO::PARAM_STR);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //memorizzo tutti i pronostici di utente[i] in delle variabili
+    $qualifica1 = $data[0]['qp1'];
+    $qualifica2 = $data[0]['qp2'];
+    $qualifica3 = $data[0]['qp3'];
+    $gara1 = $data[0]['gp1'];
+    $gara2 = $data[0]['gp2'];
+    $gara3 = $data[0]['gp3'];
+    $giroveloce = $data[0]['giro_veloce'];
+    $nrit = $data[0]['n_ritirati'];
+    $sc = $data[0]['SC'];
+    $vsc = $data[0]['VSC'];
+    //query per risultati
+    $sql = "SELECT * from risultati where nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    //memorizzo i risultati della gara in delle variabili
+    $qualifica1_risultati = $data[0]['qp1'];
+    $qualifica2_risultati = $data[0]['qp2'];
+    $qualifica3_risultati = $data[0]['qp3'];
+    $gara1_risultati = $data[0]['gp1'];
+    $gara2_risultati = $data[0]['gp2'];
+    $gara3_risultati = $data[0]['gp3'];
+    $giroveloce_risultati = $data[0]['giro_veloce'];
+    $nrit_risultati = $data[0]['n_ritirati'];
+    $sc_risultati = $data[0]['SC'];
+    $vsc_risultati = $data[0]['VSC'];
+    //calcolo punti qualifiche
+    if ($qualifica1 == $qualifica1_risultati && !empty($qualifica1)) {
+        $punti = $punti + 10;
+    }
 
-        if ($qualifica2 == $qualifica2_risultati && !empty($qualifica2)) {
-            $punti = $punti + 8;
-        }
+    if ($qualifica2 == $qualifica2_risultati && !empty($qualifica2)) {
+        $punti = $punti + 8;
+    }
 
-        if ($qualifica3 == $qualifica3_risultati && !empty($qualifica3)) {
+    if ($qualifica3 == $qualifica3_risultati && !empty($qualifica3)) {
+        $punti = $punti + 5;
+    }
+
+    if ($qualifica1 == $qualifica1_risultati && $qualifica2 == $qualifica2_risultati && $qualifica3 == $qualifica3_risultati && !empty($qualifica1) && !empty($qualifica2) && !empty($qualifica3)) {
+        $punti = $punti + 10;
+    }
+
+    //calcolo punti gara
+    if ($gara1 == $gara1_risultati && !empty($gara1)) {
+        $punti = $punti + 15;
+    }
+
+    if ($gara2 == $gara2_risultati && !empty($gara2)) {
+        $punti = $punti + 10;
+    }
+
+    if ($gara3 == $gara3_risultati && !empty($gara3)) {
+        $punti = $punti + 8;
+    }
+
+    if ($gara1 == $gara1_risultati && $gara2 == $gara2_risultati && $gara3 == $gara3_risultati && !empty($gara1) && !empty($gara2) && !empty($gara3)) {
+        $punti = $punti + 20;
+    }
+
+    //calcolo punti giro veloce
+    if ($giroveloce == $giroveloce_risultati && !empty($giroveloce)) {
+        $punti = $punti + 20;
+    }
+
+    //calcolo punti n_rit
+    if ($nrit == $nrit_risultati && isset($nrit) && ($nrit === '0' || !empty($nrit))) {
+        $punti = $punti + 25;
+    }
+
+    //calcolo punti vsc e sc
+    if (!empty($sc) && !empty($vsc)) {
+        if ($sc == $sc_risultati) {
             $punti = $punti + 5;
+        } else {
+            $punti = $punti - 2;
         }
 
-        if ($qualifica1 == $qualifica1_risultati && $qualifica2 == $qualifica2_risultati && $qualifica3 == $qualifica3_risultati && !empty($qualifica1) && !empty($qualifica2) && !empty($qualifica3)) {
-            $punti = $punti + 10;
+        if ($vsc == $vsc_risultati) {
+            $punti = $punti + 3;
+        } else {
+            $punti = $punti - 1;
         }
 
-        //calcolo punti gara
-        if ($gara1 == $gara1_risultati && !empty($gara1)) {
-            $punti = $punti + 15;
-        }
-
-        if ($gara2 == $gara2_risultati && !empty($gara2)) {
-            $punti = $punti + 10;
-        }
-
-        if ($gara3 == $gara3_risultati && !empty($gara3)) {
-            $punti = $punti + 8;
-        }
-
-        if ($gara1 == $gara1_risultati && $gara2 == $gara2_risultati && $gara3 == $gara3_risultati && !empty($gara1) && !empty($gara2) && !empty($gara3)) {
-            $punti = $punti + 20;
-        }
-
-        //calcolo punti giro veloce
-        if ($giroveloce == $giroveloce_risultati && !empty($giroveloce)) {
-            $punti = $punti + 20;
-        }
-
-        //calcolo punti n_rit
-        if ($nrit == $nrit_risultati && isset($nrit) && ($nrit === '0' || !empty($nrit))) {
-            $punti = $punti + 25;
-        }
-
-        //calcolo punti vsc e sc
-        if (!empty($sc) && !empty($vsc)) {
-            if ($sc == $sc_risultati) {
-                $punti = $punti + 5;
-            } else {
-                $punti = $punti - 2;
-            }
-
-            if ($vsc == $vsc_risultati) {
-                $punti = $punti + 3;
-            } else {
-                $punti = $punti - 1;
-            }
-
-        }
     }
     return $punti;
 }
@@ -205,86 +203,103 @@ function calcolo_punti_pagelle($nome_gara, $nome_utente)
             break;
     }
 
-    include 'connection.php';
-    if (mysqli_connect_error()) {
-        die('Errore di connessione (' . mysqli_connect_error() . ')');
-    } else {
-        //  $link=mysql_connect($host, $dbusername, $dbpassword); php 5
-        //  mysql_select_db($dbname,$link);  php 5
-        $punti = 0.0;
-        //query per il primo pilota e calcolo media con numero plastico
-        $sql = "SELECT * from pagelle where pilota='$pilota1' and nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        $sito1_pilota1 = $data['sito1'];
-        $sito2_pilota1 = $data['sito2'];
-        $sito3_pilota1 = $data['sito3'];
-        $media_pilota1 = ($sito1_pilota1 + $sito2_pilota1 + $sito3_pilota1) * 1.3247;
-        //query per il secondo pilota e calcolo media con numero plastico
-        $sql = "SELECT * from pagelle where pilota='$pilota2' and nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        $sito1_pilota2 = $data['sito1'];
-        $sito2_pilota2 = $data['sito2'];
-        $sito3_pilota2 = $data['sito3'];
-        $media_pilota2 = ($sito1_pilota2 + $sito2_pilota2 + $sito3_pilota2) * 1.3247;
-        //query per la scuderia e calcolo media con numero plastico
-        //query pilota 1 scuderia
-        $sql = "SELECT * from pagelle where pilota='$driver1' and nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        $sito1_driver1_scuderia = $data['sito1'];
-        $sito2_driver1_scuderia = $data['sito2'];
-        $sito3_driver1_scuderia = $data['sito3'];
-        //query pilota 2 scuderia
-        $sql = "SELECT * from pagelle where pilota='$driver2' and nome_gara='$nome_gara'";
-        $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        $sito1_driver2_scuderia = $data['sito1'];
-        $sito2_driver2_scuderia = $data['sito2'];
-        $sito3_driver2_scuderia = $data['sito3'];
-        //media
-        $media_sito1 = ($sito1_driver1_scuderia + $sito1_driver2_scuderia) / 2;
-        $media_sito2 = ($sito2_driver1_scuderia + $sito2_driver2_scuderia) / 2;
-        $media_sito3 = ($sito3_driver1_scuderia + $sito3_driver2_scuderia) / 2;
-        $media_scuderia = ($media_sito1 + $media_sito2 + $media_sito3) * 1.3247;
-        //query per il controllo dei ritirati
-        //query pilota 1 ritirato qualifica
-        $sql = "SELECT * from ritirati where nome_pilota='$driver1' and nome_gara='$nome_gara' and tipo='Qualifica'";
-        $result = $conn->query($sql);
-        $num_row = $result->num_rows;
-        if ($num_row != 0) {
-            $media_scuderia = $media_scuderia - 5;
-        }
-
-        //query pilota 2 ritirato qualifica
-        $sql = "SELECT * from ritirati where nome_pilota='$driver2' and nome_gara='$nome_gara' and tipo='Qualifica'";
-        $result = $conn->query($sql);
-        $num_row = $result->num_rows;
-        if ($num_row != 0) {
-            $media_scuderia = $media_scuderia - 5;
-        }
-
-        //query pilota 1 ritirato gara
-        $sql = "SELECT * from ritirati where nome_pilota='$driver1' and nome_gara='$nome_gara' and tipo='Gara'";
-        $result = $conn->query($sql);
-        $num_row = $result->num_rows;
-        if ($num_row != 0) {
-            $media_scuderia = $media_scuderia - 10;
-        }
-
-        //query pilota 2 ritirato gara
-        $sql = "SELECT * from ritirati where nome_pilota='$driver2' and nome_gara='$nome_gara' and tipo='Gara'";
-        $result = $conn->query($sql);
-        $num_row = $result->num_rows;
-        if ($num_row != 0) {
-            $media_scuderia = $media_scuderia - 10;
-        }
-
-        //calcolo punti
-        $punti = $media_pilota1 + $media_pilota2 + $media_scuderia;
+    $punti = 0.0;
+    include 'newconn.php';
+    //query per il primo pilota e calcolo media con numero plastico
+    $sql = "SELECT * from pagelle where pilota=:pilota1 and nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':pilota1', $pilota1, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $sito1_pilota1 = $data[0]['sito1'];
+    $sito2_pilota1 = $data[0]['sito2'];
+    $sito3_pilota1 = $data[0]['sito3'];
+    $media_pilota1 = ($sito1_pilota1 + $sito2_pilota1 + $sito3_pilota1) * 1.3247;
+    //query per il secondo pilota e calcolo media con numero plastico
+    $sql = "SELECT * from pagelle where pilota=:pilota2 and nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':pilota2', $pilota2, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $sito1_pilota2 = $data[0]['sito1'];
+    $sito2_pilota2 = $data[0]['sito2'];
+    $sito3_pilota2 = $data[0]['sito3'];
+    $media_pilota2 = ($sito1_pilota2 + $sito2_pilota2 + $sito3_pilota2) * 1.3247;
+    //query per la scuderia e calcolo media con numero plastico
+    //query pilota 1 scuderia
+    $sql = "SELECT * from pagelle where pilota=:driver1 and nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver1', $driver1, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $sito1_driver1_scuderia = $data[0]['sito1'];
+    $sito2_driver1_scuderia = $data[0]['sito2'];
+    $sito3_driver1_scuderia = $data[0]['sito3'];
+    //query pilota 2 scuderia
+    $sql = "SELECT * from pagelle where pilota=:driver2 and nome_gara=:nome_gara";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver2', $driver2, PDO::PARAM_STR);
+    $sth->execute();
+    $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $sito1_driver2_scuderia = $data[0]['sito1'];
+    $sito2_driver2_scuderia = $data[0]['sito2'];
+    $sito3_driver2_scuderia = $data[0]['sito3'];
+    //media
+    $media_sito1 = ($sito1_driver1_scuderia + $sito1_driver2_scuderia) / 2;
+    $media_sito2 = ($sito2_driver1_scuderia + $sito2_driver2_scuderia) / 2;
+    $media_sito3 = ($sito3_driver1_scuderia + $sito3_driver2_scuderia) / 2;
+    $media_scuderia = ($media_sito1 + $media_sito2 + $media_sito3) * 1.3247;
+    //query per il controllo dei ritirati
+    //query pilota 1 ritirato qualifica
+    $sql = "SELECT * from ritirati where nome_pilota=:driver1 and nome_gara=:nome_gara and tipo='Qualifica'";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver1', $driver1, PDO::PARAM_STR);
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($result)) {
+        $media_scuderia = $media_scuderia - 5;
     }
-    $conn->close();
+
+    //query pilota 2 ritirato qualifica
+    $sql = "SELECT * from ritirati where nome_pilota=:driver2 and nome_gara=:nome_gara and tipo='Qualifica'";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver2', $driver2, PDO::PARAM_STR);
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($result)) {
+        $media_scuderia = $media_scuderia - 5;
+    }
+
+    //query pilota 1 ritirato gara
+    $sql = "SELECT * from ritirati where nome_pilota=:driver1 and nome_gara=:nome_gara and tipo='Gara'";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver1', $driver1, PDO::PARAM_STR);
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($result)) {
+        $media_scuderia = $media_scuderia - 10;
+    }
+
+    //query pilota 2 ritirato gara
+    $sql = "SELECT * from ritirati where nome_pilota=:driver2 and nome_gara=:nome_gara and tipo='Gara'";
+    $sth = $pdo->prepare($sql);
+    $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+    $sth->bindValue(':driver2', $driver2, PDO::PARAM_STR);
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($result)) {
+        $media_scuderia = $media_scuderia - 10;
+    }
+
+    //calcolo punti
+    $punti = $media_pilota1 + $media_pilota2 + $media_scuderia;
     return $punti;
 }
 
@@ -292,25 +307,34 @@ $text = "";
 if (isset($_POST['calcolo_punti'])) {
     $nome_gara = filter_input(INPUT_POST, 'nome_gara');
     if (!empty($nome_gara)) {
-        include 'connection.php';
-        //  $link=mysql_connect($host, $dbusername, $dbpassword);  php 5
-        //  mysql_select_db($dbname,$link);         php 5
+        include 'newconn.php';
         $utenti = array("Oliver", "Ciccio", "SpiritoBlu", "Dario", "gianpaolo", "Andrea", "Ermenegildo", "Toto", "alessiodom97", "pinguinoSquadracorse");
         for ($i = 0; $i < 10; $i++) {
             $punti_pronostici = calcolo_punti_pronostici($nome_gara, $utenti[$i]);
             $punti_pagelle = calcolo_punti_pagelle($nome_gara, $utenti[$i]);
             $punti_totali = number_format($punti_pronostici + $punti_pagelle, 2);
             //query per aggiungere i punti tot al db
-            $sql = "UPDATE pronostici set punti='$punti_totali' where id_p='$utenti[$i]' and nome_gara='$nome_gara'";
-            $result = $conn->query($sql);
+            $sql = "UPDATE pronostici set punti=:punti_totali where id_p=:utente and nome_gara=:nome_gara";
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':punti_totali', $punti_totali, PDO::PARAM_STR);
+            $sth->bindValue(':utente', $utenti[$i], PDO::PARAM_STR);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->execute();
             //query per aggiungere i punti solo pronostici al db
-            $sql = "UPDATE pronostici set punti_pron='$punti_pronostici' where id_p='$utenti[$i]' and nome_gara='$nome_gara'";
-            $result = $conn->query($sql);
+            $sql = "UPDATE pronostici set punti_pron=:punti_pronostici where id_p=:utente and nome_gara=:nome_gara";
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':punti_pronostici', $punti_pronostici, PDO::PARAM_STR);
+            $sth->bindValue(':utente', $utenti[$i], PDO::PARAM_STR);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->execute();
             //query per aggiungere i punti solo pagelle al db
-            $sql = "UPDATE pronostici set punti_pag='$punti_pagelle' where id_p='$utenti[$i]' and nome_gara='$nome_gara'";
-            $result = $conn->query($sql);
+            $sql = "UPDATE pronostici set punti_pag=:punti_pagelle where id_p=:utente and nome_gara=:nome_gara";
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':punti_pagelle', $punti_pagelle, PDO::PARAM_STR);
+            $sth->bindValue(':utente', $utenti[$i], PDO::PARAM_STR);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->execute();
         }
-        $conn->close();
         $text = "Punteggi calcolati con successo";
     } else {
         $text = "Non hai messo il nome della gara";
