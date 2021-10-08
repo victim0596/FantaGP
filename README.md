@@ -11,3 +11,12 @@
 - eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
 - aggiornare UI della homepage (24/08/2021)
 - cambiare tutte le connessioni con PDO
+
+# Aggiornamenti a PDO mancanti
+
+- chart.php
+- load_classifica.php
+- map.php
+- profilo2.php
+- riepilogo_pronostici.php
+-
