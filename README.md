@@ -11,6 +11,9 @@
 - eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
 - aggiornare UI della homepage (24/08/2021)
 - cambiare tutte le connessioni con PDO
+- aggiunta classe per la connessione DB (27/10/2021)
+- aggiunta classe per la gestione del login (27/10/2021)
+
 
 # Aggiornamenti a PDO mancanti
 
@@ -19,4 +22,4 @@
 - map.php
 - profilo2.php
 - riepilogo_pronostici.php
--
+
