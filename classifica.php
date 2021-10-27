@@ -13,7 +13,7 @@ include 'load_classifica.php';
 	<meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css?n=1.01">
-  <link rel="stylesheet" href="css/classifica.css?n=1.01">
+  <link rel="stylesheet" href="css/classifica.css?n=1.02">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />
 
@@ -87,21 +87,21 @@ include 'load_classifica.php';
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificagenerale" id="class_gen" >
 		  <div>
 			  <img src="img/class_1.jpg">
-			  <div><span>Classifica Generale</span></div>
+			  <div><div>Classifica Generale</div></div>
 		  </div>
 		</button>
 		<!-- Button Classifica Pagelle -->
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapagelle" id="class_pag">
 		  <div>
 			  <img src="img/class_2.jpg">
-			  <div><span>Classifica Pagelle</span></div>
+			  <div><div>Classifica Pagelle</div></div>
 		  </div>
 		</button>
     <!-- Button Classifica Pronostici -->
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapronostici" id="class_pron">
 		  <div>
 			  <img src="img/class_3.jpg">
-			  <div><span>Classifica Pronostici</span></div>
+			  <div><div>Classifica Pronostici</d></div>
 		  </div>
 		</button>
 	</div>
