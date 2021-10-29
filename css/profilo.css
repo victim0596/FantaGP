@@ -85,6 +85,10 @@ body {
     margin-top: 10%;
 }
 
+
+
+
+
 @media (max-width: 768px){
     .barraLaterale{
         font-size: small;
@@ -131,4 +135,5 @@ body {
         font-size: x-small;
         max-height: 70px;
     }
-} 
+}
+
