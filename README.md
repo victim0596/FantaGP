@@ -1,4 +1,4 @@
-# Aggiornamenti da fare
+# Aggiornamenti fatti
 
 - Cambiare UI al profilo (25/06/2021)
 - ottimizzare il codice backend di tutte le pagine
@@ -13,7 +13,17 @@
 - cambiare tutte le connessioni con PDO
 - aggiunta classe per la connessione DB (27/10/2021)
 - aggiunta classe per la gestione del login (27/10/2021)
+- aggiunta classe per la gestione dei driver (28/10/2021)
+- aggiunta classe per la gestione delle gare (28/10/2021)
+- aggiunta classe per l'esecuzione delle query (28/10/2021)
+- aggiunta classe per la gestione dei Form (28/10/2021)
+- aggiunti alert per la visualizzazione degli errori e dei successi (28/10/2021)
 
+
+
+# Aggiornamenti da fare
+
+- Ottimizzare le varie pagine, cercando di rimuovere piu codice php possibile delle varie pagine di visualizzazione
 
 # Aggiornamenti a PDO mancanti
 
