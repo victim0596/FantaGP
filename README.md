@@ -1,7 +1,6 @@
 # Aggiornamenti fatti
 
 - Cambiare UI al profilo (25/06/2021)
-- ottimizzare il codice backend di tutte le pagine
 - non permettere di poter mettere uno stesso pilota in piu campi nei pronostici/mod pronostici (29/06/2021)
 - mettere visibile solo il gp attuale nell'inserimento dei pronostici (30/06/2021)
 - aggiungere controlli sugli input nei pronostici/mod pronostici (29/06/2021)
@@ -20,10 +19,11 @@
 - aggiunti alert per la visualizzazione degli errori e dei successi (28/10/2021)
 
 
-
 # Aggiornamenti da fare
 
 - Ottimizzare le varie pagine, cercando di rimuovere piu codice php possibile delle varie pagine di visualizzazione
+- ottimizzare il codice backend di tutte le pagine
+
 
 # Aggiornamenti a PDO mancanti
 
