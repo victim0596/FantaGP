@@ -1,8 +1,8 @@
 <?php
 
-function check_date_quali($nome_gara)
+function check_date_quali($nome_gara):bool
 {
-    $var_controllo = 1;
+    $var_controllo = true;
     date_default_timezone_set("Europe/Rome");
     $current_date = date("Y-m-d H:i:s");
     $race_date = "";
@@ -73,7 +73,7 @@ function check_date_quali($nome_gara)
         $race_date = '2021-12-11 00:00:00';
     }
     if ($current_date > $race_date) {
-        $var_controllo = 0;
+        $var_controllo = false;
     }
 
     return $var_controllo;
@@ -81,7 +81,7 @@ function check_date_quali($nome_gara)
 
 function check_date_race($nome_gara)
 {
-    $var_controllo = 1;
+    $var_controllo = true;
     date_default_timezone_set("Europe/Rome");
     $current_date = date("Y-m-d H:i:s");
     $race_date = "";
@@ -152,7 +152,7 @@ function check_date_race($nome_gara)
         $race_date = '2021-12-12 11:00:00';
     }
     if ($current_date > $race_date) {
-        $var_controllo = 0;
+        $var_controllo = false;
     }
 
     return $var_controllo;
