@@ -1,8 +1,20 @@
 <?php
 
-require("./classes/DbClass.php");
+require("./classes/QueryClass.php");
 
-class LoginAuth extends DBConn
+
+/**
+ * LoginAuth
+ * 
+ * This is the main class for the Login form, in this class there are more method to check if the 
+ * username or password is in the correct form. There is also a method that can execute all the method in one method (loginCheckFormat()),
+ * this method return an associative array that contain an boolean value and an possible error
+ * for example: if one of the username or password have an incorrect form, the assosiative array had 
+ * $arrayCheck['boolValue] = false
+ * $arrayCheck['error'] = the string of the error checked in this function 
+ *
+ */
+class LoginAuth extends QExec
 {
 
     private string $username;
@@ -14,19 +26,35 @@ class LoginAuth extends DBConn
         $this->password = $psw;
     }
 
+        
+    /**
+     * isEmpty
+     * This function check if the username or password is empty
+     * @return bool
+     */
     public function isEmpty(): bool
     {
         if (empty($this->username) || empty($this->password)) return false;
         else return true;
     }
-
+    
+    /**
+     * isValidUser
+     * This function check if the usernamee contain only number or char
+     * @return bool 
+     */
     public function isValidUser(): bool
     {
         if (preg_match("/^[a-z0-9]*$/i", $this->username) === 1) {
             return true;
         } else return false;
     }
-
+    
+    /**
+     * isValidPsw
+     * This function check if the password contain only number or char
+     * @return bool
+     */
     public function isValidPsw(): bool
     {
         if (preg_match("/^[a-z0-9]/i", $this->password) === 1) {
@@ -34,26 +62,12 @@ class LoginAuth extends DBConn
         } else return false;
     }
 
-    public function checkDbAuth(): bool
-    {
-        $conn = new DBConn();
-        $pdo = $conn->dbConnection();
-        $sql = "SELECT username,password from utenti where username= :username";
-        $sth = $pdo->prepare($sql);
-        $sth->bindValue(':username', $this->username, PDO::PARAM_STR);
-        $sth->execute();
-        $result = $sth->fetch(PDO::FETCH_ASSOC);
-        if (!empty($result)) {
-            $password = $result['password'];
-            $salt = "0x618f0554f66153b508be1813c76c26bb";
-            $psw_salted = hash_hmac("sha256", $this->password, $salt);
-            if (password_verify($psw_salted, $password)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    
+    /**
+     * loginCheckFormat
+     * This function check all the previous method
+     * @return array $arrayCheck is an associative array that contain the bool value of the check of all method, and possible error if the check if false
+     */
     public function loginCheckFormat(): array
     {
         $arrayCheck['error'] = null;
