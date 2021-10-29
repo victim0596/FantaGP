@@ -303,8 +303,9 @@ function calcolo_punti_pagelle($nome_gara, $nome_utente)
     return $punti;
 }
 
-$text = "";
+
 if (isset($_POST['calcolo_punti'])) {
+    $text = "";
     $nome_gara = filter_input(INPUT_POST, 'nome_gara');
     if (!empty($nome_gara)) {
         include 'newconn.php';
