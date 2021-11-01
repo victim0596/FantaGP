@@ -19,7 +19,14 @@ class LoginAuth extends QExec
 
     private string $username;
     private string $password;
-
+    
+    /**
+     * __construct
+     *
+     * @param  string $user is the username of the user
+     * @param  string $psw is the password in clear of the user
+     * @return void
+     */
     public function __construct(string $user, string $psw)
     {
         $this->username = $user;

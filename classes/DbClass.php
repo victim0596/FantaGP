@@ -1,9 +1,18 @@
 <?php
 
 
+/**
+ * DBConn
+ * This class is the main class for the connection of db, contain all the info for connecting to database 
+ */
 class DBConn
 {
-
+        
+    /**
+     * dbConnection
+     * This method is the only method for establishing the connection with database
+     * @return PDO
+     */
     protected function dbConnection(): PDO
     {
         try {

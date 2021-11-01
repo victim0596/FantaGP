@@ -3,15 +3,35 @@
 require('./classes/DriverClass.php');
 
 
+/**
+ * FormCheck
+ * This class check all the form of the website, and find any errors or attempts to break the form
+ * 
+ */
 class FormCheck extends Driver
 {
-
+    
+    /**
+     * __construct
+     *
+     * @param  string $nomeGara is the name of the race
+     * @return void
+     */
     public function __construct(string $nomeGara)
     {
         $race = new Race($nomeGara);
         if (!$race->isValidRace()) throw new Exception('Nome della gara non valido');
     }
-
+    
+    /**
+     * checkQualyForm
+     * This method check any entries of any Qualifying Form
+     * @param  string $qp1 is the driver name placed in the first place passed in any Qualifying Form
+     * @param  string $qp2 is the driver name placed in the second place passed in any Qualifying Form
+     * @param  string $qp3 is the driver name placed in the third place passed in any Qualifying Form
+     * @return array $checkQualy['error'] that contain a string of any possible error,
+     * $checkQualy['boolValue'] that contain a boolean value if all is done
+     */
     public function checkQualyForm(string $qp1, string $qp2, string $qp3): array
     {
         $checkQualy['boolValue'] = true;
@@ -32,6 +52,10 @@ class FormCheck extends Driver
                 $checkQualy['boolValue'] = false;
                 $checkQualy['error'] = "Nome del pilota in P3 non valido";
             }
+            if($qp1 == $qp2 || $qp1 == $qp3 || $qp2 == $qp3) {
+                $checkQualy['boolValue'] = false;
+                $checkQualy['error'] = "Hai inserito uno stesso pilota in uno degli altri campi";
+            }
         } catch (Exception $ex) {
             $checkQualy['boolValue'] = false;
             $checkQualy['error'] = "Errore Sconosciuto [FORM QUALY]";
@@ -40,7 +64,20 @@ class FormCheck extends Driver
         }
     }
 
-
+    
+    /**
+     * checkRaceForm
+     * This method check any entries of any Race Form
+     * @param  string $gp1 is the driver name placed in the first place 
+     * @param  string $gp2 is the driver name placed in the second place
+     * @param  string $gp3 is the driver name placed in the third place
+     * @param  string $giroVeloce is the driver name placed in the quickest lap
+     * @param  string $vsc is the value of the virtual safety car
+     * @param  string $sc is the value of the safety car
+     * @param  int $nRitirati is the number of the retired driver
+     * @return array $checkRace['error'] that contain a string of any possible error,
+     * $checkRace['boolValue'] that contain a boolean value if all is done
+     */
     public function checkRaceForm(string $gp1, string $gp2, string $gp3, string $giroVeloce, string $vsc, string $sc, int $nRitirati): array
     {
         $checkRace['boolValue'] = true;
@@ -78,6 +115,10 @@ class FormCheck extends Driver
                 $checkRace['boolValue'] = false;
                 $checkRace['error'] = "Numero di ritirati non valido non valido (0-10)";
             }
+            if($gp1 == $gp2 || $gp1 == $gp3 || $gp2 == $gp3) {
+                $checkRace['boolValue'] = false;
+                $checkRace['error'] = "Hai inserito uno stesso pilota in uno degli altri campi";
+            }
         } catch (Exception $ex) {
             $checkRace['boolValue'] = false;
             $checkRace['error'] = "Errore Sconosciuto [FORM RACE]";
@@ -85,7 +126,15 @@ class FormCheck extends Driver
             return $checkRace;
         }
     }
-    
+        
+    /**
+     * checkAddRitiratiForm
+     * This method check any entries of the Aggiungi Ritirati Form
+     * @param  string $driverInput is the name of the driver passed in the form
+     * @param  string $tipo is the session name in which driver is retired
+     * @return array $checkRitirati['error'] that contain a string of any possible error,
+     * $checkRitirati['boolValue'] that contain a boolean value if all is done
+     */
     public function checkAddRitiratiForm(string $driverInput, string $tipo): array
     {
         $checkRitirati['boolValue'] = true;
@@ -107,7 +156,17 @@ class FormCheck extends Driver
             return $checkRitirati;
         }
     }
-
+    
+    /**
+     * checkAddPagelleForm
+     * This method check any entries of the Aggiungi Pagelle form
+     * @param  string $driverInput is the name of the driver passed in the form
+     * @param  float $sito1 is the value of first site driver rating passed in the form
+     * @param  float $sito2 is the value of second site driver rating passed in the form
+     * @param  float $sito3 is the value of third site driver rating passed in the form
+     * @return array $checkPagelle['error'] that contain a string of any possible error,
+     * $checkPagelle['boolValue'] that contain a boolean value if all is done
+     */
     public function checkAddPagelleForm(string $driverInput, float $sito1, float $sito2, float $sito3): array
     {
         $checkPagelle['boolValue'] = true;

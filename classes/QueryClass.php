@@ -2,13 +2,27 @@
 
 require('./classes/DbClass.php');
 
+/**
+ * QExec
+ * This is the main class for execute all the query of the website, extends the DBConn class
+ */
 class QExec extends DBConn
 {
+    
     public function __construct()
     {
         $this->conn = new DBConn();
         $this->pdo = $this->conn->dbConnection();
     }
+    /**
+     * checkDbAuth
+     * This is the method that check the login date
+     * This method is used by all the user
+     * In this method there is also the salt used for cripting the dates in the database 
+     * @param  string $usernameInput contain the username passed in login Form
+     * @param  string $passwordInput contain the password passed in login Form
+     * @return bool return true if the login date match with the date in the DB
+     */
     public function checkDbAuth(string $usernameInput, string $passwordInput): bool
     {
         try {
@@ -32,6 +46,18 @@ class QExec extends DBConn
         }
     }
 
+    /**
+     * insertPronoQualy
+     * This method insert the prono date, taken from the page Pronostici in the Pronostici Qualifica form
+     * This method is used by all the user
+     * @param  string $id_p is the name of the user
+     * @param  string $nome_gara is the name of the race
+     * @param  string $qp1 is the driver placed in first place in Qualy Day
+     * @param  string $qp2 is the driver placed in second place in Qualy Day
+     * @param  string $qp3 is the driver placed in third place in Qualy Day
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertPronoQualy(string $id_p, string $nome_gara, string $qp1, string $qp2, string $qp3): string
     {
 
@@ -75,6 +101,22 @@ class QExec extends DBConn
         }
     }
 
+    /**
+     * insertPronoRace
+     * this method insert the prono of the race, taken in the pronostici page in the Pronostici Gara form
+     * This method is used by all the user
+     * @param  string $id_p is the name of the user
+     * @param  string $nome_gara is the name of the race
+     * @param  string $gp1 is the driver placed in first place in Race Day
+     * @param  string $gp2 is the driver placed in second place in Race Day
+     * @param  string $gp3 is the driver place in third place in Race Day
+     * @param  string $giroVeloce is the driver placed for the quick lap in Race Day
+     * @param  string $vsc is the value if the virtual safety car is entered or no
+     * @param  string $sc is the value if the safety car is entered or no
+     * @param  int $nRitirati is the number of retired pilots
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertPronoRace(string $id_p, string $nome_gara, string $gp1, string $gp2, string $gp3, string $giroVeloce, string $vsc, string $sc, int $nRitirati): string
     {
         try {
@@ -125,6 +167,16 @@ class QExec extends DBConn
         }
     }
 
+    /**
+     * insertRitirati
+     * This method insert the retired driver of the race
+     * This method is used only by ADMIN USER
+     * @param  string $nome_gara is the name of the race
+     * @param  string $nome_pilota is the name of the driver retired
+     * @param  string $tipo is the session in which the driver retired
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertRitirati(string $nome_gara, string $nome_pilota, string $tipo): string
     {
         try {
@@ -153,6 +205,17 @@ class QExec extends DBConn
         }
     }
 
+    /**
+     * insertResultQualy
+     * This method insert the drivers result in the qualifying day
+     * This method is used by ADMIN USER
+     * @param  string $nome_gara is the name of the race
+     * @param  string $qp1 is the driver who arrived first on the day of qualifying
+     * @param  string $qp2 is the driver who arrived second on the day of qualifying
+     * @param  string $qp3 is the driver who arrived third on the day of qualifying
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertResultQualy(string $nome_gara, string $qp1, string $qp2, string $qp3): string
     {
         try {
@@ -179,7 +242,22 @@ class QExec extends DBConn
             return $text;
         }
     }
-
+    
+    /**
+     * insertResultRace
+     * This method insert the drivers result in the race day
+     * This method is used by ADMIN USER
+     * @param  string $nome_gara is the name of the race
+     * @param  string $gp1 is the driver who arrived first in the race
+     * @param  string $gp2 is the driver who arrived second in the race
+     * @param  string $gp3 is the driver who arrived third in the race
+     * @param  string $giroVeloce is the driver who set the fastest lap in the race
+     * @param  string $vsc is result of the virtual safety car in the race
+     * @param  string $sc is result of the safety car in the race
+     * @param  int $nRitirati is the number result of the retired drivers
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertResultRace(string $nome_gara, string $gp1, string $gp2, string $gp3, string $giroVeloce, string $vsc, string $sc, int $nRitirati): string
     {
         try {
@@ -210,6 +288,18 @@ class QExec extends DBConn
             return $text;
         }
     }
+        
+    /**
+     * insertPagelle
+     * This method is used to insert the driver rating of three site
+     * @param  string $nome_gara is the name of the race
+     * @param  string $nomePilota is the name of the driver
+     * @param  float $valSito1 is the rating of the driver in the first site
+     * @param  float $valSito2 is the rating of the driver in the second site
+     * @param  float $valSito3 is the rating of the driver in the third site
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
     public function insertPagelle(string $nome_gara, string $nomePilota, float $valSito1, float $valSito2, float $valSito3): string
     {
         try {
