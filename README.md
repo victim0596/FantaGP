@@ -17,6 +17,10 @@
 - aggiunta classe per l'esecuzione delle query (28/10/2021)
 - aggiunta classe per la gestione dei Form (28/10/2021)
 - aggiunti alert per la visualizzazione degli errori e dei successi (28/10/2021)
+- riscritti usando le classi, metodi per aggiornare i pronostici gara/qualifica (01/11/2021)
+- aggiunta funzione per trovare la gara corrente (01/11/2021)
+- adesso il riepilogo del profilo si auto-aggiorna con la gara corrente (01/11/2021)
+- riscritto usando le classi, metodo per visualizzare i punti delle classifiche nella pagina profilo (01/11/2021)
 
 
 # Aggiornamenti da fare
@@ -30,6 +34,4 @@
 - chart.php
 - load_classifica.php
 - map.php
-- profilo2.php
-- riepilogo_pronostici.php
 
