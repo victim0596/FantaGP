@@ -1,11 +1,6 @@
 <?php
 
-require('./classes/FormClass.php');
-require('./classes/QueryClass.php');
-
-
 if (isset($_SESSION['session_id'])) {
-    $text1 = "";
     if (isset($_POST['add_rit'])) {
         $nome_gara = $_POST['nome_gara'];
         $nome_pilota = $_POST['pilota'];
@@ -23,6 +18,4 @@ if (isset($_SESSION['session_id'])) {
             $text = $ex->getMessage();
         }
     }
-} else {
-    $text = "Effettua prima il login";
 }

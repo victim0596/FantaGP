@@ -19,6 +19,4 @@ if (isset($_SESSION['session_id'])) {
             $text = $ex->getMessage();
         }
     }
-} else {
-    $text = "Effettua prima il login";
 }

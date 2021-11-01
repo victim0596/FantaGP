@@ -6,7 +6,6 @@ require('./script/time_limit.php');
 
 
 if (isset($_SESSION['session_id'])) {
-    $text = "";
     if (isset($_POST['invia_quali'])) {
         $id_p = $_SESSION['session_user'];
         $nome_gara = $_POST['nome_gara'];
