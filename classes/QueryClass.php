@@ -8,7 +8,7 @@ require('./classes/DbClass.php');
  */
 class QExec extends DBConn
 {
-    
+
     public function __construct()
     {
         $this->conn = new DBConn();
@@ -242,7 +242,7 @@ class QExec extends DBConn
             return $text;
         }
     }
-    
+
     /**
      * insertResultRace
      * This method insert the drivers result in the race day
@@ -288,7 +288,7 @@ class QExec extends DBConn
             return $text;
         }
     }
-        
+
     /**
      * insertPagelle
      * This method is used to insert the driver rating of three site
@@ -326,6 +326,147 @@ class QExec extends DBConn
             $text = $e->getMessage();
         } finally {
             return $text;
+        }
+    }
+
+    /**
+     * modRaceProno
+     * This method is used to modify your prono of the race
+     * @param  string $id_p is the name of the user
+     * @param  string $nome_gara is the name of the race
+     * @param  string $gp1 is the driver placed in first place in Race Day
+     * @param  string $gp2 is the driver placed in second place in Race Day
+     * @param  string $gp3 is the driver place in third place in Race Day
+     * @param  string $giroVeloce is the driver placed for the quick lap in Race Day
+     * @param  string $vsc is the value if the virtual safety car is entered or no
+     * @param  string $sc is the value if the safety car is entered or no
+     * @param  int $nRitirati is the number of retired pilots
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
+    public function modRaceProno(string $id_p, string $nome_gara, string $gp1, string $gp2, string $gp3, string $giroVeloce, string $vsc, string $sc, int $nRitirati): string
+    {
+        try {
+            $sql = "SELECT * from pronostici where id_p=:id_p and nome_gara=:nome_gara";
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->execute();
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+            if (!empty($result)) {
+                //aggiorna i dati
+                $sql = "UPDATE pronostici set gp1=:gp1,gp2=:gp2,gp3=:gp3, giro_veloce=:giro_veloce, n_ritirati=:n_ritirati, vsc=:VSC, sc=:SC where id_p=:id_p and nome_gara=:nome_gara";
+                $sth = $this->pdo->prepare($sql);
+                $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+                $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+                $sth->bindValue(':gp1', $gp1, PDO::PARAM_STR);
+                $sth->bindValue(':gp2', $gp2, PDO::PARAM_STR);
+                $sth->bindValue(':gp3', $gp3, PDO::PARAM_STR);
+                $sth->bindValue(':giro_veloce', $giroVeloce, PDO::PARAM_STR);
+                $sth->bindValue(':n_ritirati', $nRitirati, PDO::PARAM_INT);
+                $sth->bindValue(':VSC', $vsc, PDO::PARAM_STR);
+                $sth->bindValue(':SC', $sc, PDO::PARAM_STR);
+                $sth->execute();
+                $text = "I dati sono stati inseriti correttamente";
+            } else {
+                $text = "Non hai ancora inserito nessun pronostico";
+            }
+        } catch (PDOException $e) {
+            $text = $e->getMessage();
+        } finally {
+            return $text;
+        }
+    }
+
+    /**
+     * modQualyProno
+     * This method is used to modify your prono of the qualifying
+     * @param  string $id_p is the name of the user
+     * @param  string $nome_gara is the name of the race
+     * @param  string $qp1 is the driver placed in first place in Qualy Day
+     * @param  string $qp2 is the driver placed in second place in Qualy Day
+     * @param  string $qp3 is the driver placed in third place in Qualy Day
+     * @return string $text this string contains information if the entry was successful or 
+     * if you have already entered the predictions or possible error
+     */
+    public function modQualyProno(string $id_p, string $nome_gara, string $qp1, string $qp2, string $qp3): string
+    {
+        try {
+            $sql = "SELECT * from pronostici where id_p=:id_p and nome_gara=:nome_gara";
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+            $sth->execute();
+            $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+            //se é presente il pronostico
+            if (!empty($data)) {
+                //aggiorna i dati
+                $sql = "UPDATE pronostici set qp1=:qp1,qp2=:qp2,qp3=:qp3 where id_p=:id_p and nome_gara=:nome_gara";
+                $sth = $this->pdo->prepare($sql);
+                $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+                $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+                $sth->bindValue(':qp1', $qp1, PDO::PARAM_STR);
+                $sth->bindValue(':qp2', $qp2, PDO::PARAM_STR);
+                $sth->bindValue(':qp3', $qp3, PDO::PARAM_STR);
+                $sth->execute();
+                $text = "I dati sono stati inseriti correttamente";
+            } else {
+                $text = "Non hai ancora inserito nessun pronostico";
+            }
+        } catch (PDOException $e) {
+            $text = $e->getMessage();
+        } finally {
+            return $text;
+        }
+    }
+
+    /**
+     * loadPtProfile
+     * This method load the pt of all rankings of the user
+     * @param  string $id_p is the name of the user
+     * @return array $loadPt['error'] contain any possibile error, $loadPt['data'] contain the data of all rankings
+     */
+    public function loadPtProfile(string $id_p): array
+    {
+        $loadPt['error'] = null;
+        $loadPt['data'] = [];
+        try {
+            $sql = "SELECT id_p, SUM(punti) as puntiTot, SUM(punti_pag) as puntiPag, SUM(punti_pron) as puntiPron from pronostici where id_p= :id_p GROUP BY id_p";
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+            $sth->execute();
+            $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $loadPt['data'] = $data;
+        } catch (Exception $ex) {
+            $loadPt['error'] = $ex->getMessage();
+        } finally {
+            return $loadPt;
+        }
+    }
+
+    /**
+     * loadPronoByRaceByUser
+     * This method load the prono by race and by user
+     * @param  string $id_p the name of the user
+     * @param  string $nome_gara the name of the race
+     * @return array $loadCurrentProno['error'] contain any possibile error, $loadCurrentProno['data'] contain the data of the current prono of race and qualy
+     */
+    public function loadPronoByRaceByUser(string $id_p, string $nome_gara): array
+    {
+        $loadCurrentProno['error'] = null;
+        $loadCurrentProno['data'] = [];
+        try {
+            $sql = "SELECT * from pronostici where id_p=:id_p and nome_gara=:nome_gara";
+            $sth = $this->pdo->prepare($sql);
+            $sth->bindValue(':id_p', $id_p, PDO::PARAM_STR);
+            $sth->bindValue(':nome_gara', $nome_gara, PDO::PARAM_STR);
+            $sth->execute();
+            $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $loadCurrentProno['data'] = $data;
+        } catch (Exception $e) {
+            $loadCurrentProno['error'] = $e->getMessage();
+        } finally {
+            return $loadCurrentProno;
         }
     }
 }
