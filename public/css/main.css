@@ -1,0 +1,209 @@
+.row {
+  flex-wrap: nowrap !important;
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@font-face {
+  font-family: "Kinn";
+  src: url(fonts/Kinn-Book.woff2), url(fonts/Kinn-Book.woff),
+    url(fonts/Kinn-Book.ttf), url(fonts/Kinn-Book.otf);
+}
+
+@font-face {
+  font-family: "Digital-7";
+  src: url(fonts/digital-7.ttf);
+}
+
+*:not(span) {
+  margin: 0;
+  padding: 0;
+  font-family: "Kinn";
+}
+
+.text_modpron {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  color: white;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: white;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.bg-light {
+  background-color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  padding: 10px 32px;
+  transition: background-color 0.3s linear, color 0.3s linear;
+}
+.navbar-light .navbar-brand {
+  color: white;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: black;
+  background-color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: black;
+  background-color: white;
+}
+.navbar-light .navbar-brand:hover {
+  color: white;
+}
+/* SHADOW SOTTO LA BARRA */
+.shadow {
+  box-shadow: 0 1.1rem 1rem rgba(0, 0, 0, 1) !important;
+  z-index: 100;
+}
+
+/* TIMER */
+.timer_quali {
+  position: relative;
+  left: 4%;
+  top: 60px;
+  width: 500px;
+}
+
+.timer_gara {
+  position: relative;
+  left: 4%;
+  margin-top: 70px;
+  width: 500px;
+}
+
+.timer {
+  font-family: "Digital-7" !important;
+  font-size: 22px;
+  color: white;
+}
+
+.timer_gara,
+.timer_quali {
+  font-size: 22px;
+  padding: 8px;
+  height: auto;
+  color: white;
+}
+
+.timer span:nth-child(1),
+.timer span:nth-child(2),
+.timer span:nth-child(3),
+.timer span:nth-child(4) {
+  font-size: 56px;
+  margin-right: 8%;
+  padding-right: 8px;
+  margin-left: 2%;
+  margin-top: 3%;
+}
+
+.type span {
+  padding-top: 15px;
+  font-family: "Digital-7" !important;
+}
+
+h3 {
+  color: white;
+}
+
+@media (max-width: 575.98px) {
+  .timer_quali {
+    width: 250px;
+    height: 150px;
+    left: 12%;
+  }
+  .timer_gara {
+    width: 250px;
+    height: 150px;
+    left: 12%;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+  .timer span:nth-child(1),
+  .timer span:nth-child(2),
+  .timer span:nth-child(3),
+  .timer span:nth-child(4) {
+    font-size: 32px;
+    margin-right: 0 !important;
+    padding-right: 8px;
+    margin-left: 2%;
+    margin-top: 3%;
+  }
+  .type span {
+    font-size: 16px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 575.98px) {
+  .timer_quali {
+    width: 250px;
+    height: 150px;
+    left: 12%;
+  }
+  .timer_gara {
+    width: 250px;
+    height: 150px;
+    left: 12%;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+  .timer span:nth-child(1),
+  .timer span:nth-child(2),
+  .timer span:nth-child(3),
+  .timer span:nth-child(4) {
+    font-size: 32px;
+    margin-right: 0 !important;
+    padding-right: 8px;
+    margin-left: 2%;
+    margin-top: 3%;
+  }
+  .type span {
+    font-size: 16px;
+  }
+}
+
+.btn-modal-chart {
+  background: transparent
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
+    center/1em auto no-repeat;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #e9ecef;
+}
+
+.textProfile {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.classAlert {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}

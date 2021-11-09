@@ -1,37 +1,65 @@
-# Aggiornamenti fatti
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-- Cambiare UI al profilo (25/06/2021)
-- non permettere di poter mettere uno stesso pilota in piu campi nei pronostici/mod pronostici (29/06/2021)
-- mettere visibile solo il gp attuale nell'inserimento dei pronostici (30/06/2021)
-- aggiungere controlli sugli input nei pronostici/mod pronostici (29/06/2021)
-- creare funzione per controllo input (controllare tipo ed esistenza di input) (29/06/2021 aggiunto tramite js)
-- semplificare query della classifica (27/06/2021)
-- aggiungere controllo stesso pilota, lato php (30/06/2021)
-- eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
-- aggiornare UI della homepage (24/08/2021)
-- cambiare tutte le connessioni con PDO
-- aggiunta classe per la connessione DB (27/10/2021)
-- aggiunta classe per la gestione del login (27/10/2021)
-- aggiunta classe per la gestione dei driver (28/10/2021)
-- aggiunta classe per la gestione delle gare (28/10/2021)
-- aggiunta classe per l'esecuzione delle query (28/10/2021)
-- aggiunta classe per la gestione dei Form (28/10/2021)
-- aggiunti alert per la visualizzazione degli errori e dei successi (28/10/2021)
-- riscritti usando le classi, metodi per aggiornare i pronostici gara/qualifica (01/11/2021)
-- aggiunta funzione per trovare la gara corrente (01/11/2021)
-- adesso il riepilogo del profilo si auto-aggiorna con la gara corrente (01/11/2021)
-- riscritto usando le classi, metodo per visualizzare i punti delle classifiche nella pagina profilo (01/11/2021)
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
+## About Laravel
 
-# Aggiornamenti da fare
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- Ottimizzare le varie pagine, cercando di rimuovere piu codice php possibile delle varie pagine di visualizzazione
-- ottimizzare il codice backend di tutte le pagine
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-# Aggiornamenti a PDO mancanti
+## Learning Laravel
 
-- chart.php
-- load_classifica.php
-- map.php
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[CMS Max](https://www.cmsmax.com/)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
