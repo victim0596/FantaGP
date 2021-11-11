@@ -9,7 +9,6 @@
 - aggiungere controllo stesso pilota, lato php (30/06/2021)
 - eliminare pagina punteggi e sostituirla con la pagina statistiche (17/08/2021)
 - aggiornare UI della homepage (24/08/2021)
-- cambiare tutte le connessioni con PDO
 - aggiunta classe per la connessione DB (27/10/2021)
 - aggiunta classe per la gestione del login (27/10/2021)
 - aggiunta classe per la gestione dei driver (28/10/2021)
@@ -24,6 +23,7 @@
 - riscritto sito in Laravel (09/11/2021)
 - Ottimizzare le varie pagine, cercando di rimuovere piu codice php possibile delle varie pagine di visualizzazione (09/11/2021)
 - ottimizzare il codice backend di tutte le pagine (09/11/2021)
+- creati file config con all'interno costanti (11/11/2021)
 
 
 # Aggiornamenti da fare
