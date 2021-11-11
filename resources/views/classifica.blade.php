@@ -512,7 +512,7 @@
     addData(chart_dario, values);
 
     /*script gianpaolo*/
-    var elem_gianpaolo = <?= $Gianpaolo ?>;
+    var elem_gianpaolo = <?= $gianpaolo ?>;
     var values1 = elem_gianpaolo.map(function(e) {
       return e.punti;
     });
@@ -572,7 +572,7 @@
     });
     addData(chart_toto, values5);
     /*script pino*/
-    var elem_pino = <?= $Pino ?>;
+    var elem_pino = <?= $pinguinoSquadracorse ?>;
     var values6 = elem_pino.map(function(e) {
       return e.punti;
     });
@@ -608,7 +608,7 @@
     });
     addData(chart_alessioc, values8);
     /*script alessioD*/
-    var elem_alessiod = <?= $AlessioDom ?>;
+    var elem_alessiod = <?= $alessiodom97 ?>;
     var values9 = elem_alessiod.map(function(e) {
       return e.punti;
     });
