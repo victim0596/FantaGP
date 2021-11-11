@@ -24,7 +24,7 @@ class StatisticheController extends Controller
 
     function loadStat()
     {
-        $dataPronDB = PronosticiModel::orderBy('id_p', 'ASC')->orderBy('nome_gara', 'ASC')->get();
+        $dataPronDB = PronosticiModel::whereRaw('punti IS NOT NULL')->orderBy('id_p', 'ASC')->orderBy('nome_gara', 'ASC')->get();
         $dataPron = $dataPronDB->values()->all();
         $dataPronLength = count($dataPron);
         $num_row = $dataPronLength/10;
