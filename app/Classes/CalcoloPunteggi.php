@@ -6,6 +6,10 @@ use Exception;
 
 class CalcoloPunteggi
 {
+    public function __construct()
+    {
+        $this->pt = config('valPunteggi');
+    }
 
     function calcoloPtPronostici(string $nome_gara, string $nome_utente): int
     {
@@ -41,60 +45,60 @@ class CalcoloPunteggi
         $vsc_risultati = $dataResult['data']['VSC'];
         //calcolo punti qualifiche
         if ($qualifica1 == $qualifica1_risultati && !empty($qualifica1)) {
-            $punti = $punti + 10;
+            $punti = $punti + $this->pt['qp1PT'];
         }
 
         if ($qualifica2 == $qualifica2_risultati && !empty($qualifica2)) {
-            $punti = $punti + 8;
+            $punti = $punti + $this->pt['qp2PT'];
         }
 
         if ($qualifica3 == $qualifica3_risultati && !empty($qualifica3)) {
-            $punti = $punti + 5;
+            $punti = $punti + $this->pt['qp3PT'];
         }
 
         if ($qualifica1 == $qualifica1_risultati && $qualifica2 == $qualifica2_risultati && $qualifica3 == $qualifica3_risultati && !empty($qualifica1) && !empty($qualifica2) && !empty($qualifica3)) {
-            $punti = $punti + 10;
+            $punti = $punti + $this->pt['ALLqualyPT'];
         }
 
         //calcolo punti gara
         if ($gara1 == $gara1_risultati && !empty($gara1)) {
-            $punti = $punti + 15;
+            $punti = $punti + $this->pt['gp1PT'];
         }
 
         if ($gara2 == $gara2_risultati && !empty($gara2)) {
-            $punti = $punti + 10;
+            $punti = $punti + $this->pt['gp2PT'];
         }
 
         if ($gara3 == $gara3_risultati && !empty($gara3)) {
-            $punti = $punti + 8;
+            $punti = $punti + $this->pt['gp3PT'];
         }
 
         if ($gara1 == $gara1_risultati && $gara2 == $gara2_risultati && $gara3 == $gara3_risultati && !empty($gara1) && !empty($gara2) && !empty($gara3)) {
-            $punti = $punti + 20;
+            $punti = $punti + $this->pt['ALLracePT'];
         }
 
         //calcolo punti giro veloce
         if ($giroveloce == $giroveloce_risultati && !empty($giroveloce)) {
-            $punti = $punti + 20;
+            $punti = $punti + $this->pt['fastLapPT'];
         }
 
         //calcolo punti n_rit
         if ($nrit == $nrit_risultati && isset($nrit) && ($nrit === '0' || !empty($nrit))) {
-            $punti = $punti + 25;
+            $punti = $punti + $this->pt['retiredPT'];
         }
 
         //calcolo punti vsc e sc
         if (!empty($sc) && !empty($vsc)) {
             if ($sc == $sc_risultati) {
-                $punti = $punti + 5;
+                $punti = $punti + $this->pt['scPT'];
             } else {
-                $punti = $punti - 2;
+                $punti = $punti + $this->pt['scMalusPT'];
             }
 
             if ($vsc == $vsc_risultati) {
-                $punti = $punti + 3;
+                $punti = $punti + $this->pt['vscPT'];
             } else {
-                $punti = $punti - 1;
+                $punti = $punti + $this->pt['vscMalusPT'];
             }
         }
         return $punti;
@@ -241,25 +245,25 @@ class CalcoloPunteggi
         $retiredPilot1 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver1, 'Qualifica');
         if ($retiredPilot1['error'] != null) throw new Exception($retiredPilot1['error']);
         if (!empty($retiredPilot1['data'])) {
-            $media_scuderia = $media_scuderia - 5;
+            $media_scuderia = $media_scuderia + $this->pt['retiredDriverQ'];
         }
         //query pilota 2 ritirato qualifica
         $retiredPilot2 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver2, 'Qualifica');
         if ($retiredPilot2['error'] != null) throw new Exception($retiredPilot2['error']);
         if (!empty($retiredPilot2['data'])) {
-            $media_scuderia = $media_scuderia - 5;
+            $media_scuderia = $media_scuderia + $this->pt['retiredDriverQ'];
         }
         //query pilota 1 ritirato gara
         $retiredPilot1 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver1, 'Gara');
         if ($retiredPilot1['error'] != null) throw new Exception($retiredPilot1['error']);
         if (!empty($retiredPilot1['data'])) {
-            $media_scuderia = $media_scuderia - 10;
+            $media_scuderia = $media_scuderia + $this->pt['retiredDriverR'];
         }
         //query pilota 2 ritirato gara
         $retiredPilot2 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver2, 'Gara');
         if ($retiredPilot2['error'] != null) throw new Exception($retiredPilot2['error']);
         if (!empty($retiredPilot2['data'])) {
-            $media_scuderia = $media_scuderia - 10;
+            $media_scuderia = $media_scuderia + $this->pt['retiredDriverR'];
         }
         //calcolo punti
         $punti = $media_pilota1 + $media_pilota2 + $media_scuderia;
