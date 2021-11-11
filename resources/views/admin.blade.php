@@ -18,7 +18,7 @@
 
   <!----NAVBAR --->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand" href="/">
       <img src="/element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
     </button>
     <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="">Home</a>
         <a class="nav-link" href="/classifica">Classifica</a>
         <a class="nav-link" href="/statistiche">Statistiche</a>
         <a class="nav-link" href="/pronostici">Pronostici</a>
