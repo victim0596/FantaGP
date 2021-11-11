@@ -33,7 +33,7 @@ class QExec
             $result = LoginModel::where('username', $usernameInput)->first();
             if (!empty($result)) {
                 $password = $result->password;
-                $salt = "0x618f0554f66153b508be1813c76c26bb";
+                $salt = config('myGlobalVar.salt');
                 $psw_salted = hash_hmac("sha256", $passwordInput, $salt);
                 if (password_verify($psw_salted, $password)) {
                     return true;

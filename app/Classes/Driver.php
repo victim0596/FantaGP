@@ -29,10 +29,7 @@ class Driver
      */
     public function isValidDriver(): bool
     {
-        $arrayDriver = [
-            "Hamilton", "Bottas", "Verstappen", "Perez", "Sainz", "Leclerc", "Ricciardo", "Norris", "Alonso", "Ocon",
-            "Giovinazzi", "Raikkonen", "Gasly", "Tsunoda", "Russell", "Latifi", "Mazepin", "Schumacher", "Vettel", "Stroll"
-        ];
+        $arrayDriver = config('myGlobalVar.driver');
         if (preg_match("/^[a-z]*$/i", $this->driver) != 1) {
             return false;
         } else {
