@@ -178,15 +178,15 @@ class FormCheck
                 $checkPagelle['boolValue'] = false;
                 $checkPagelle['error'] = "Nome del pilota non valido";
             }
-            if (preg_match("/^[0-9](\.(0|5)+)?$/", $sito1) != 1) {
+            if (preg_match("/^([0-9]|10)$|^([0-9]\.[5])$/", $sito1) != 1) {
                 $checkPagelle['boolValue'] = false;
                 $checkPagelle['error'] = "Voto non valido (0-10)";
             }
-            if (preg_match("/^[0-9](\.(0|5)+)?$/", $sito2) != 1) {
+            if (preg_match("/^([0-9]|10)$|^([0-9]\.[5])$/", $sito2) != 1) {
                 $checkPagelle['boolValue'] = false;
                 $checkPagelle['error'] = "Voto non valido (0-10)";
             }
-            if (preg_match("/^[0-9](\.(0|5)+)?$/", $sito3) != 1) {
+            if (preg_match("/^([0-9]|10)$|^([0-9]\.[5])$/", $sito3) != 1) {
                 $checkPagelle['boolValue'] = false;
                 $checkPagelle['error'] = "Voto non valido (0-10)";
             }
