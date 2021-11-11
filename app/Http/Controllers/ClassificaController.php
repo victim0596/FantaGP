@@ -12,6 +12,7 @@ class ClassificaController extends Controller
 
     function show(Request $request)
     {
+        $utenti = config('myGlobalVar.utenti');
         $sessionUser = $request->session()->get('user');
         $qExec = new QExec();
         $dataClassifiche = $qExec->loadClassifiche();
@@ -63,65 +64,32 @@ class ClassificaController extends Controller
             'nonoPg' => $arrayClassificaPagelleKey[8], 'nonoPgPt' => $arrayClassificaPagelleValue[8],
             'decimoPg' => $arrayClassificaPagelleKey[9], 'decimoPgPt' => $arrayClassificaPagelleValue[9],
             /* chart data */
-            'Dario' => $chartData['Dario'],
-            'Oliver' => $chartData['Oliver'],
-            'Andrea' => $chartData['Andrea'],
-            'Ermenegildo' => $chartData['Ermenegildo'],
-            'Toto' => $chartData['Toto'],
-            'Gianpaolo' => $chartData['Gianpaolo'],
-            'AlessioDom' => $chartData['AlessioDom'],
-            'Ciccio' => $chartData['Ciccio'],
-            'SpiritoBlu' => $chartData['SpiritoBlu'],
-            'Pino' => $chartData['Pino']
+            $utenti[0] => $chartData[$utenti[0]],
+            $utenti[1] => $chartData[$utenti[1]],
+            $utenti[2] => $chartData[$utenti[2]],
+            $utenti[3] => $chartData[$utenti[3]],
+            $utenti[4] => $chartData[$utenti[4]],
+            $utenti[5] => $chartData[$utenti[5]],
+            $utenti[6] => $chartData[$utenti[6]],
+            $utenti[7] => $chartData[$utenti[7]],
+            $utenti[8] => $chartData[$utenti[8]],
+            $utenti[9] => $chartData[$utenti[9]]
         ]);
     }
 
     function loadChart()
     {
         $data = PronosticiModel::select('id_p', 'punti', 'punti_pron', 'punti_pag')->get();
-
-        $filterDario = $data->filter(function ($item) {
-            return stripos($item->id_p, "Dario") !== false;
-        });
-        $filterGianpaolo = $data->filter(function ($item) {
-            return stripos($item->id_p, "Gianpaolo") !== false;
-        });
-        $filterOliver = $data->filter(function ($item) {
-            return stripos($item->id_p, "Oliver") !== false;
-        });
-        $filterErmenegildo = $data->filter(function ($item) {
-            return stripos($item->id_p, "Ermenegildo") !== false;
-        });
-        $filterAlessioDom = $data->filter(function ($item) {
-            return stripos($item->id_p, "alessiodom97") !== false;
-        });
-        $filterSpiritoBlu = $data->filter(function ($item) {
-            return stripos($item->id_p, "SpiritoBlu") !== false;
-        });
-        $filterPinguinoSquadracorse = $data->filter(function ($item) {
-            return stripos($item->id_p, "PinguinoSquadracorse") !== false;
-        });
-        $filterAndrea = $data->filter(function ($item) {
-            return stripos($item->id_p, "Andrea") !== false;
-        });
-        $filterToto = $data->filter(function ($item) {
-            return stripos($item->id_p, "Toto") !== false;
-        });
-        $filterCiccio = $data->filter(function ($item) {
-            return stripos($item->id_p, "Ciccio") !== false;
-        });
-
-        $arrayJson['Dario'] = json_encode($filterDario->values()->all());
-        $arrayJson['Gianpaolo'] = json_encode($filterGianpaolo->values()->all());
-        $arrayJson['Oliver'] = json_encode($filterOliver->values()->all());
-        $arrayJson['Ermenegildo'] = json_encode($filterErmenegildo->values()->all());
-        $arrayJson['AlessioDom'] = json_encode($filterAlessioDom->values()->all());
-        $arrayJson['Pino'] = json_encode($filterPinguinoSquadracorse->values()->all());
-        $arrayJson['Andrea'] = json_encode($filterAndrea->values()->all());
-        $arrayJson['Toto'] = json_encode($filterToto->values()->all());
-        $arrayJson['SpiritoBlu'] = json_encode($filterSpiritoBlu->values()->all());
-        $arrayJson['Ciccio'] = json_encode($filterCiccio->values()->all());
-
+        $filterArr = [];
+        $utenti = config('myGlobalVar.utenti');
+        foreach ($utenti as $itemUtenti) {
+            $filterArr[$itemUtenti] = $data->filter(function ($value) use ($itemUtenti) {
+                return stripos($value->id_p, $itemUtenti) !== false;
+            });
+        }
+        foreach ($utenti as $utentiItem) {
+            $arrayJson[$utentiItem] = json_encode($filterArr[$utentiItem]->values()->all());
+        }
         return $arrayJson;
     }
 }
