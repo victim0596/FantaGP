@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Class\QExec;
+use App\Classes\QExec;
 use App\Models\PronosticiModel;
 use Illuminate\Http\Request;
 

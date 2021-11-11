@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Class\QExec;
-use App\Models\Class\FormCheck;
-use App\Models\Class\CalcoloPunteggi;
+use App\Classes\QExec;
+use App\Classes\FormCheck;
+use App\Classes\CalcoloPunteggi;
 use Exception;
 
 class AdminController extends Controller

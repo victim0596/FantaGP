@@ -1,7 +1,8 @@
 <?php
 
 
-namespace App\Models\Class;
+namespace App\Classes;
+
 
 /**
  * Driver
@@ -30,7 +31,7 @@ class Driver
     {
         $arrayDriver = [
             "Hamilton", "Bottas", "Verstappen", "Perez", "Sainz", "Leclerc", "Ricciardo", "Norris", "Alonso", "Ocon",
-            "Giovinazzi", "Raikkonen", "Gasly", "Tsunoda", "Russel", "Latifi", "Mazepin", "Schumacher", "Vettel", "Stroll"
+            "Giovinazzi", "Raikkonen", "Gasly", "Tsunoda", "Russell", "Latifi", "Mazepin", "Schumacher", "Vettel", "Stroll"
         ];
         if (preg_match("/^[a-z]*$/i", $this->driver) != 1) {
             return false;

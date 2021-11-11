@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Class\LoginAuth;
-use App\Models\Class\QExec;
+use App\Classes\LoginAuth;
+use App\Classes\QExec;
 use Exception;
 use Illuminate\Http\Request;
 

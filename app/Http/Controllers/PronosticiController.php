@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
-use App\Models\Class\Time;
-use App\Models\Class\FormCheck;
-use App\Models\Class\QExec;
+use App\Classes\Time;
+use App\Classes\FormCheck;
+use App\Classes\QExec;
 
 class PronosticiController extends Controller
 {

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Models\Class;
+namespace App\Classes;
+
 
 use App\Models\LoginModel;
 use App\Models\PagelleModel;
