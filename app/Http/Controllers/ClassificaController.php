@@ -11,7 +11,6 @@ class ClassificaController extends Controller
 
     function show(Request $request)
     {
-        $utenti = config('myGlobalVar.utenti');
         $sessionUser = $request->session()->get('user');
         $qExec = new QExec();
         $dataClassifiche = $qExec->loadClassifiche();
