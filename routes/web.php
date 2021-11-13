@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\sessionUserValid;
 use App\Http\Middleware\sessionAdmin;
 use App\Http\Middleware\sessionValidProno;
+use App\Models\PronosticiModel;
 
 
 /*
@@ -52,8 +53,15 @@ Route::post('/admin/CalcolaPunteggi', [AdminController::class, 'CalcolaPunteggi'
 Route::post('/admin/addPagelle', [AdminController::class, 'addPagelle'])->middleware(sessionAdmin::class);
 
 
+Route::get('/prono/{utente}/{gara}', function(string $utente, string $gara){
+    $date = PronosticiModel::where('id_p', $utente)->where('nome_gara', $gara)->first();
+    return response()->json($date);
+});
 
-
+Route::get('/pronoAllClassifica/{utente}', function(string $utente){
+    $date = PronosticiModel::select('id_p', 'punti', 'punti_pron', 'punti_pag')->where('id_p', $utente)->get()->values()->all();
+    return response()->json($date);
+});
 
 
 

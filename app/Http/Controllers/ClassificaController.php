@@ -27,7 +27,6 @@ class ClassificaController extends Controller
             $arrayClassificaGeneraleValue = array_values($dataClassifiche['dataGen']);
             $arrayClassificaGeneraleKey = array_keys($dataClassifiche['dataGen']);
         }
-        $chartData = $this->loadChart();
         return view('classifica', [
             'sessionUser' => $sessionUser,
             /*classifica generale*/
@@ -62,34 +61,7 @@ class ClassificaController extends Controller
             'settimoPg' => $arrayClassificaPagelleKey[6], 'settimoPgPt' => $arrayClassificaPagelleValue[6],
             'ottavoPg' => $arrayClassificaPagelleKey[7], 'ottavoPgPt' => $arrayClassificaPagelleValue[7],
             'nonoPg' => $arrayClassificaPagelleKey[8], 'nonoPgPt' => $arrayClassificaPagelleValue[8],
-            'decimoPg' => $arrayClassificaPagelleKey[9], 'decimoPgPt' => $arrayClassificaPagelleValue[9],
-            /* chart data */
-            $utenti[0] => $chartData[$utenti[0]],
-            $utenti[1] => $chartData[$utenti[1]],
-            $utenti[2] => $chartData[$utenti[2]],
-            $utenti[3] => $chartData[$utenti[3]],
-            $utenti[4] => $chartData[$utenti[4]],
-            $utenti[5] => $chartData[$utenti[5]],
-            $utenti[6] => $chartData[$utenti[6]],
-            $utenti[7] => $chartData[$utenti[7]],
-            $utenti[8] => $chartData[$utenti[8]],
-            $utenti[9] => $chartData[$utenti[9]]
+            'decimoPg' => $arrayClassificaPagelleKey[9], 'decimoPgPt' => $arrayClassificaPagelleValue[9]
         ]);
-    }
-
-    function loadChart()
-    {
-        $data = PronosticiModel::select('id_p', 'punti', 'punti_pron', 'punti_pag')->get();
-        $filterArr = [];
-        $utenti = config('myGlobalVar.utenti');
-        foreach ($utenti as $itemUtenti) {
-            $filterArr[$itemUtenti] = $data->filter(function ($value) use ($itemUtenti) {
-                return stripos($value->id_p, $itemUtenti) !== false;
-            });
-        }
-        foreach ($utenti as $utentiItem) {
-            $arrayJson[$utentiItem] = json_encode($filterArr[$utentiItem]->values()->all());
-        }
-        return $arrayJson;
     }
 }
