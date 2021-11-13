@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Classes\QExec;
-use App\Models\PronosticiModel;
 use Illuminate\Http\Request;
 
 class ClassificaController extends Controller
