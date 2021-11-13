@@ -114,7 +114,7 @@ var values3;
 var values_pron3;
 var values_pag3;
 
-fetch('http://127.0.0.1:8000/pronoAllClassifica/Oliver')
+fetch('http://127.0.0.1:8000/pronoAllClassifica/Ciccio')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -149,7 +149,7 @@ var values4;
 var values_pron4;
 var values_pag4;
 
-fetch('http://127.0.0.1:8000/pronoAllClassifica/SpiritoBlue')
+fetch('http://127.0.0.1:8000/pronoAllClassifica/SpiritoBlu')
   .then(
     function(response) {
       if (response.status !== 200) {
