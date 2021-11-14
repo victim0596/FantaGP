@@ -3,7 +3,7 @@ var elem_dario;
 var values;
 var values_pron;
 var values_pag;
-fetch('http://127.0.0.1:8000/pronoAllClassifica/Dario')
+fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Dario')
   .then(
     function(response) {
       if (response.status !== 200) {
