@@ -29,7 +29,7 @@ class Race {
     public function isValidRace(): bool
     {
         $arrayRace = config('myGlobalVar.race');
-        if (preg_match("/^[a-z]*$/i", $this->nomeGara) != 1) {
+        if (preg_match("/^[a-z\s]*$/i", $this->nomeGara) != 1) {
             return false;
         } else {
             if(in_array($this->nomeGara, $arrayRace)) return true;
