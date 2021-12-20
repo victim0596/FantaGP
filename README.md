@@ -26,7 +26,17 @@
 - creati file config con all'interno costanti (11/11/2021)
 
 
-# Aggiornamenti da fare
+# Aggiornamenti da fare per stagione 2022
+
+- Aggiungere colonna data nella tabella pronostici per controllare l'inserimento dei pronostici
+- Aggiungere altre funzioni di controllo nella pagina admin per controllare
+    - Aggiungere funzione per controllare se un'utente ha aggiunto un pronostico per gara
+    - Aggiungere funzione per controllare i ritirati della gara attuale
+    - Aggiungere funzione per controllare i punteggi degli utenti della gara attuale
+    - Aggiungere funzione per controllare i risultati della gara attuale
+    - Aggiungere funzione per controllare le pagelle della gara attuale
+- Aggiungere sezione controllo nella pagina admin il quale conterrá le funzioni del punto precedente
+
 
 
 
