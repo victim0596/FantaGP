@@ -13,11 +13,12 @@ use Exception;
 class ProfiloController extends Controller
 {
 
-    function show(Request $request, string $messageNotification = "")
+    function show(Request $request)
     {
         $sessionUser = $request->session()->get('user');
         $detailPt = $this->PtProfilo($sessionUser);
         $detailRiepilogo = $this->riepilogoPronostici($sessionUser);
+        $messageNotification = $request->query('status');
         if (!empty($detailRiepilogo['text'])) $messageNotification = $detailRiepilogo['text'];
         else {
             if (!empty($detailPt['text'])) $messageNotification = $detailPt['text'];
@@ -107,8 +108,10 @@ class ProfiloController extends Controller
             } else $text = "Tempo limite superato";
         } catch (Exception $ex) {
             $text = $ex->getMessage();
-        } finally {
-            return $this->show($request, $text);
+        } finally {           
+            return redirect()->action(
+                [ProfiloController::class, 'show'], ['status' => $text]
+            );
         }
     }
 
@@ -136,8 +139,9 @@ class ProfiloController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
-        }
+            return redirect()->action(
+                [ProfiloController::class, 'show'], ['status' => $text]
+            );        }
     }
 
     function logout(Request $request)

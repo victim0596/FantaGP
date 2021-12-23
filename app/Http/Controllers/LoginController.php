@@ -13,12 +13,13 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
 
-    function show(Request $request, string $text = "")
+    function show(Request $request)
     {
         $sessionUser = $request->session()->get('user');
+        $messageNotification = $request->query('status');
         if (isset($sessionUser)) {
             return redirect()->to('/');
-        } else return view('login', ['text' => $text]);
+        } else return view('login', ['text' => $messageNotification]);
     }
 
     function showPost(Request $request)
@@ -38,13 +39,16 @@ class LoginController extends Controller
                 if (!$loginAuth)  $text = "Dati errati";
                 else {
                     $request->session()->put('user', $n_ut_input);
-                    if(in_array($n_ut_input,config('myGlobalVar.admin'))) $request->session()->put('admin', 1);
+                    if (in_array($n_ut_input, config('myGlobalVar.admin'))) $request->session()->put('admin', 1);
                     return redirect()->to('/profilo');
                 }
             } else $text = $loginCheck['error'];
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         }
-        return $this->show($request, $text); 
+        return redirect()->action(
+            [LoginController::class, 'show'],
+            ['status' => $text]
+        );
     }
 }

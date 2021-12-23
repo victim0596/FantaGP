@@ -12,10 +12,11 @@ use Exception;
 class AdminController extends Controller
 {
 
-    function show(Request $request, string $messageNotification = "")
+    function show(Request $request)
     {
         $sessionUser = $request->session()->get('user');
         $detailPt = ProfiloController::PtProfilo($sessionUser);
+        $messageNotification = $request->query('status');
         if (!empty($detailPt['text'])) $messageNotification = $detailPt['text'];
         return view('admin', [
             'sessionUser' => $sessionUser, 'textPtTotali' => $detailPt['puntiTot'], 'textPtPron' => $detailPt['puntiPron'], 'textPtPag' => $detailPt['puntiPag'], 'text' => $messageNotification
@@ -41,7 +42,10 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [AdminController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 
@@ -62,7 +66,10 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [AdminController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 
@@ -86,7 +93,10 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [AdminController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 
@@ -108,7 +118,10 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [AdminController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 
@@ -131,7 +144,10 @@ class AdminController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [AdminController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 }

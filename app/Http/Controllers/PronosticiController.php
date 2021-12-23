@@ -12,9 +12,10 @@ use App\Classes\QExec;
 class PronosticiController extends Controller
 {
 
-    function show(Request $request, string $messageNotification = "")
+    function show(Request $request)
     {
         $sessionUser = $request->session()->get('user');
+        $messageNotification = $request->query('status');
         if (isset($sessionUser)) {
             return view('pronostici', ['sessionUser' => $sessionUser, 'text' => $messageNotification]);
         } else {
@@ -44,7 +45,10 @@ class PronosticiController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [PronosticiController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 
@@ -74,7 +78,10 @@ class PronosticiController extends Controller
         } catch (Exception $ex) {
             $text = $ex->getMessage();
         } finally {
-            return $this->show($request, $text);
+            return redirect()->action(
+                [PronosticiController::class, 'show'],
+                ['status' => $text]
+            );
         }
     }
 }
