@@ -9,12 +9,12 @@ var lenght = document.getElementsByClassName("divider").length;
 document.getElementById("nomeSquadra").innerHTML = nomeUtente.toUpperCase();
 
 if (nomeUtente == "oliver") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/RedBull.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/RedBull.jpg";
     pilota1 = "Gasly";
     pilota2 = "Giovinazzi";
     scuderia = "RedBull";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -23,12 +23,12 @@ if (nomeUtente == "oliver") {
     }
 }
 if (nomeUtente == "ciccio") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Mercedes.png";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Mercedes.png";
     pilota1 = "Raikkonen";
     pilota2 = "Alonso";
     scuderia = "Mercedes";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -37,12 +37,12 @@ if (nomeUtente == "ciccio") {
     }
 }
 if (nomeUtente == "andrea") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Aston.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Aston.jpg";
     pilota1 = "Russell";
     pilota2 = "Schumacher";
     scuderia = "Aston Martin";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -51,12 +51,12 @@ if (nomeUtente == "andrea") {
     }
 }
 if (nomeUtente == "toto") {
-    body.style.backgroundImage = "url(//img/scuderie/scuderieProfilo/Haas.jpg";
+    body.style.backgroundImage = "url(.//img/scuderie/scuderieProfilo/Haas.jpg";
     pilota1 = "Verstappen";
     pilota2 = "Stroll";
     scuderia = "Haas";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -65,12 +65,12 @@ if (nomeUtente == "toto") {
     }
 }
 if (nomeUtente == "dario") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Mclaren.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Mclaren.jpg";
     pilota1 = "Tsunoda";
     pilota2 = "Ocon";
     scuderia = "Mclaren";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -79,12 +79,12 @@ if (nomeUtente == "dario") {
     }
 }
 if (nomeUtente == "gianpaolo") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Alpine.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Alpine.jpg";
     pilota1 = "Leclerc";
     pilota2 = "Bottas";
     scuderia = "Alpine";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -93,12 +93,12 @@ if (nomeUtente == "gianpaolo") {
     }
 }
 if (nomeUtente == "spiritoblu") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Ferrari.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Ferrari.jpg";
     pilota1 = "Sainz";
     pilota2 = "Vettel";
     scuderia = "Ferrari";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -107,12 +107,12 @@ if (nomeUtente == "spiritoblu") {
     }
 }
 if (nomeUtente == "pinguinosquadracorse") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Williams.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Williams.jpg";
     pilota1 = "Hamilton";
     pilota2 = "Mazepin";
     scuderia = "Williams";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -121,12 +121,12 @@ if (nomeUtente == "pinguinosquadracorse") {
     }
 }
 if (nomeUtente == "ermenegildo") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Alpha.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Alpha.jpg";
     pilota1 = "Ricciardo";
     pilota2 = "Latifi";
     scuderia = "Alpha Tauri";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;
@@ -135,12 +135,12 @@ if (nomeUtente == "ermenegildo") {
     }
 }
 if (nomeUtente == "alessiodom97") {
-    body.style.backgroundImage = "url(/img/scuderie/scuderieProfilo/Alfa.jpg";
+    body.style.backgroundImage = "url(./img/scuderie/scuderieProfilo/Alfa.jpg";
     pilota1 = "Norris";
     pilota2 = "Perez";
     scuderia = "Alfa Racing";
-    document.getElementById("pilotino1").setAttribute("src", "/img/piloti/" + pilota1 + ".png");
-    document.getElementById("pilotino2").setAttribute("src", "/img/piloti/" + pilota2 + ".png");
+    document.getElementById("pilotino1").setAttribute("src", "./img/piloti/" + pilota1 + ".png");
+    document.getElementById("pilotino2").setAttribute("src", "./img/piloti/" + pilota2 + ".png");
     document.getElementById("nomePilota1").innerHTML = pilota1;
     document.getElementById("nomePilota2").innerHTML = pilota2;
     document.getElementById("nomeScuderia").innerHTML = scuderia;

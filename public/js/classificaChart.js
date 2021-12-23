@@ -3,7 +3,7 @@ var elem_dario;
 var values;
 var values_pron;
 var values_pag;
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Dario')
+fetch('./api/pronoAllClassifica/Dario')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -40,7 +40,7 @@ var values1;
 var values_pron1;
 var values_pag1;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/gianpaolo')
+fetch('./api/pronoAllClassifica/gianpaolo')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -77,7 +77,7 @@ var values2;
 var values_pron2;
 var values_pag2;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Oliver')
+fetch('./api/pronoAllClassifica/Oliver')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -114,7 +114,7 @@ var values3;
 var values_pron3;
 var values_pag3;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Ciccio')
+fetch('./api/pronoAllClassifica/Ciccio')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -149,7 +149,7 @@ var values4;
 var values_pron4;
 var values_pag4;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/SpiritoBlu')
+fetch('./api/pronoAllClassifica/SpiritoBlu')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -182,7 +182,7 @@ var elem_toto;
 var values5;
 var values_pron5;
 var values_pag5;
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Toto')
+fetch('./api/pronoAllClassifica/Toto')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -216,7 +216,7 @@ var values6;
 var values_pron6;
 var values_pag6;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/pinguinosquadracorse')
+fetch('./api/pronoAllClassifica/pinguinosquadracorse')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -250,7 +250,7 @@ var values7;
 var values_pron7;
 var values_pag7;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Andrea')
+fetch('./api/pronoAllClassifica/Andrea')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -284,7 +284,7 @@ var values8;
 var values_pron8;
 var values_pag8;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/Ermenegildo')
+fetch('./api/pronoAllClassifica/Ermenegildo')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -318,7 +318,7 @@ var values9;
 var values_pron9;
 var values_pag9;
 
-fetch('http://127.0.0.1:8000/api/pronoAllClassifica/alessiodom97')
+fetch('./api/pronoAllClassifica/alessiodom97')
   .then(
     function(response) {
       if (response.status !== 200) {

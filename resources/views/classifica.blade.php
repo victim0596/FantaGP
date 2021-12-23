@@ -7,8 +7,8 @@
   <meta name="description" content="Sito per il fantaGP">
   <meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/main.css?n=1.01">
-  <link rel="stylesheet" href="/css/classifica.css?n=1.02">
+  <link rel="stylesheet" href="./css/main.css?n=1.01">
+  <link rel="stylesheet" href="./css/classifica.css?n=1.02">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />
 
@@ -18,21 +18,21 @@
 
   <!----NAVBAR --->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-    <a class="navbar-brand" href="/">
-      <img src="/element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top"></a>
+    <a class="navbar-brand" href="./">
+      <img src="./element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link active" href="/classifica">Classifica</a>
-        <a class="nav-link" href="/statistiche">Statistiche</a>
-        <a class="nav-link" href="/pronostici">Pronostici</a>
+        <a class="nav-link" href="./">Home</a>
+        <a class="nav-link active" href="./classifica">Classifica</a>
+        <a class="nav-link" href="./statistiche">Statistiche</a>
+        <a class="nav-link" href="./pronostici">Pronostici</a>
         <?php if (isset($sessionUser)) { ?>
-          <a class="nav-link" href="/profilo"><?= e($sessionUser); ?></a>
+          <a class="nav-link" href="./profilo"><?= e($sessionUser); ?></a>
         <?php } else { ?>
-          <a class="nav-link" href="/login">Login</a><?php } ?>
+          <a class="nav-link" href="./login">Login</a><?php } ?>
       </div>
     </div>
   </nav>
@@ -41,36 +41,36 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner" role="listbox">
 
-        <div class="carousel-item active" style="background-image: url(/img/img4.jpg)">
+        <div class="carousel-item active" style="background-image: url(./img/img4.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
 
-        <div class="carousel-item" style="background-image: url(/img/img3.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img3.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img2.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img2.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img1.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img1.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img5.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img5.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img6.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img6.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img7.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img7.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/img/img8.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img8.jpg)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -80,7 +80,7 @@
           <!-- Button Classifica generale -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificagenerale" id="class_gen">
             <div>
-              <img src="/img/class_1.jpg">
+              <img src="./img/class_1.jpg">
               <div>
                 <div>Classifica Generale</div>
               </div>
@@ -89,7 +89,7 @@
           <!-- Button Classifica Pagelle -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapagelle" id="class_pag">
             <div>
-              <img src="/img/class_2.jpg">
+              <img src="./img/class_2.jpg">
               <div>
                 <div>Classifica Pagelle</div>
               </div>
@@ -98,7 +98,7 @@
           <!-- Button Classifica Pronostici -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapronostici" id="class_pron">
             <div>
-              <img src="/img/class_3.jpg">
+              <img src="./img/class_3.jpg">
               <div>
                 <div>Classifica Pronostici</d>
                 </div>
@@ -127,37 +127,37 @@
                   <tbody>
                     <tr>
                       <th class="colonna" scope="row">1</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($primoG); ?>" name="chart<?= e($primoG); ?>"><img src="/element/chart.png"></button><?= e($primoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($primoG); ?>" name="chart<?= e($primoG); ?>"><img src="element/chart.png"></button><?= e($primoG); ?></td>
                       <td><?= e($primoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">2</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($secondoG); ?>" name="chart<?= e($secondoG); ?>"><img src="/element/chart.png"></button><?= e($secondoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($secondoG); ?>" name="chart<?= e($secondoG); ?>"><img src="element/chart.png"></button><?= e($secondoG); ?></td>
                       <td><?= e($secondoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">3</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($terzoG); ?>" name="chart<?= e($terzoG); ?>"><img src="/element/chart.png"></button><?= e($terzoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($terzoG); ?>" name="chart<?= e($terzoG); ?>"><img src="element/chart.png"></button><?= e($terzoG); ?></td>
                       <td><?= e($terzoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">4</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quartoG); ?>" name="chart<?= e($quartoG); ?>"><img src="/element/chart.png"></button><?= e($quartoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quartoG); ?>" name="chart<?= e($quartoG); ?>"><img src="element/chart.png"></button><?= e($quartoG); ?></td>
                       <td><?= e($quartoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">5</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quintoG); ?>" name="chart<?= e($quintoG); ?>"><img src="/element/chart.png"></button><?= e($quintoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quintoG); ?>" name="chart<?= e($quintoG); ?>"><img src="element/chart.png"></button><?= e($quintoG); ?></td>
                       <td><?= e($quintoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">6</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($sestoG); ?>" name="chart<?= e($sestoG); ?>"><img src="/element/chart.png"></button><?= e($sestoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($sestoG); ?>" name="chart<?= e($sestoG); ?>"><img src="element/chart.png"></button><?= e($sestoG); ?></td>
                       <td><?= e($sestoGPt); ?></td>
                     </tr>
                     <tr>
                       <th class="colonna" scope="row">7</th>
-                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($settimoG); ?>" name="chart<?= e($settimoG); ?>"><img src="/element/chart.png"></button><?= e($settimoG); ?></td>
+                      <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($settimoG); ?>" name="chart<?= e($settimoG); ?>"><img src="element/chart.png"></button><?= e($settimoG); ?></td>
                       <td><?= e($settimoGPt); ?></td>
                     </tr>
                     <tr>
@@ -494,10 +494,10 @@
   <!--- script risorse per grafici --->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
-  <script src="/js/chart.js?n=1.1221"></script>
+  <script src="./js/chart.js?n=1.1221"></script>
 
   <!--Script per grafici -->
-  <script src="/js/classificaChart.js"></script>
+  <script src="./js/classificaChart.js?n=1"></script>
 
   <!--Script bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
