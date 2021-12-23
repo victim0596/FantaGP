@@ -7,32 +7,32 @@
 	<meta name="description" content="Sito per il fantaGP">
 	<meta name="author" content="Oliver Terzo">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/main.css?n=1.03">
-	<link rel="stylesheet" href="/css/pronostici.css?n=1">
+	<link rel="stylesheet" href="./css/main.css?n=1.03">
+	<link rel="stylesheet" href="./css/pronostici.css?n=1">
 	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-	<link rel="shortcut icon" href="/logo.ico" />
+	<link rel="shortcut icon" href="./logo.ico" />
 </head>
 
 <body>
 
 	<!----NAVBAR --->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-		<a class="navbar-brand" href="/">
-			<img src="/element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
+		<a class="navbar-brand" href="./">
+			<img src="./element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-link" href="/">Home</a>
-				<a class="nav-link" href="/classifica">Classifica</a>
-				<a class="nav-link" href="/statistiche">Statistiche</a>
-				<a class="nav-link active" href="/pronostici">Pronostici</a>
+				<a class="nav-link" href="./">Home</a>
+				<a class="nav-link" href="./classifica">Classifica</a>
+				<a class="nav-link" href="./statistiche">Statistiche</a>
+				<a class="nav-link active" href="./pronostici">Pronostici</a>
 				<?php if (isset($sessionUser)) { ?>
-					<a class="nav-link" href="/profilo"><?= e($sessionUser); ?></a>
+					<a class="nav-link" href="./profilo"><?= e($sessionUser); ?></a>
 				<?php } else { ?>
-					<a class="nav-link" href="/login">Login</a><?php } ?>
+					<a class="nav-link" href="./login">Login</a><?php } ?>
 			</div>
 		</div>
 	</nav>
@@ -40,35 +40,35 @@
 	<header>
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner" role="listbox">
-				<div class="carousel-item active" style="background-image: url(/img/img4.jpg)">
+				<div class="carousel-item active" style="background-image: url(./img/img4.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img3.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img3.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img2.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img2.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img1.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img1.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img5.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img5.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img6.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img6.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img7.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img7.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
-				<div class="carousel-item" style="background-image: url(/img/img8.jpg)">
+				<div class="carousel-item" style="background-image: url(./img/img8.jpg)">
 					<div class="carousel-caption d-none d-md-block">
 					</div>
 				</div>
@@ -79,14 +79,14 @@
 					<!-- Button Qualifica -->
 					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalqualy">
 						<div>
-							<img src="/img/qualy.jpg">
+							<img src="./img/qualy.jpg">
 							<div><span>Pronostici Qualifica</span></div>
 						</div>
 					</button>
 					<!-- Button Gara -->
 					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalrace">
 						<div>
-							<img src="/img/race.jpg">
+							<img src="./img/race.jpg">
 							<div><span>Pronostici Gara</span></div>
 						</div>
 					</button>
@@ -103,7 +103,7 @@
 							</div>
 							<div class="modal-body">
 
-								<form method="post" action="/pronostici/Qualifica">
+								<form method="post" action="./pronostici/Qualifica">
 									@csrf
 									<div class="form-group ">
 										<label for="listrace"></label>
@@ -141,7 +141,7 @@
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form method="post" action="/pronostici/Gara">
+								<form method="post" action="./pronostici/Gara">
 									@csrf
 									<div class="form-group ">
 										<label for="listrace"></label>
@@ -190,26 +190,10 @@
 				</datalist>
 
 				<datalist id="list_driver">
-					<option value="Hamilton">
-					<option value="Bottas">
-					<option value="Leclerc">
-					<option value="Sainz">
-					<option value="Verstappen">
-					<option value="Perez">
-					<option value="Vettel">
-					<option value="Stroll">
-					<option value="Ricciardo">
-					<option value="Norris">
-					<option value="Raikkonen">
-					<option value="Giovinazzi">
-					<option value="Alonso">
-					<option value="Ocon">
-					<option value="Mazepin">
-					<option value="Schumacher">
-					<option value="Gasly">
-					<option value="Tsunoda">
-					<option value="Russel">
-					<option value="Latifi">
+					<?php $driverList = config('myGlobalVar.driver');
+					foreach ($driverList as $driver) { ?>
+						<option value="<?php echo $driver; ?>">
+						<?php } ?>
 				</datalist>
 				<datalist id="n_rit">
 					<option value="0">
@@ -253,9 +237,9 @@
 		</div>
 	</header>
 
-	<script src="/js/Alert.js"></script>
-	<script src="/js/pronoValidation.js?n=1.0"></script>
-	<script src="/js/actualRace.js?n=1.03"></script>
+	<script src="./js/Alert.js"></script>
+	<script src="./js/pronoValidation.js?n=1.02"></script>
+	<script src="./js/actualRace.js?n=1.03"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

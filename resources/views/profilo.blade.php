@@ -7,9 +7,9 @@
   <meta name="description" content="Sito per il fantaGP">
   <meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/main.css?n=1.03">
-  <link rel="stylesheet" href="/css/pronostici.css?n=1.01">
-  <link rel="stylesheet" href="/css/profilo.css?n=1.03">
+  <link rel="stylesheet" href="./css/main.css?n=1.03">
+  <link rel="stylesheet" href="./css/pronostici.css?n=1.01">
+  <link rel="stylesheet" href="./css/profilo.css?n=1.03">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />
 </head>
@@ -19,21 +19,21 @@
   <!----NAVBAR --->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
     <a class="navbar-brand" href="/">
-      <img src="/element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
+      <img src="./element/logo_salvo_bianco.png" alt="" width="100" height="44" class="d-inline-block align-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/classifica">Classifica</a>
-        <a class="nav-link" href="/statistiche">Statistiche</a>
-        <a class="nav-link" href="/pronostici">Pronostici</a>
+        <a class="nav-link" href="./">Home</a>
+        <a class="nav-link" href="./classifica">Classifica</a>
+        <a class="nav-link" href="./statistiche">Statistiche</a>
+        <a class="nav-link" href="./pronostici">Pronostici</a>
         <?php if (isset($sessionUser)) { ?>
-          <a class="nav-link" href="/profilo"><?= e($sessionUser); ?></a>
+          <a class="nav-link" href="./profilo"><?= e($sessionUser); ?></a>
         <?php } else { ?>
-          <a class="nav-link" href="/login">Login</a><?php } ?>
+          <a class="nav-link" href="./login">Login</a><?php } ?>
       </div>
     </div>
   </nav>
@@ -42,7 +42,7 @@
     <div>
       <h2 class="accordion-header" id="headingOne">
         <button class="buttondiv" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <img src="/element/down-chevron.png">
+          <img src="./element/down-chevron.png">
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -73,7 +73,7 @@
             <div class="col">
               <div class="row p-3">
                 <div class="col-10">
-                  <img src="/img/piloti/Alonso.png" class="pilotino" id="pilotino1">
+                  <img src="./img/piloti/Alonso.png" class="pilotino" id="pilotino1">
                   <div class="text-center" id="nomePilota1"></div>
                 </div>
               </div>
@@ -82,7 +82,7 @@
               <div class="row p-3">
                 <div class="col"></div>
                 <div class="col-10">
-                  <img src="/img/piloti/Alonso.png" class="pilotino" id="pilotino2">
+                  <img src="./img/piloti/Alonso.png" class="pilotino" id="pilotino2">
                   <div class="text-center" id="nomePilota2"></div>
                 </div>
               </div>
@@ -107,7 +107,7 @@
             </div>
           </div>
           <div class="footer text-center">
-            <form method="post" action="/profilo/logout">
+            <form method="post" action="./profilo/logout">
               @csrf
               <button type="submit" class="btn btn_logout" name="Log-out">Logout</button>
             </form>
@@ -160,7 +160,7 @@
         </div>
         <div class="modal-body">
 
-          <form method="post" action="/profilo/modQualifica">
+          <form method="post" action="./profilo/modQualifica">
             @csrf
             <div class="form-group ">
               <label for="listrace"></label>
@@ -198,7 +198,7 @@
         </div>
         <div class="modal-body">
 
-          <form method="post" action="/profilo/modGara">
+          <form method="post" action="./profilo/modGara">
             @csrf
             <div class="form-group ">
               <label for="listrace"></label>
@@ -247,26 +247,10 @@
     <option class="raceValue" value="Australia">
   </datalist>
   <datalist id="list_driver">
-    <option value="Hamilton">
-    <option value="Bottas">
-    <option value="Leclerc">
-    <option value="Sainz">
-    <option value="Verstappen">
-    <option value="Perez">
-    <option value="Vettel">
-    <option value="Stroll">
-    <option value="Ricciardo">
-    <option value="Norris">
-    <option value="Raikkonen">
-    <option value="Giovinazzi">
-    <option value="Alonso">
-    <option value="Ocon">
-    <option value="Mazepin">
-    <option value="Schumacher">
-    <option value="Gasly">
-    <option value="Tsunoda">
-    <option value="Russell">
-    <option value="Latifi">
+    <?php $driverList = config('myGlobalVar.driver');
+      foreach($driverList as $driver){?>
+        <option value="<?php echo $driver; ?>">
+      <?php } ?>
   </datalist>
   <datalist id="n_rit">
     <option value="0">
@@ -289,11 +273,7 @@
     <option value="Gara">
     <option value="Qualifica">
   </datalist>
-  <datalist id="listaMetodi">
-    <option value="UPDATE"></option>
-    <option value="SELECT"></option>
-    <option value="INSERT"></option>
-  </datalist>
+
 
   <!-- simboli messaggi -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -316,10 +296,10 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="btnAlert"></button>
   </div>
 
-  <script src="/js/Alert.js"></script>
-  <script src="/js/profilo.js"></script>
-  <script src="/js/pronoValidation.js"></script>
-  <script src="/js/actualRace.js?n=1.0"></script>
+  <script src="./js/Alert.js"></script>
+  <script src="./js/profilo.js?n=1"></script>
+  <script src="./js/pronoValidation.js?n=1.01"></script>
+  <script src="./js/actualRace.js?n=1.0"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
