@@ -36,7 +36,13 @@
     - Aggiungere funzione per controllare i risultati della gara attuale
     - Aggiungere funzione per controllare le pagelle della gara attuale
 - Aggiungere sezione controllo nella pagina admin il quale conterrá le funzioni del punto precedente
-
-
-
+- Cambiare piloti, utenti, gare, date e scuderia in :
+    - app/Classes/CalcoloPunteggi.php 
+    - public/js/ActualRace.js
+    - public/js/chart.js
+    - public/js/classificaChart.js
+    - public/js/main.js
+    - public/js/profilo.js
+    - public/js/pronoValidation.js
+    - config/myGlobalVar.php
 
