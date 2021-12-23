@@ -786,7 +786,7 @@
           },
           {
             "title": "Abu Dhabi",
-            "stato": "Emirati Arabi Uniti",
+            "stato": "Emirati Arabi",
             "circuito": "Circuito Yas Marina",
             "latitude": 24.312,
             "longitude": 54.608,
