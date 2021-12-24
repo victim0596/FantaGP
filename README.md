@@ -24,18 +24,16 @@
 - Ottimizzare le varie pagine, cercando di rimuovere piu codice php possibile delle varie pagine di visualizzazione (09/11/2021)
 - ottimizzare il codice backend di tutte le pagine (09/11/2021)
 - creati file config con all'interno costanti (11/11/2021)
+- Aggiungere colonna data nella tabella pronostici per controllare l'inserimento dei pronostici (23/12/2021)
+- Aggiungere altre funzioni di controllo nella pagina admin per controllare (24/12/2021)
+    - Aggiungere funzione per controllare i pronostici per gara (24/12/2021)
+    - Aggiungere funzione per controllare i ritirati della gara attuale (24/12/2021)
+    - Aggiungere funzione per controllare i risultati della gara attuale (24/12/2021)
+    - Aggiungere funzione per controllare le pagelle della gara attuale (24/12/2021)
+- Aggiungere sezione controllo nella pagina admin il quale conterrá le funzioni del punto precedente (24/12/2021)
 
 
 # Aggiornamenti da fare per stagione 2022
-
-- Aggiungere colonna data nella tabella pronostici per controllare l'inserimento dei pronostici
-- Aggiungere altre funzioni di controllo nella pagina admin per controllare
-    - Aggiungere funzione per controllare se un'utente ha aggiunto un pronostico per gara
-    - Aggiungere funzione per controllare i ritirati della gara attuale
-    - Aggiungere funzione per controllare i punteggi degli utenti della gara attuale
-    - Aggiungere funzione per controllare i risultati della gara attuale
-    - Aggiungere funzione per controllare le pagelle della gara attuale
-- Aggiungere sezione controllo nella pagina admin il quale conterrá le funzioni del punto precedente
 - Cambiare piloti, utenti, gare, date e scuderia in :
     - app/Classes/CalcoloPunteggi.php 
     - public/js/ActualRace.js
