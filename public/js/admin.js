@@ -238,6 +238,13 @@ function loadData() {
     }
 }
 
+var btnCloseControllo = document.getElementById('btnCloseControllo');
+
+//when click on the close button of the controlla dati, i clean his content
+btnCloseControllo.addEventListener('click', ()=>{
+    document.getElementById('tableResult').innerHTML = "";
+})
+
 
 
 
