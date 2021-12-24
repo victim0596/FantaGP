@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/main.css?n=1.03">
   <link rel="stylesheet" href="./css/pronostici.css?n=1.01">
   <link rel="stylesheet" href="./css/profilo.css?n=1.03">
+  <link rel="stylesheet" href="./css/admin.css?n=1.03">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="./logo.ico" />
 </head>
@@ -53,6 +54,7 @@
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+          <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcheck">Controlla Dati</div>
         </div>
       </div>
     </div>
@@ -68,6 +70,7 @@
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdp">Aggiungi pagelle</div>
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcalcolo">Calcola Punteggi</div>
           <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modaladdrit">Aggiungi ritirati</div>
+          <div class="mb-3 opzioniLaterali" data-bs-toggle="modal" data-bs-target="#modalcheck">Controlla Dati</div>
         </div>
       </div>
       <div class="col-3" id="columnSpace"></div>
@@ -126,11 +129,11 @@
   <datalist id="list_race">
     <option class="raceValue" value="Australia">
   </datalist>
-  
+
   <datalist id="list_driver">
     <?php $driverList = config('myGlobalVar.driver');
-      foreach($driverList as $driver){?>
-        <option value="<?php echo $driver; ?>">
+    foreach ($driverList as $driver) { ?>
+      <option value="<?php echo $driver; ?>">
       <?php } ?>
   </datalist>
 
@@ -357,6 +360,41 @@
   </div>
   </div>
 
+  <!--- Modal per il controllo dati -->
+  <div class="modal fade" id="modalcheck" tabindex="-1" aria-labelledby="modalcheck" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalcheck">Controlla Dati</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+            @csrf
+            <select class="form-select form-select-sm mt-3 mb-3 formCheck" aria-label=".form-select-sm example" id="nomeGara" required>
+              <?php $raceList = config('myGlobalVar.race');
+              foreach ($raceList as $race) { ?>
+                <option value="<?php echo $race; ?>"><?php echo $race; ?>
+                <?php } ?>
+            </select>
+            <select class="form-select form-select-sm mt-3 formCheck" aria-label=".form-select-sm example" id="tipoCheck" required>
+              <option value="Ritirati">Ritirati</option>
+              <option value="Risultato">Risultato</option>
+              <option value="Pronostici">Pronostici</option>
+              <option value="Pagelle">Pagelle</option>
+            </select>
+            <div id="tableResult" class="mt-3"></div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn_send" name="controlla_dati" value="Invia" onclick="loadData()"></input>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
 
   <!-- simboli messaggi -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -382,7 +420,8 @@
   <script src="./js/Alert.js"></script>
   <script src="./js/profilo.js?n=1"></script>
   <script src="./js/pronoValidation.js"></script>
-  <script src="./js/actualRace.js?n=1.0"></script>
+  <script src="./js/actualRace.js?n=1.01"></script>
+  <script src="./js/admin.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

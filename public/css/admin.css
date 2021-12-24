@@ -1,0 +1,9 @@
+
+
+@media (min-width: 576px){
+    .formCheck{
+        max-width: 300px;
+        width: 50%;
+        margin: auto;
+    }
+}
