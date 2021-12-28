@@ -31,7 +31,7 @@
     - Aggiungere funzione per controllare i risultati della gara attuale (24/12/2021)
     - Aggiungere funzione per controllare le pagelle della gara attuale (24/12/2021)
 - Aggiungere sezione controllo nella pagina admin il quale conterrá le funzioni del punto precedente (24/12/2021)
-
+- Cambiare UI alle varie classifiche (28/12/2021)
 
 # Aggiornamenti da fare per stagione 2022
 - Cambiare piloti, utenti, gare, date e scuderia in :
