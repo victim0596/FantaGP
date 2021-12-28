@@ -33,7 +33,7 @@ var objColor = {
     Dario: "orange",
     pinguinoSquadraCorse: "white",
     Ermenegildo: "rgb(8, 1, 59)",
-    gianpaolo: "blue"
+    gianpaolo: "rgba(0, 119, 255, 0.836"
 }
 
 
