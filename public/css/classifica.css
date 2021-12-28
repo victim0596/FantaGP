@@ -146,8 +146,8 @@ table {
 
 /*Classifica 2.0*/
 .logoScuderia{
-  max-width: 35px;
-  max-height: 24px;
+  max-width: 30px;
+  max-height: 20px;
   height: auto;
 }
 
@@ -208,7 +208,7 @@ tbody{
 
 .nameDriver span{
   color: transparent;
-  border-right: 3px solid red ; 
+  border-right: 3px solid red ; /* cambiare con js */
   margin: 0 8px 0 8px;
   display: inline-block;
   padding: 0px;
