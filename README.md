@@ -17,6 +17,7 @@ _Classifica_
 
 ![Classifica](./imgGit/classifica1.png)
 ![Classifica](./imgGit/classifica2.png)
+![Classifica](./imgGit/classifica3.png)
 
 _Profilo_
 
