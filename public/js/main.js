@@ -19,7 +19,7 @@ var date_future_race;
 var date_future;
 
 var DateRace = {
-  "Bahrein": new Date(2021, 02, 28, 14),
+  "Bahrein": new Date(2022, 02, 20, 14),
   "Italia-Imola": new Date(2021, 03, 18, 12),
   "Portogallo": new Date(2021, 04, 02, 13),
   "Spagna": new Date(2021, 04, 09, 12),
