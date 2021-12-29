@@ -34,6 +34,7 @@
 - Cambiare UI alle varie classifiche (28/12/2021)
 
 # Aggiornamenti da fare per stagione 2022
+- Cambiare immagini del carousel delle pagine
 - Cambiare piloti, utenti, gare, date e scuderia in :
     - app/Classes/CalcoloPunteggi.php 
     - public/js/ActualRace.js
@@ -43,4 +44,5 @@
     - public/js/profilo.js
     - public/js/pronoValidation.js
     - config/myGlobalVar.php
+    - public/js/classificaEstetica.js
 
