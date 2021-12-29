@@ -6,6 +6,11 @@ This project is a web application used for predict the race of Formula. The user
 
 This web application is created with Laravel Framework and with PHP
 
+### License
+
+Copyright by Terzo Oliver
+
+Released under the [MIT License](https://github.com/victim0596/FantaGP/blob/main/LICENSE).
 
 ### Image of various page
 
