@@ -522,11 +522,11 @@ function updateChart(e, imageSeries, colorSet) {
         "color": colorSet.next()
     },
     {
-        "title": "Portimao",
-        "stato": "Portogallo",
-        "circuito": "Autódromo internacional do Algarve",
-        "latitude": 37.1986,
-        "longitude": -8.6243,
+        "title": "Melbourne",
+        "stato": "Australia",
+        "circuito": "Circuito Albert Park",
+        "latitude": -37.8094,
+        "longitude": 145.0024,
         "color": colorSet.next()
     },
     {
@@ -570,11 +570,11 @@ function updateChart(e, imageSeries, colorSet) {
         "color": colorSet.next()
     },
     {
-        "title": "Spielberg",
-        "stato": "Austria-2",
-        "circuito": "Gran Premio di Stiria",
-        "latitude": 47.254,
-        "longitude": 14.766,
+        "title": "Miami",
+        "stato": "USA-Miami",
+        "circuito": "Miami International Autodrome",
+        "latitude": 25.805,
+        "longitude": -80.239,
         "color": colorSet.next()
     },
     {
@@ -610,24 +610,24 @@ function updateChart(e, imageSeries, colorSet) {
         "color": colorSet.next()
     },
     {
-        "title": "Soči",
-        "stato": "Russia",
-        "circuito": "Autodromo di Soči",
-        "latitude": 43.281,
-        "longitude": 39.968,
+        "title": "Suzuka",
+        "stato": "Giappone",
+        "circuito": "Circuito di Suzuka",
+        "latitude": 34.701,
+        "longitude": 136.538,
         "color": colorSet.next()
     },
     {
-        "title": "Istanbul",
-        "stato": "Turchia",
-        "circuito": "Istanbul Park",
-        "latitude": 40.824,
-        "longitude": 29.405,
+        "title": "Montreal",
+        "stato": "Canada",
+        "circuito": "Circuito di Montréal",
+        "latitude": 45.379,
+        "longitude": -73.521,
         "color": colorSet.next()
     },
     {
         "title": "Austin",
-        "stato": "USA",
+        "stato": "USA-Cota",
         "circuito": "Circuito delle Americhe",
         "latitude": 29.983,
         "longitude": -97.641,
@@ -658,11 +658,11 @@ function updateChart(e, imageSeries, colorSet) {
         "color": colorSet.next()
     },
     {
-        "title": "Losail",
-        "stato": "Qatar",
-        "circuito": "Losail International Circuit",
-        "latitude": 25.4644,
-        "longitude": 51.4517,
+        "title": "Monaco",
+        "stato": "Monaco",
+        "circuito": "Circuito di Monte Carlo",
+        "latitude": 43.608,
+        "longitude": 7.421,
         "color": colorSet.next()
     },
     {
