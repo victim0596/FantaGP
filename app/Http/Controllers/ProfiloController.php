@@ -15,6 +15,7 @@ class ProfiloController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         $detailPt = $this->PtProfilo($sessionUser);
         $detailRiepilogo = $this->riepilogoPronostici($sessionUser);
@@ -24,7 +25,8 @@ class ProfiloController extends Controller
             if (!empty($detailPt['text'])) $messageNotification = $detailPt['text'];
         }
         return view('profilo', [
-            'sessionUser' => $sessionUser, 'textPtTotali' => $detailPt['puntiTot'], 'textPtPron' => $detailPt['puntiPron'], 'textPtPag' => $detailPt['puntiPag'], 'nomegara' => $detailRiepilogo['nomegara'], 'qualifica1' => $detailRiepilogo['qualifica1'], 'qualifica2' => $detailRiepilogo['qualifica2'], 'qualifica3' => $detailRiepilogo['qualifica3'], 'gara1' => $detailRiepilogo['gara1'], 'gara2' => $detailRiepilogo['gara2'], 'gara3' => $detailRiepilogo['gara3'], 'giroveloce' => $detailRiepilogo['giroveloce'], 'nrit' => $detailRiepilogo['nrit'], 'vsc' => $detailRiepilogo['vsc'], 'sc' => $detailRiepilogo['sc'], 'text' => $messageNotification
+            'sessionUser' => $sessionUser, 'sessionAdmin' => $sessionAdmin,
+            'textPtTotali' => $detailPt['puntiTot'], 'textPtPron' => $detailPt['puntiPron'], 'textPtPag' => $detailPt['puntiPag'], 'nomegara' => $detailRiepilogo['nomegara'], 'qualifica1' => $detailRiepilogo['qualifica1'], 'qualifica2' => $detailRiepilogo['qualifica2'], 'qualifica3' => $detailRiepilogo['qualifica3'], 'gara1' => $detailRiepilogo['gara1'], 'gara2' => $detailRiepilogo['gara2'], 'gara3' => $detailRiepilogo['gara3'], 'giroveloce' => $detailRiepilogo['giroveloce'], 'nrit' => $detailRiepilogo['nrit'], 'vsc' => $detailRiepilogo['vsc'], 'sc' => $detailRiepilogo['sc'], 'text' => $messageNotification
         ]);
     }
 

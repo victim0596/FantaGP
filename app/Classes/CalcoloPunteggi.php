@@ -166,7 +166,7 @@ class CalcoloPunteggi
         switch ($scuderia) {
             case 'Mercedes':
                 $driver1 = "Hamilton";
-                $driver2 = "Bottas";
+                $driver2 = "Russell";
                 break;
             case 'Ferrari':
                 $driver1 = "Leclerc";
@@ -189,11 +189,11 @@ class CalcoloPunteggi
                 $driver2 = "Ocon";
                 break;
             case 'Williams':
-                $driver1 = "Russell";
+                $driver1 = "Albon";
                 $driver2 = "Latifi";
                 break;
             case 'Haas':
-                $driver1 = "Mazepin";
+                $driver1 = "Magnussen";
                 $driver2 = "Schumacher";
                 break;
             case 'Alpha Tauri':
@@ -201,8 +201,8 @@ class CalcoloPunteggi
                 $driver2 = "Tsunoda";
                 break;
             case 'Alfa Racing':
-                $driver1 = "Raikkonen";
-                $driver2 = "Giovinazzi";
+                $driver1 = "Bottas";
+                $driver2 = "Zhou";
                 break;
         }
 

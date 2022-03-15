@@ -10,9 +10,10 @@ class IndexController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         if (isset($sessionUser)) {
-            return view('index', ['sessionUser' => $sessionUser]);
+            return view('index', ['sessionUser' => $sessionUser, 'sessionAdmin' => $sessionAdmin]);
         } else {
             return view('index');
         }

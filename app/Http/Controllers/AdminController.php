@@ -14,12 +14,15 @@ class AdminController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         $detailPt = ProfiloController::PtProfilo($sessionUser);
         $messageNotification = $request->query('status');
         if (!empty($detailPt['text'])) $messageNotification = $detailPt['text'];
         return view('admin', [
-            'sessionUser' => $sessionUser, 'textPtTotali' => $detailPt['puntiTot'], 'textPtPron' => $detailPt['puntiPron'], 'textPtPag' => $detailPt['puntiPag'], 'text' => $messageNotification
+            'sessionAdmin' => $sessionAdmin,
+            'sessionUser' => $sessionUser,
+            'textPtTotali' => $detailPt['puntiTot'], 'textPtPron' => $detailPt['puntiPron'], 'textPtPag' => $detailPt['puntiPag'], 'text' => $messageNotification
         ]);
     }
 

@@ -14,12 +14,13 @@ class PronosticiController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         $messageNotification = $request->query('status');
         if (isset($sessionUser)) {
-            return view('pronostici', ['sessionUser' => $sessionUser, 'text' => $messageNotification]);
+            return view('pronostici', ['sessionUser' => $sessionUser, 'sessionAdmin' => $sessionAdmin, 'text' => $messageNotification]);
         } else {
-            return view('pronostici', ['sessionUser' => $sessionUser, 'text' => "Effettua prima il login"]);
+            return view('pronostici', ['sessionUser' => $sessionUser, 'sessionAdmin' => $sessionAdmin, 'text' => "Effettua prima il login"]);
         }
     }
 

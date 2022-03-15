@@ -15,11 +15,12 @@ class LoginController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         $messageNotification = $request->query('status');
         if (isset($sessionUser)) {
             return redirect()->to('/');
-        } else return view('login', ['text' => $messageNotification]);
+        } else return view('login', ['text' => $messageNotification, 'sessionAdmin' => $sessionAdmin]);
     }
 
     function showPost(Request $request)

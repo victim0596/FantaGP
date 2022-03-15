@@ -11,6 +11,7 @@ class ClassificaController extends Controller
 
     function show(Request $request)
     {
+        $sessionAdmin = $request->session()->get('admin');
         $sessionUser = $request->session()->get('user');
         $qExec = new QExec();
         $dataClassifiche = $qExec->loadClassifiche();
@@ -26,6 +27,7 @@ class ClassificaController extends Controller
             $arrayClassificaGeneraleKey = array_keys($dataClassifiche['dataGen']);
         }
         return view('classifica', [
+            'sessionAdmin' => $sessionAdmin,
             'sessionUser' => $sessionUser,
             /*classifica generale*/
             'primoG' => $arrayClassificaGeneraleKey[0], 'primoGPt' => $arrayClassificaGeneraleValue[0],
