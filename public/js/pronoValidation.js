@@ -1,5 +1,7 @@
-var driverArray = ["Hamilton", "Bottas", "Verstappen", "Perez", "Sainz", "Leclerc", "Ricciardo", "Norris", "Alonso", "Ocon",
-    "Giovinazzi", "Raikkonen", "Gasly", "Tsunoda", "Russell", "Latifi", "Mazepin", "Schumacher", "Vettel", "Stroll"];
+var driverArray = [
+    "Hamilton", "Bottas", "Verstappen", "Perez", "Sainz", "Leclerc", "Ricciardo", "Norris", "Alonso", "Ocon",
+    "Zhou", "Magnussen", "Gasly", "Tsunoda", "Russell", "Latifi", "Albon", "Schumacher", "Vettel", "Stroll"
+];
 
 var pronoQualy = {
     qp1: "",
