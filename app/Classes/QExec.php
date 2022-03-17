@@ -9,6 +9,7 @@ use App\Models\PronosticiModel;
 use App\Models\RisultatiModel;
 use App\Models\RitiratiModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Exception;
 
 /**
@@ -29,13 +30,13 @@ class QExec
      */
     public function checkDbAuth(string $usernameInput, string $passwordInput): bool
     {
-        try {
+        try {            
             $result = LoginModel::where('username', $usernameInput)->first();
             if (!empty($result)) {
                 $password = $result->password;
                 $salt = config('myGlobalVar.salt');
                 $psw_salted = hash_hmac("sha256", $passwordInput, $salt);
-                if (password_verify($psw_salted, $password)) {
+                if (Hash::check($psw_salted, $password)) { 
                     return true;
                 }
             }
