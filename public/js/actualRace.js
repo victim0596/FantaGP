@@ -28,14 +28,27 @@ var DateRace = {
 }
 
 var raceData = document.getElementsByClassName("raceValue")[0];
+var imgPageInputRace = document.querySelectorAll("form div.form-group:nth-child(2) img");
+var inputRace = document.querySelectorAll("form div.form-group:nth-child(2) input ");
 
 function changeRace() {
     for (var key in DateRace) {
         if (actualDate < DateRace[key]) {
             raceData.setAttribute("value", key);
+            changeStyle(key);
             break;
         }
     }
+}
+
+function changeStyle(nameRace) {
+    imgPageInputRace.forEach(element => {
+        element.setAttribute("src", `./img/bandiere/${nameRace}.png`);
+    });
+    inputRace.forEach(element => {
+        element.value = nameRace;
+        element.readOnly = true;
+    });
 }
 
 changeRace();

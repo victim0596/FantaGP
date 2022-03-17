@@ -92,16 +92,6 @@
   color: red;
 }
 
-/*pulsante pronostici qualifica*/
-.btn_q {
-  margin-top: 5%;
-  margin-left: 20%;
-}
-/*pulsante pronostici gara*/
-.btn_r {
-  margin-top: 5%;
-  margin-left: 55%;
-}
 
 .btn-primary {
   background-color: rgba(33, 33, 41, 1);
@@ -140,22 +130,6 @@
   background-color: white;
 }
 
-.addq {
-  margin-left: 35%;
-  margin-top: 20%;
-}
-.addr {
-  margin-left: 35%;
-  margin-top: 25%;
-}
-.addc {
-  margin-left: 35%;
-  margin-top: 30%;
-}
-.addp {
-  margin-left: 35%;
-  margin-top: 35%;
-}
 
 .text {
   color: white;
@@ -163,16 +137,18 @@
   margin-top: 31%;
 }
 
-.addrit {
-  margin-top: 40%;
-  margin-left: 35%;
+/* input nome gara*/
+form div.form-group:nth-child(2) input {
+  max-width: 75%;
+  display: inline-block;
 }
+/* bandiere accanto input nome gara */
+form div.form-group:nth-child(2) img{
+  float: right;
+  max-width: 45px;
+  height: 30px;
+} 
 
-.text_addrit {
-  color: white;
-  margin-top: 40.5%;
-  margin-left: 45%;
-}
 
 @media (max-width: 575.98px) {
   .pronostici {
@@ -195,26 +171,6 @@
     color: white;
   }
 
-  .addq {
-    margin-left: 4%;
-    margin-top: 50%;
-  }
-  .addr {
-    margin-left: 4%;
-    margin-top: 65%;
-  }
-  .addc {
-    margin-left: 4%;
-    margin-top: 80%;
-  }
-  .addp {
-    margin-left: 4%;
-    margin-top: 95%;
-  }
-  .addrit {
-    margin-top: 110%;
-    margin-left: 4%;
-  }
 
   /*pulsante riepilogo pronostici */
   .btn_pratt{
