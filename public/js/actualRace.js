@@ -28,8 +28,8 @@ var DateRace = {
 }
 
 var raceData = document.getElementsByClassName("raceValue")[0];
-var imgPageInputRace = document.querySelectorAll("form div.form-group:nth-child(2) img");
-var inputRace = document.querySelectorAll("form div.form-group:nth-child(2) input ");
+var imgPageInputRace = document.querySelectorAll("form div.form-group.position-relative:nth-child(2) img");
+var inputRace = document.querySelectorAll("form div.form-group.position-relative:nth-child(2) input ");
 
 function changeRace() {
     for (var key in DateRace) {
