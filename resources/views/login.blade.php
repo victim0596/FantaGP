@@ -44,35 +44,35 @@
   <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url(./img/img4.jpg)">
+        <div class="carousel-item active" style="background-image: url(./img/img4.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img3.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img3.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img2.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img2.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img1.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img1.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img5.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img5.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img6.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img6.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img7.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img7.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(./img/img8.jpg)">
+        <div class="carousel-item" style="background-image: url(./img/img8.jpg?v=1.0)">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>

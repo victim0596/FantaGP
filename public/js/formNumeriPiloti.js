@@ -7,7 +7,7 @@ function changeNumeri() {
             element.addEventListener('input', () => {
                 var parentNode = element.parentNode;
                 var imgNumeroPiloti = parentNode.childNodes[5];
-                if(element.value) imgNumeroPiloti.setAttribute("src", `./img/numeriPiloti/${element.value}.png`);
+                if(element.value) imgNumeroPiloti.setAttribute("src", `./img/numeriPiloti/${element.value}.png?v=1.0`);
                 else imgNumeroPiloti.setAttribute("src", "");
             })
         })

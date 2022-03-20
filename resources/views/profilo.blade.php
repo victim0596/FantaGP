@@ -8,7 +8,7 @@
   <meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/main.css?n=1.03">
-  <link rel="stylesheet" href="./css/pronostici.css?n=1.05">
+  <link rel="stylesheet" href="./css/pronostici.css?n=1.06">
   <link rel="stylesheet" href="./css/profilo.css?n=1.03">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />
@@ -307,7 +307,7 @@
   <script src="./js/profilo.js?n=1"></script>
   <script src="./js/pronoValidation.js?n=1.01"></script>
   <script src="./js/actualRace.js?n=1.04"></script>
-  <script src="./js/formNumeriPiloti.js?n=1.0"></script>
+  <script src="./js/formNumeriPiloti.js?v=1.0?n=1.0"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
