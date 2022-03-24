@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Queries;
+namespace App\Components\Queries\GetUserbyUsername;
 
 use App\Models\LoginModel;
 
@@ -8,9 +8,9 @@ use App\Models\LoginModel;
 class GetUserByUsernameQueryHandler  
 {
 
-    public function Retrieve(GetUserByUsernameQuery $query): GetUserByUsernameQueryResult
+    public static function Retrieve(GetUserByUsernameQuery $query): GetUserByUsernameQueryResult
     {
-        $dbresult = LoginModel::where('USERNAME', $query->Username)->first();
+        $dbresult = LoginModel::where('USERNAME', $query->getUsername())->first();
         $result = new GetUserByUsernameQueryResult($dbresult->USERNAME, $dbresult->PASSWORD, $dbresult->ADMIN);
         return $result;
     }

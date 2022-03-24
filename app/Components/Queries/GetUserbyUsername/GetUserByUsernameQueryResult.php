@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Queries;
+namespace App\Components\Queries\GetUserbyUsername;
 
 use App\Components\IQueryResult;
 
