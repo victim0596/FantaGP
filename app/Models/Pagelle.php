@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PronosticiGara extends Model
+class Pagelle extends Model
 {
     use HasFactory;
-    protected $table = 'pronostici_gara';
+    protected $table = 'pagelle';
     protected $primaryKey  = "ID";
     public $timestamps = false;
-
         
     /**
      * gara
-     * Get Gara of PronosticiGara
+     * Get Gara of Pagelle
      * @return void
      */
     public function gara(){
@@ -23,12 +22,11 @@ class PronosticiGara extends Model
     }
 
     /**
-     * utente
-     * Get utente of PronosticiGara
+     * pilota
+     * Get the Pilota of Pagelle
      * @return void
      */
-    public function utente(){
-        return $this->belongsTo(Utenti::class, 'ID_UTENTE');
+    public function pilota(){
+        return $this->belongsTo(Piloti::class, 'ID_PILOTA');
     }
-    
 }

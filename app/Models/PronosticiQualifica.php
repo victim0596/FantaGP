@@ -11,4 +11,22 @@ class PronosticiQualifica extends Model
     protected $table = 'pronostici_qualifica';
     protected $primaryKey  = "ID";
     public $timestamps = false;
+        
+    /**
+     * gara
+     * Get Gara of PronosticiQualifica
+     * @return void
+     */
+    public function gara(){
+        return $this->belongsTo(Gare::class, 'ID_GARA');
+    }
+
+    /**
+     * utente
+     * Get utente of PronosticiQualifica
+     * @return void
+     */
+    public function utente(){
+        return $this->belongsTo(Utenti::class, 'ID_UTENTE');
+    }
 }
