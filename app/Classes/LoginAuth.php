@@ -2,6 +2,9 @@
 
 namespace App\Classes;
 
+use App\Components\Queries\GetUserbyUsername\GetUserByUsernameQueryResult;
+use Illuminate\Support\Facades\Hash;
+
 
 /**
  * LoginAuth
@@ -92,5 +95,15 @@ class LoginAuth
             $arrayCheck['boolValue'] = false;
         };
         return $arrayCheck;
+    }
+
+    public function checkAuthetication(GetUserByUsernameQueryResult $result): bool
+    {
+        $password = $result->getPassword();
+        $salt = config('myGlobalVar.salt');
+        $psw_salted = hash_hmac("sha256", $this->password, $salt);
+        if (Hash::check($psw_salted, $password)) {
+            return true;
+        } else return false;
     }
 }
