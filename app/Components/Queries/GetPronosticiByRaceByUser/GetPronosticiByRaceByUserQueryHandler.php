@@ -7,7 +7,7 @@ use App\Models\PronosticiGara;
 
 class GetPronosticiByRaceByUserQueryHandler  
 {
-    public function Retrieve(GetPronosticiByRaceByUserQuery $query): GetPronosticiByRaceByUserQueryResult
+    public static function Retrieve(GetPronosticiByRaceByUserQuery $query): GetPronosticiByRaceByUserQueryResult
     {
         $dbResult = PronosticiGara::selectRaw('utenti.USERNAME, gare.DENOMINAZIONE, 
             pronostici_gara.GP1, pronostici_gara.GP2, pronostici_gara.GP3, pronostici_qualifica.QP1,  pronostici_qualifica.QP2,  pronostici_qualifica.QP3,

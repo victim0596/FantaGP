@@ -8,7 +8,7 @@ use App\Models\Risultati;
 class GetRaceResultByRaceQueryHandler  
 {
 
-    public function Retrieve(GetRaceResultByRaceQuery $query): GetRaceResultByRaceQueryResult
+    public static function Retrieve(GetRaceResultByRaceQuery $query): GetRaceResultByRaceQueryResult
     {
         $dbresult = Risultati::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')

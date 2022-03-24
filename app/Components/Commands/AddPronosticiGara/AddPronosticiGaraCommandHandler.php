@@ -10,7 +10,7 @@ use DateTime;
 
 class AddPronosticiGaraCommandHandler
 {
-    public function Execute(AddPronosticiGaraCommand $command): CommandResult
+    public static function Execute(AddPronosticiGaraCommand $command): CommandResult
     {
         $existData = PronosticiGara::select()
             ->join('utenti', 'ID_UTENTE', '=', 'utenti.ID')

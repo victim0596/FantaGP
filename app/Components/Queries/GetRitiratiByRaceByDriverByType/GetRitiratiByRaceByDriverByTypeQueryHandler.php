@@ -8,7 +8,7 @@ use App\Models\Ritirati;
 class GetRitiratiByRaceByDriverByTypeQueryHandler  
 {
 
-    public function Retrieve(GetRitiratiByRaceByDriverByTypeQuery $query): GetRitiratiByRaceByDriverByTypeQueryResult
+    public static function Retrieve(GetRitiratiByRaceByDriverByTypeQuery $query): GetRitiratiByRaceByDriverByTypeQueryResult
     {
         $dbresult = Ritirati::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')

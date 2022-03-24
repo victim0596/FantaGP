@@ -12,7 +12,7 @@ use DateTime;
 class AddPronosticiQualificaCommandHandler
 {
 
-    public function Execute(AddPronosticiQualificaCommand $command): CommandResult
+    public static function Execute(AddPronosticiQualificaCommand $command): CommandResult
     {
         $existData = PronosticiQualifica::select()
             ->join('utenti', 'ID_UTENTE', '=', 'utenti.ID')

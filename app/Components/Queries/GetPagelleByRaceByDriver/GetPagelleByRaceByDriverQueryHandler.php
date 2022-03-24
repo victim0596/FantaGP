@@ -6,7 +6,7 @@ use App\Models\Pagelle;
 
 class GetPagelleByRaceByDriverQueryHandler 
 {
-    public function Retrieve(GetPagelleByRaceByDriverQuery $query): GetPagelleByRaceByDriverQueryResult
+    public static function Retrieve(GetPagelleByRaceByDriverQuery $query): GetPagelleByRaceByDriverQueryResult
     {
         $dbresult = Pagelle::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')

@@ -9,7 +9,7 @@ use App\Models\Piloti;
 
 class AddRitiratiCommandHandler
 {
-    public function Execute(AddRitiratiCommand $command): CommandResult
+    public static function Execute(AddRitiratiCommand $command): CommandResult
     {
         $existData = Ritirati::select()
             ->join('piloti', 'ID_PILOTA', '=', 'piloti.ID')

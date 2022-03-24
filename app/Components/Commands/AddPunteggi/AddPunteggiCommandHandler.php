@@ -10,7 +10,7 @@ use App\Models\Utenti;
 class AddPunteggiCommandHandler
 {
 
-    public function Execute(AddPunteggiCommand $command): CommandResult
+    public static function Execute(AddPunteggiCommand $command): CommandResult
     {
         $existData = Punteggi::select()
             ->join('gare', 'ID_GARA', '=', 'gare.id')

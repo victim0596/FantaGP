@@ -8,7 +8,7 @@ use App\Models\Gare;
 
 class AddRisultatiQualificaCommandHandler
 {
-    public function Execute(AddRisultatiQualificaCommand $command): CommandResult
+    public static function Execute(AddRisultatiQualificaCommand $command): CommandResult
     {
         $existData = Risultati::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')

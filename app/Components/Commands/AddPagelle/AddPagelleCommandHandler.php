@@ -11,7 +11,7 @@ use App\Models\Piloti;
 
 class AddPagelleCommandHandler
 {
-    public function Execute(AddPagelleCommand $command): CommandResult
+    public static function Execute(AddPagelleCommand $command): CommandResult
     {
         $existData = Pagelle::select()
             ->join('piloti', 'ID_PILOTA', '=', 'piloti.ID')

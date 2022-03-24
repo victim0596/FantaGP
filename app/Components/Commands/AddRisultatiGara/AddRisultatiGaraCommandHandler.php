@@ -7,7 +7,7 @@ use App\Models\Risultati;
 
 class AddRisultatiGaraCommandHandler
 {
-    public function Execute(AddRisultatiGaraCommand $command): CommandResult
+    public static function Execute(AddRisultatiGaraCommand $command): CommandResult
     {
         $existData = Risultati::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')
