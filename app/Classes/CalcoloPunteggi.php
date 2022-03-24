@@ -2,47 +2,61 @@
 
 namespace App\Classes;
 
+use App\Components\Queries\GetPagelleByRaceByDriver\GetPagelleByRaceByDriverQuery;
+use App\Components\Queries\GetPagelleByRaceByDriver\GetPagelleByRaceByDriverQueryHandler;
+use App\Components\Queries\GetPronosticiByRaceByUser\GetPronosticiByRaceByUserQuery;
+use App\Components\Queries\GetPronosticiByRaceByUser\GetPronosticiByRaceByUserQueryHandler;
+use App\Components\Queries\GetRaceResultByRace\GetRaceResultByRaceQuery;
+use App\Components\Queries\GetRaceResultByRace\GetRaceResultByRaceQueryHandler;
+use App\Components\Queries\GetRitiratiByRaceByDriverByType\GetRitiratiByRaceByDriverByTypeQuery;
+use App\Components\Queries\GetRitiratiByRaceByDriverByType\GetRitiratiByRaceByDriverByTypeQueryHandler;
 use Exception;
 
 class CalcoloPunteggi
 {
+    public float $ptQualifiche;
+    public float $ptGare;
+    public float $ptPagelle;
+
     public function __construct()
     {
+        $this->ptQualifiche = 0;
+        $this->ptGare = 0;
+        $this->ptPagelle = 0;
         $this->pt = config('valPunteggi');
     }
 
     function calcoloPtPronostici(string $nome_gara, string $nome_utente): int
     {
         $punti = 0;
-        $qExec = new QExec();
-        $data = $qExec->loadPronoByRaceByUser($nome_utente, $nome_gara);
-        if(empty($data['data'])) return 0;
-        if ($data['error'] != null) throw new Exception('Errore in loadPronoByRaceByUser [METHOD QExec]');
+        $query = new GetPronosticiByRaceByUserQuery($nome_gara, $nome_utente);
+        $result = GetPronosticiByRaceByUserQueryHandler::Retrieve($query);
+        if(empty($result->getUtente())) return 0;
         //memorizzo tutti i pronostici di utente[i] in delle variabili
-        $qualifica1 = $data['data']['qp1'];
-        $qualifica2 = $data['data']['qp2'];
-        $qualifica3 = $data['data']['qp3'];
-        $gara1 = $data['data']['gp1'];
-        $gara2 = $data['data']['gp2'];
-        $gara3 = $data['data']['gp3'];
-        $giroveloce = $data['data']['giro_veloce'];
-        $nrit = $data['data']['n_ritirati'];
-        $sc = $data['data']['SC'];
-        $vsc = $data['data']['VSC'];
+        $qualifica1 = $result->getQP1();
+        $qualifica2 = $result->getQP2();
+        $qualifica3 = $result->getQP3();
+        $gara1 = $result->getGP1();
+        $gara2 = $result->getGP2();
+        $gara3 = $result->getGP3();
+        $giroveloce = $result->getGiroVeloce();
+        $nrit = $result->getNRitirati();
+        $sc = $result->getSC();
+        $vsc = $result->getVSC();
         //query per risultati
-        $dataResult = $qExec->loadRaceResult($nome_gara);
-        if ($data['error'] != null) throw new Exception('Errore in loadRaceResult [METHOD QExec]');
+        $queryResult = new GetRaceResultByRaceQuery($nome_gara);
+        $dataResult =  GetRaceResultByRaceQueryHandler::Retrieve($queryResult);
         //memorizzo i risultati della gara in delle variabili
-        $qualifica1_risultati = $dataResult['data']['qp1'];
-        $qualifica2_risultati = $dataResult['data']['qp2'];
-        $qualifica3_risultati = $dataResult['data']['qp3'];
-        $gara1_risultati = $dataResult['data']['gp1'];
-        $gara2_risultati = $dataResult['data']['gp2'];
-        $gara3_risultati = $dataResult['data']['gp3'];
-        $giroveloce_risultati = $dataResult['data']['giro_veloce'];
-        $nrit_risultati = $dataResult['data']['n_ritirati'];
-        $sc_risultati = $dataResult['data']['SC'];
-        $vsc_risultati = $dataResult['data']['VSC'];
+        $qualifica1_risultati = $dataResult->getQp1();
+        $qualifica2_risultati = $dataResult->getQp2();
+        $qualifica3_risultati = $dataResult->getQp3();
+        $gara1_risultati = $dataResult->getGp1();
+        $gara2_risultati = $dataResult->getGp2();
+        $gara3_risultati = $dataResult->getGp3();
+        $giroveloce_risultati = $dataResult->getGiroVeloce();
+        $nrit_risultati = $dataResult->getNRitirati();
+        $sc_risultati = $dataResult->getSC();
+        $vsc_risultati = $dataResult->getVSC();
         //calcolo punti qualifiche
         if ($qualifica1 == $qualifica1_risultati && !empty($qualifica1)) {
             $punti = $punti + $this->pt['qp1PT'];
@@ -59,6 +73,8 @@ class CalcoloPunteggi
         if ($qualifica1 == $qualifica1_risultati && $qualifica2 == $qualifica2_risultati && $qualifica3 == $qualifica3_risultati && !empty($qualifica1) && !empty($qualifica2) && !empty($qualifica3)) {
             $punti = $punti + $this->pt['ALLqualyPT'];
         }
+        //memorizzo i punti che ho sommato fin ad adesso come punti qualifiche
+        $this->ptQualifiche = $punti;
 
         //calcolo punti gara
         if ($gara1 == $gara1_risultati && !empty($gara1)) {
@@ -101,6 +117,8 @@ class CalcoloPunteggi
                 $punti = $punti + $this->pt['vscMalusPT'];
             }
         }
+        //memorizzo i punti della gara
+        $this->ptGare = $punti - $this->ptQualifiche;
         return $punti;
     }
 
@@ -206,35 +224,34 @@ class CalcoloPunteggi
                 break;
         }
 
-        $qExec = new QExec();
         //query per il primo pilota e calcolo media con numero plastico
-        $dataPilota1 = $qExec->loadPagelleByRaceByDriver($nome_gara, $pilota1);
-        if ($dataPilota1['error'] != null) throw new Exception($dataPilota1['error']);
-        if(empty($dataPilota1['data'])) return 0.0;
-        $sito1_pilota1 = $dataPilota1['data']['sito1'];
-        $sito2_pilota1 = $dataPilota1['data']['sito2'];
-        $sito3_pilota1 = $dataPilota1['data']['sito3'];
+        $queryPilota1 = new GetPagelleByRaceByDriverQuery($nome_gara, $pilota1);
+        $dataPilota1 = GetPagelleByRaceByDriverQueryHandler::Retrieve($queryPilota1);
+        if(empty($dataPilota1->getPilota())) return 0.0;
+        $sito1_pilota1 = $dataPilota1->getSito1();
+        $sito2_pilota1 = $dataPilota1->getSito2();
+        $sito3_pilota1 = $dataPilota1->getSito3();
         $media_pilota1 = ($sito1_pilota1 + $sito2_pilota1 + $sito3_pilota1) * 1.3247;
         //query per il secondo pilota e calcolo media con numero plastico
-        $dataPilota2 = $qExec->loadPagelleByRaceByDriver($nome_gara, $pilota2);
-        if ($dataPilota2['error'] != null) throw new Exception($dataPilota2['error']);
-        $sito1_pilota2 = $dataPilota2['data']['sito1'];
-        $sito2_pilota2 = $dataPilota2['data']['sito2'];
-        $sito3_pilota2 = $dataPilota2['data']['sito3'];
+        $queryPilota2 = new GetPagelleByRaceByDriverQuery($nome_gara, $pilota2);
+        $dataPilota2 = GetPagelleByRaceByDriverQueryHandler::Retrieve($queryPilota2);
+        $sito1_pilota2 = $dataPilota2->getSito1();
+        $sito2_pilota2 = $dataPilota2->getSito2();
+        $sito3_pilota2 = $dataPilota2->getSito3();
         $media_pilota2 = ($sito1_pilota2 + $sito2_pilota2 + $sito3_pilota2) * 1.3247;
         //query per la scuderia e calcolo media con numero plastico
         //query pilota 1 scuderia
-        $dataPilotaScuderia1 = $qExec->loadPagelleByRaceByDriver($nome_gara, $driver1);
-        if ($dataPilotaScuderia1['error'] != null) throw new Exception($dataPilotaScuderia1['error']);
-        $sito1_driver1_scuderia = $dataPilotaScuderia1['data']['sito1'];
-        $sito2_driver1_scuderia = $dataPilotaScuderia1['data']['sito2'];
-        $sito3_driver1_scuderia = $dataPilotaScuderia1['data']['sito3'];
+        $queryPilotaScuderia1 = new GetPagelleByRaceByDriverQuery($nome_gara, $driver1);
+        $dataPilotaScuderia1 = GetPagelleByRaceByDriverQueryHandler::Retrieve($queryPilotaScuderia1);
+        $sito1_driver1_scuderia = $dataPilotaScuderia1->getSito1();
+        $sito2_driver1_scuderia = $dataPilotaScuderia1->getSito2();
+        $sito3_driver1_scuderia = $dataPilotaScuderia1->getSito3();
         //query pilota 2 scuderia
-        $dataPilotaScuderia2 = $qExec->loadPagelleByRaceByDriver($nome_gara, $driver2);
-        if ($dataPilotaScuderia2['error'] != null) throw new Exception($dataPilotaScuderia2['error']);
-        $sito1_driver2_scuderia = $dataPilotaScuderia2['data']['sito1'];
-        $sito2_driver2_scuderia = $dataPilotaScuderia2['data']['sito2'];
-        $sito3_driver2_scuderia = $dataPilotaScuderia2['data']['sito3'];
+        $queryPilotaScuderia2 = new GetPagelleByRaceByDriverQuery($nome_gara, $driver2);
+        $dataPilotaScuderia2 = GetPagelleByRaceByDriverQueryHandler::Retrieve($queryPilotaScuderia2);
+        $sito1_driver2_scuderia = $dataPilotaScuderia2->getSito1();
+        $sito2_driver2_scuderia = $dataPilotaScuderia2->getSito2();
+        $sito3_driver2_scuderia = $dataPilotaScuderia2->getSito3();
         //media
         $media_sito1 = ($sito1_driver1_scuderia + $sito1_driver2_scuderia) / 2;
         $media_sito2 = ($sito2_driver1_scuderia + $sito2_driver2_scuderia) / 2;
@@ -242,32 +259,32 @@ class CalcoloPunteggi
         $media_scuderia = ($media_sito1 + $media_sito2 + $media_sito3) * 1.3247;
         //query per il controllo dei ritirati
         //query pilota 1 ritirato qualifica
-        $retiredPilot1 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver1, 'Qualifica');
-        if ($retiredPilot1['error'] != null) throw new Exception($retiredPilot1['error']);
-        if (!empty($retiredPilot1['data'])) {
+        $queryRitiratoPilota1 = new GetRitiratiByRaceByDriverByTypeQuery($nome_gara, $driver1, 0);
+        $retiredPilot1 = GetRitiratiByRaceByDriverByTypeQueryHandler::Retrieve($queryRitiratoPilota1);
+        if (!empty($retiredPilot1->getPilota())) {
             $media_scuderia = $media_scuderia + $this->pt['retiredDriverQ'];
         }
         //query pilota 2 ritirato qualifica
-        $retiredPilot2 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver2, 'Qualifica');
-        if ($retiredPilot2['error'] != null) throw new Exception($retiredPilot2['error']);
-        if (!empty($retiredPilot2['data'])) {
+        $queryRitiratoPilota2 = new GetRitiratiByRaceByDriverByTypeQuery($nome_gara, $driver2, 0);
+        $retiredPilot2 = GetRitiratiByRaceByDriverByTypeQueryHandler::Retrieve($queryRitiratoPilota2);
+        if (!empty($retiredPilot2->getPilota())) {
             $media_scuderia = $media_scuderia + $this->pt['retiredDriverQ'];
         }
         //query pilota 1 ritirato gara
-        $retiredPilot1 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver1, 'Gara');
-        if ($retiredPilot1['error'] != null) throw new Exception($retiredPilot1['error']);
-        if (!empty($retiredPilot1['data'])) {
+        $queryRitiratoPilota1Gara = new GetRitiratiByRaceByDriverByTypeQuery($nome_gara, $driver1, 1);
+        $retiredPilot1 = GetRitiratiByRaceByDriverByTypeQueryHandler::Retrieve($queryRitiratoPilota1Gara);
+        if (!empty($retiredPilot1->getPilota())) {
             $media_scuderia = $media_scuderia + $this->pt['retiredDriverR'];
         }
         //query pilota 2 ritirato gara
-        $retiredPilot2 = $qExec->loadRitiratiByRaceByDriverByType($nome_gara, $driver2, 'Gara');
-        if ($retiredPilot2['error'] != null) throw new Exception($retiredPilot2['error']);
-        if (!empty($retiredPilot2['data'])) {
+        $queryRitiratoPilota2Gara = new GetRitiratiByRaceByDriverByTypeQuery($nome_gara, $driver2, 1);
+        $retiredPilot2 = GetRitiratiByRaceByDriverByTypeQueryHandler::Retrieve($queryRitiratoPilota2Gara);
+        if (!empty($retiredPilot2->getPilota())) {
             $media_scuderia = $media_scuderia + $this->pt['retiredDriverR'];
         }
         //calcolo punti
         $punti = $media_pilota1 + $media_pilota2 + $media_scuderia;
-
+        $this->ptPagelle = $punti;
         return $punti;
     }
 }
