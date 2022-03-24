@@ -3,8 +3,9 @@
 namespace App\Components\Queries\GetPagelleByRaceByDriver;
 
 use App\Models\Pagelle;
+use Exception;
 
-class GetPagelleByRaceByDriverQueryHandler 
+class GetPagelleByRaceByDriverQueryHandler
 {
     public static function Retrieve(GetPagelleByRaceByDriverQuery $query): GetPagelleByRaceByDriverQueryResult
     {
@@ -15,11 +16,11 @@ class GetPagelleByRaceByDriverQueryHandler
             ->where('piloti.NOME', $query->getPilota())
             ->first();
         $result = new GetPagelleByRaceByDriverQueryResult(
-            $dbresult->NOME,
-            $dbresult->DENOMINAZIONE,
-            $dbresult->SITO1,
-            $dbresult->SITO2,
-            $dbresult->SITO3,
+            $dbresult->NOME ?? "",
+            $dbresult->DENOMINAZIONE  ?? "",
+            $dbresult->SITO1  ?? 0,
+            $dbresult->SITO2  ?? 0,
+            $dbresult->SITO3  ?? 0,
         );
         return $result;
     }

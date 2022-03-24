@@ -3,9 +3,10 @@
 namespace App\Components\Queries\GetRaceResultByRace;
 
 use App\Models\Risultati;
+use Exception;
 
 
-class GetRaceResultByRaceQueryHandler  
+class GetRaceResultByRaceQueryHandler
 {
 
     public static function Retrieve(GetRaceResultByRaceQuery $query): GetRaceResultByRaceQueryResult
@@ -13,6 +14,7 @@ class GetRaceResultByRaceQueryHandler
         $dbresult = Risultati::select()
             ->join('gare', 'ID_GARA', '=', 'gare.ID')
             ->where('gare.DENOMINAZIONE', $query->getNomeGara())->first();
+        if (empty($dbresult)) throw new Exception('Non hai inserito nessun risultato per la gara ' . $query->getNomeGara());
         $result = new GetRaceResultByRaceQueryResult(
             $dbresult->DENOMINAZIONE,
             $dbresult->QP1,

@@ -18,9 +18,9 @@ class GetRitiratiByRaceByDriverByTypeQueryHandler
             ->where('TIPO', $query->getTipo())
             ->first();
         $result = new GetRitiratiByRaceByDriverByTypeQueryResult(
-            $dbresult->NOME,
-            $dbresult->DENOMINAZIONE,
-            $dbresult->TIPO
+            $dbresult->NOME ?? "",
+            $dbresult->DENOMINAZIONE ?? "",
+            $dbresult->TIPO ?? 0
         );
         return $result;
     }

@@ -19,20 +19,20 @@ class GetPronosticiByRaceByUserQueryHandler
             ->where('DENOMINAZIONE', $query->getNomeGara())
             ->where('USERNAME', $query->getUtente())->first();
         $result = new GetPronosticiByRaceByUserQueryResult(
-            $dbResult->DENOMINAZIONE,
-            $dbResult->USERNAME,
-            $dbResult->QP1,
-            $dbResult->QP2,
-            $dbResult->QP3,
-            $dbResult->GP1,
-            $dbResult->GP2,
-            $dbResult->GP3,
-            $dbResult->GIRO_VELOCE,
-            $dbResult->NRITIRATI,
-            $dbResult->VSC,
-            $dbResult->SC,
-            $dbResult->DataPronosticiQualifica,
-            $dbResult->DataPronosticiGara
+            $dbResult->DENOMINAZIONE  ?? "",
+            $dbResult->USERNAME  ?? "",
+            $dbResult->QP1  ?? "",
+            $dbResult->QP2  ?? "",
+            $dbResult->QP3  ?? "",
+            $dbResult->GP1  ?? "",
+            $dbResult->GP2  ?? "",
+            $dbResult->GP3  ?? "",
+            $dbResult->GIRO_VELOCE  ?? "",
+            $dbResult->NRITIRATI ?? 0,
+            $dbResult->VSC ?? 0,
+            $dbResult->SC ?? 0,
+            $dbResult->DataPronosticiQualifica ?? "",
+            $dbResult->DataPronosticiGara ?? ""
         );
         return $result;
     }
