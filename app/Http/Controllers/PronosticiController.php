@@ -8,6 +8,10 @@ use Exception;
 use App\Classes\Time;
 use App\Classes\FormCheck;
 use App\Classes\QExec;
+use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommand;
+use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommandHandler;
+use App\Components\Commands\AddPronosticiQualifica\AddPronosticiQualificaCommand;
+use App\Components\Commands\AddPronosticiQualifica\AddPronosticiQualificaCommandHandler;
 
 class PronosticiController extends Controller
 {
@@ -37,8 +41,10 @@ class PronosticiController extends Controller
             if ($time->check_date_quali($nome_gara)) {
                 $checkQualy = $form->checkQualyForm($qp1, $qp2, $qp3);
                 if ($checkQualy['boolValue']) {
-                    $qExec = new QExec();
-                    $text = $qExec->insertPronoQualy($id_p, $nome_gara, $qp1, $qp2, $qp3);
+                    $query = new AddPronosticiQualificaCommand($id_p, $nome_gara, $qp1, $qp2, $qp3);
+                    $result = AddPronosticiQualificaCommandHandler::Execute($query);
+                    if (!$result->getSuccess()) throw new Exception($result->getMessage());
+                    else $text = $result->getMessage();
                 } else $text = $checkQualy['error'];
             } else {
                 $text = "Tempo limite superato";
@@ -70,8 +76,10 @@ class PronosticiController extends Controller
             if ($time->check_date_race($nome_gara)) {
                 $checkRace = $form->checkRaceForm($gp1, $gp2, $gp3, $giro_veloce, $VSC, $SC, $n_ritirati);
                 if ($checkRace['boolValue']) {
-                    $qExec = new QExec();
-                    $text = $qExec->insertPronoRace($id_p, $nome_gara, $gp1, $gp2, $gp3, $giro_veloce, $VSC, $SC, $n_ritirati);
+                    $query = new AddPronosticiGaraCommand($id_p, $nome_gara, $gp1, $gp2, $gp3, $giro_veloce, $VSC, $SC, $n_ritirati);
+                    $result = AddPronosticiGaraCommandHandler::Execute($query);
+                    if (!$result->getSuccess()) throw new Exception($result->getMessage());
+                    else $text = $result->getMessage();
                 } else $text =  $checkRace['error'];
             } else {
                 $text = "Tempo limite superato";
