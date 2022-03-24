@@ -173,14 +173,17 @@
             <div class="form-group position-relative">
               <label for="qp1"></label>
               <input list="list_driver" class="form-control form-control-sm" name="qp1" placeholder="Qualifica P1" required>
+              <img src="">
             </div>
             <div class="form-group position-relative">
               <label for="qp2"></label>
               <input list="list_driver" class="form-control form-control-sm" name="qp2" placeholder="Qualifica P2" required>
+              <img src="">
             </div>
             <div class="form-group position-relative">
               <label for="qp3"></label>
               <input list="list_driver" class="form-control form-control-sm" name="qp3" placeholder="Qualifica P3" required>
+              <img src="">
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn_send" name="invia_quali">Invia</button>
