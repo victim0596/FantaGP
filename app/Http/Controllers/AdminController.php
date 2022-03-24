@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 use App\Classes\QExec;
 use App\Classes\FormCheck;
 use App\Classes\CalcoloPunteggi;
+use App\Components\Commands\AddPagelle\AddPagelleCommand;
+use App\Components\Commands\AddPagelle\AddPagelleCommandHandler;
+use App\Components\Commands\AddPunteggi\AddPunteggiCommand;
+use App\Components\Commands\AddPunteggi\AddPunteggiCommandHandler;
+use App\Components\Commands\AddRisultatiGara\AddRisultatiGaraCommand;
+use App\Components\Commands\AddRisultatiGara\AddRisultatiGaraCommandHandler;
+use App\Components\Commands\AddRisultatiQualifica\AddRisultatiQualificaCommand;
+use App\Components\Commands\AddRisultatiQualifica\AddRisultatiQualificaCommandHandler;
+use App\Components\Commands\AddRitirati\AddRitiratiCommand;
+use App\Components\Commands\AddRitirati\AddRitiratiCommandHandler;
 use Exception;
 
 class AdminController extends Controller
@@ -37,8 +47,9 @@ class AdminController extends Controller
             $form = new FormCheck($nome_gara);
             $checkPagelle = $form->checkAddPagelleForm($pilota, $sito1, $sito2, $sito3);
             if ($checkPagelle['boolValue']) {
-                $qExec = new QExec();
-                $text = $qExec->insertPagelle($nome_gara, $pilota, $sito1, $sito2, $sito3);
+                $query = new AddPagelleCommand($pilota, $nome_gara, $sito1, $sito2, $sito3);
+                $result = AddPagelleCommandHandler::Execute($query);
+                if (!$result->getSuccess()) throw new Exception($result->getMessage());
             } else {
                 $text = $checkPagelle['error'];
             }
@@ -61,8 +72,10 @@ class AdminController extends Controller
             $form = new FormCheck($nome_gara);
             $checkRitirati = $form->checkAddRitiratiForm($nome_pilota, $tipo);
             if ($checkRitirati['boolValue']) {
-                $qExec = new QExec();
-                $text = $qExec->insertRitirati($nome_gara, $nome_pilota, $tipo);
+                $tipoBool = $tipo == 'Gara' ? 1 : 0;
+                $query = new AddRitiratiCommand($nome_pilota, $nome_gara, $tipoBool);
+                $result = AddRitiratiCommandHandler::Execute($query);
+                if (!$result->getSuccess()) throw new Exception($result->getMessage());
             } else {
                 $text = $checkRitirati['error'];
             }
@@ -90,8 +103,11 @@ class AdminController extends Controller
             $form = new FormCheck($nome_gara);
             $checkAddRace = $form->checkRaceForm($gp1, $gp2, $gp3, $giro_veloce, $VSC, $SC, $n_ritirati);
             if ($checkAddRace['boolValue']) {
-                $qExec = new QExec();
-                $text = $qExec->insertResultRace($nome_gara, $gp1, $gp2, $gp3, $giro_veloce, $VSC, $SC, $n_ritirati);
+                $VSCBool = $VSC == 'Si' ? 1 : 0;
+                $SCBool = $SC == 'Si' ? 1 : 0;
+                $query = new AddRisultatiGaraCommand($nome_gara, $gp1, $gp2, $gp3, $giro_veloce, $VSCBool, $SCBool, $n_ritirati);
+                $result = AddRisultatiGaraCommandHandler::Execute($query);
+                if (!$result->getSuccess()) throw new Exception($result->getMessage());
             } else $text = $checkAddRace['error'];
         } catch (Exception $ex) {
             $text = $ex->getMessage();
@@ -113,8 +129,9 @@ class AdminController extends Controller
             $form = new FormCheck($nome_gara);
             $checkAddQualy = $form->checkQualyForm($qp1, $qp2, $qp3);
             if ($checkAddQualy['boolValue']) {
-                $qExec = new QExec();
-                $text = $qExec->insertResultQualy($nome_gara, $qp1, $qp2, $qp3);
+                $query = new AddRisultatiQualificaCommand($nome_gara, $qp1, $qp2, $qp3);
+                $result = AddRisultatiQualificaCommandHandler::Execute($query);
+                if (!$result->getSuccess()) throw new Exception($result->getMessage());
             } else {
                 $text = $checkAddQualy['error'];
             }
@@ -134,14 +151,17 @@ class AdminController extends Controller
         try {
             $form = new FormCheck($nome_gara);
             $calcoloPunteggi = new CalcoloPunteggi();
-            $qExec = new QExec();
             $utenti = config('myGlobalVar.utenti');
             $utentiLen = config('myGlobalVar.utentiLen');
             for ($i = 0; $i < $utentiLen; $i++) {
-                $ptPronostici = $calcoloPunteggi->calcoloPtPronostici($nome_gara, $utenti[$i]);
-                $ptPagelle = $calcoloPunteggi->calcoloPtPagelle($nome_gara, $utenti[$i]);
-                $ptTotali = number_format($ptPronostici + $ptPagelle, 2);
-                $qExec->insertPunteggi($nome_gara, $utenti[$i], $ptTotali, $ptPronostici, $ptPagelle);
+                $calcoloPunteggi->calcoloPtPronostici($nome_gara, $utenti[$i]);
+                $puntiGara = $calcoloPunteggi->ptGare;
+                $puntiQualifica = $calcoloPunteggi->ptQualifiche;
+                $puntiPagelle = $calcoloPunteggi->calcoloPtPagelle($nome_gara, $utenti[$i]);
+                $query = new AddPunteggiCommand($nome_gara, $utenti[$i], $puntiGara, $puntiQualifica, $puntiPagelle);
+                $result = AddPunteggiCommandHandler::Execute($query);
+                if (!$result->getSuccess()) throw new Exception($result->getMessage());
+                else $text = $result->getMessage();
             }
             $text = "I dati sono stati inseriti correttamente";
         } catch (Exception $ex) {
