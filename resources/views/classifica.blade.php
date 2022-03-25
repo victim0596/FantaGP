@@ -556,11 +556,11 @@
           </div>
         </div>
         <!-- Chart pinguinoSquadraCorse -->
-        <div class="modal fade" id="modalchartpinguinoSquadraCorse" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
+        <div class="modal fade" id="modalchartpinguinoSquadracorse" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalchartpinguinoSquadraCorse">Andamento punti per gara pinguinoSquadraCorse</h5>
+                <h5 class="modal-title" id="modalchartpinguinoSquadracorse">Andamento punti per gara pinguinoSquadraCorse</h5>
                 <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">

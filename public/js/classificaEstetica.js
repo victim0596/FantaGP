@@ -18,7 +18,7 @@ var objDriver = {
     Ciccio: "mercedes",
     Andrea: "aston",
     Dario: "mclaren",
-    pinguinoSquadraCorse: "williams",
+    pinguinoSquadracorse: "williams",
     Ermenegildo: "tauri",
     gianpaolo: "Alpine"
 }
@@ -31,7 +31,7 @@ var objColor = {
     Ciccio: "rgb(50, 168, 157)",
     Andrea: "rgb(3, 130, 60)",
     Dario: "orange",
-    pinguinoSquadraCorse: "white",
+    pinguinoSquadracorse: "white",
     Ermenegildo: "rgb(8, 1, 59)",
     gianpaolo: "rgba(0, 119, 255, 0.836"
 }
