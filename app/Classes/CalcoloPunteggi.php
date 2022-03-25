@@ -2,6 +2,10 @@
 
 namespace App\Classes;
 
+use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommand;
+use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommandHandler;
+use App\Components\Commands\AddPronosticiQualifica\AddPronosticiQualificaCommand;
+use App\Components\Commands\AddPronosticiQualifica\AddPronosticiQualificaCommandHandler;
 use App\Components\Queries\GetPagelleByRaceByDriver\GetPagelleByRaceByDriverQuery;
 use App\Components\Queries\GetPagelleByRaceByDriver\GetPagelleByRaceByDriverQueryHandler;
 use App\Components\Queries\GetPronosticiByRaceByUser\GetPronosticiByRaceByUserQuery;
@@ -31,7 +35,18 @@ class CalcoloPunteggi
         $punti = 0;
         $query = new GetPronosticiByRaceByUserQuery($nome_gara, $nome_utente);
         $result = GetPronosticiByRaceByUserQueryHandler::Retrieve($query);
-        if(empty($result->getUtente())) return 0;
+        //se non ha messo nessun pronostico, vado ad aggiungere una row sia in pronostici gara che pronostici qualifica
+        if(empty($result->getUtente())) {
+            //row per pronostici qualifica
+            $queryQualifica = new AddPronosticiQualificaCommand($nome_utente, $nome_gara);
+            $resultQualifica = AddPronosticiQualificaCommandHandler::Execute($queryQualifica);
+            if (!$resultQualifica->getSuccess()) throw new Exception($resultQualifica->getMessage());
+            //row per pronostici gara
+            $queryGara = new AddPronosticiGaraCommand($nome_utente, $nome_gara);
+            $resultGara = AddPronosticiGaraCommandHandler::Execute($queryGara);
+            if (!$resultGara->getSuccess()) throw new Exception($resultGara->getMessage());
+            return 0;
+        }
         //memorizzo tutti i pronostici di utente[i] in delle variabili
         $qualifica1 = $result->getQP1();
         $qualifica2 = $result->getQP2();
