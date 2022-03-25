@@ -8,11 +8,11 @@ class AddPronosticiQualificaCommand implements ICommand
 {
     private string $Utente;
     private string $NomeGara;
-    private string $QP1;
-    private string $QP2;
-    private string $QP3;
+    private $QP1;
+    private $QP2;
+    private $QP3;
 
-    public function __construct(string $utente, string $nomeGara, string $qp1, string $qp2, string $qp3)
+    public function __construct(string $utente, string $nomeGara, string $qp1 = null, string $qp2 = null, string $qp3 = null)
     {
         $this->Utente = $utente;
         $this->NomeGara = $nomeGara;

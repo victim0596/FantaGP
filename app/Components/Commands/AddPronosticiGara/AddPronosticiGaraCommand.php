@@ -8,15 +8,15 @@ class AddPronosticiGaraCommand implements ICommand
 {
     private string $Utente;
     private string $NomeGara;
-    private string $GP1;
-    private string $GP2;
-    private string $GP3;
-    private string $GiroVeloce;
-    private bool $VSC;
-    private bool $SC;
-    private int $NRitirati;
+    private $GP1;
+    private $GP2;
+    private $GP3;
+    private $GiroVeloce;
+    private $VSC;
+    private $SC;
+    private $NRitirati;
 
-    public function __construct(string $utente, string $nomeGara, string $gp1, string $gp2, string $gp3, string $giroVeloce, string $vsc, string $sc, int $nRitirati)
+    public function __construct(string $utente, string $nomeGara, string $gp1 = null, string $gp2 = null, string $gp3 = null, string $giroVeloce = null, bool $vsc = null, bool $sc = null, int $nRitirati = null)
     {
         $this->Utente = $utente;
         $this->NomeGara = $nomeGara;
