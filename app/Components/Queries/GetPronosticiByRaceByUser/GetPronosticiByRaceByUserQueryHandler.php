@@ -5,7 +5,7 @@ namespace App\Components\Queries\GetPronosticiByRaceByUser;
 use App\Models\PronosticiGara;
 
 
-class GetPronosticiByRaceByUserQueryHandler  
+class GetPronosticiByRaceByUserQueryHandler
 {
     public static function Retrieve(GetPronosticiByRaceByUserQuery $query): GetPronosticiByRaceByUserQueryResult
     {
