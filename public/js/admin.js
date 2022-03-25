@@ -91,9 +91,9 @@ function modifyInnerText(tipoCheck, data) {
         case 'Ritirati': {
             for (var i = 0; i < data.length; i++) {
                 rowGenerated = rowGenerated + `<tr>
-                <td>${data[i].nome_pilota}</td>
-                <td>${data[i].nome_gara}</td>
-                <td>${data[i].tipo}</td>
+                <td>${data[i].NOME}</td>
+                <td>${data[i].DENOMINAZIONE}</td>
+                <td>${data[i].TIPO}</td>
               </tr>`;
             }
             htmlElement.innerHTML = `<table class="table table-dark table-striped">
@@ -112,15 +112,15 @@ function modifyInnerText(tipoCheck, data) {
         case 'Risultato': {
             for (var i = 0; i < data.length; i++) {
                 rowGenerated = rowGenerated + `<tr>
-                <td>${data[i].nome_gara}</td>
-                <td>${data[i].qp1}</td>
-                <td>${data[i].qp2}</td>
-                <td>${data[i].qp3}</td>
-                <td>${data[i].gp1}</td>
-                <td>${data[i].gp2}</td>
-                <td>${data[i].gp3}</td>
-                <td>${data[i].giro_veloce}</td>
-                <td>${data[i].n_ritirati}</td>
+                <td>${data[i].DENOMINAZIONE}</td>
+                <td>${data[i].QP1}</td>
+                <td>${data[i].QP2}</td>
+                <td>${data[i].QP3}</td>
+                <td>${data[i].GP1}</td>
+                <td>${data[i].GP2}</td>
+                <td>${data[i].GP3}</td>
+                <td>${data[i].GIRO_VELOCE}</td>
+                <td>${data[i].NRITIRATI}</td>
                 <td>${data[i].VSC}</td>
                 <td>${data[i].SC}</td>
                </tr>`;
@@ -149,19 +149,20 @@ function modifyInnerText(tipoCheck, data) {
         case 'Pronostici': {
             for (var i = 0; i < data.length; i++) {
                 rowGenerated = rowGenerated + `<tr>
-                <td>${data[i].id_p}</td>
-                <td>${data[i].nome_gara}</td>
-                <td>${data[i].qp1}</td>
-                <td>${data[i].qp2}</td>
-                <td>${data[i].qp3}</td>
-                <td>${data[i].gp1}</td>
-                <td>${data[i].gp2}</td>
-                <td>${data[i].gp3}</td>
-                <td>${data[i].giro_veloce}</td>
-                <td>${data[i].n_ritirati}</td>
+                <td>${data[i].USERNAME}</td>
+                <td>${data[i].DENOMINAZIONE}</td>
+                <td>${data[i].QP1}</td>
+                <td>${data[i].QP2}</td>
+                <td>${data[i].QP3}</td>
+                <td>${data[i].GP1}</td>
+                <td>${data[i].GP2}</td>
+                <td>${data[i].GP3}</td>
+                <td>${data[i].GIRO_VELOCE}</td>
+                <td>${data[i].NRITIRATI}</td>
                 <td>${data[i].VSC}</td>
                 <td>${data[i].SC}</td>
-                <td>${data[i].data}</td>
+                <td>${data[i].dataGara}</td>
+                <td>${data[i].dataQualifica}</td>
               </tr>`;
             }
             htmlElement.innerHTML = `<table class="table table-dark table-striped">
@@ -179,7 +180,8 @@ function modifyInnerText(tipoCheck, data) {
                 <th scope="col">Ritirati</th>
                 <th scope="col">VSC</th>
                 <th scope="col">SC</th>
-                <th scope="col">Data</th>
+                <th scope="col">Timestamp Gara</th>
+                <th scope="col">Timestamp Qualifica</th>
               </tr>
             </thead>
             <tbody>${rowGenerated}
@@ -190,11 +192,11 @@ function modifyInnerText(tipoCheck, data) {
         case 'Pagelle': {
             for (var i = 0; i < data.length; i++) {
                 rowGenerated = rowGenerated + `<tr>
-                <td>${data[i].pilota}</td>
-                <td>${data[i].nome_gara}</td>
-                <td>${data[i].sito1}</td>
-                <td>${data[i].sito2}</td>
-                <td>${data[i].sito3}</td>
+                <td>${data[i].NOME}</td>
+                <td>${data[i].DENOMINAZIONE}</td>
+                <td>${data[i].SITO1}</td>
+                <td>${data[i].SITO2}</td>
+                <td>${data[i].SITO3}</td>
               </tr>`;
             }
             htmlElement.innerHTML = `<table class="table table-dark table-striped">

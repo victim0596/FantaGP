@@ -397,15 +397,15 @@ setTimeout(loadEvent, 500);
 function changeColor() {
     var domTooltip = document.querySelectorAll(".pronosticiRow .col p:nth-child(2)");
     for (var j = 0; j < risultati.length; j++) {
-        if (statoDom[0].innerHTML == risultati[j].nome_gara) {
-            if (domTooltip[0].innerHTML == risultati[j].qp1) domTooltip[0].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[1].innerHTML == risultati[j].qp2) domTooltip[1].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[2].innerHTML == risultati[j].qp3) domTooltip[2].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[3].innerHTML == risultati[j].gp1) domTooltip[3].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[4].innerHTML == risultati[j].gp2) domTooltip[4].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[5].innerHTML == risultati[j].gp3) domTooltip[5].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[6].innerHTML == risultati[j].giro_veloce) domTooltip[6].style.color = "rgba(113, 255, 47, 1)";
-            if (domTooltip[7].innerHTML == risultati[j].n_ritirati) domTooltip[7].style.color = "rgba(113, 255, 47, 1)";
+        if (statoDom[0].innerHTML == risultati[j].DENOMINAZIONE) {
+            if (domTooltip[0].innerHTML == risultati[j].QP1) domTooltip[0].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[1].innerHTML == risultati[j].QP2) domTooltip[1].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[2].innerHTML == risultati[j].QP3) domTooltip[2].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[3].innerHTML == risultati[j].GP1) domTooltip[3].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[4].innerHTML == risultati[j].GP2) domTooltip[4].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[5].innerHTML == risultati[j].GP3) domTooltip[5].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[6].innerHTML == risultati[j].GIRO_VELOCE) domTooltip[6].style.color = "rgba(113, 255, 47, 1)";
+            if (domTooltip[7].innerHTML == risultati[j].NRITIRATI) domTooltip[7].style.color = "rgba(113, 255, 47, 1)";
             if (domTooltip[8].innerHTML == risultati[j].SC) domTooltip[8].style.color = "rgba(113, 255, 47, 1)";
             if (domTooltip[9].innerHTML == risultati[j].VSC) domTooltip[9].style.color = "rgba(113, 255, 47, 1)";
             break;
@@ -427,14 +427,14 @@ function changePerc(player) {
 
     for (var i = 0; i < risultati.length; i++) {
         for (var j = 0; j < player.length; j++) {
-            if (risultati[i].nome_gara == player[j].nome_gara) {
-                if (risultati[i].qp1 == player[j].qp1 && risultati[i].qp2 == player[j].qp2 && risultati[i].qp3 == player[j].qp3) {
+            if (risultati[i].DENOMINAZIONE == player[j].DENOMINAZIONE) {
+                if (risultati[i].QP1 == player[j].QP1 && risultati[i].QP2 == player[j].QP2 && risultati[i].QP3 == player[j].QP3) {
                     qualiNum++;
                 }
-                if (risultati[i].gp1 == player[j].gp1 && risultati[i].gp2 == player[j].gp2 && risultati[i].gp3 == player[j].gp3) {
+                if (risultati[i].GP1 == player[j].GP1 && risultati[i].GP2 == player[j].GP2 && risultati[i].GP3 == player[j].GP3) {
                     garaNum++;
                 }
-                if (risultati[i].giro_veloce == player[j].giro_veloce) {
+                if (risultati[i].GIRO_VELOCE == player[j].GIRO_VELOCE) {
                     giroVeloceNum++;
                 }
                 if (risultati[i].VSC == player[j].VSC) {
@@ -443,16 +443,16 @@ function changePerc(player) {
                 if (risultati[i].SC == player[j].SC) {
                     scNum++;
                 }
-                if (risultati[i].n_ritirati == player[j].n_ritirati) {
+                if (risultati[i].NRITIRATI == player[j].NRITIRATI) {
                     nritNum++;
                 }
-                if (parseInt(player[j].punti) > parseInt(maxPt)) {
-                    maxPt = player[j].punti;
-                    nomeGaraMaxPt = player[j].nome_gara; //memorizzo il nome della gara
+                if (parseInt(player[j].punti) > parseInt(maxPt)) { 
+                    maxPt = player[j].punti; 
+                    nomeGaraMaxPt = player[j].DENOMINAZIONE; //memorizzo il nome della gara
                 }
-                if (parseInt(player[j].punti) < parseInt(minPt)) {
-                    minPt = player[j].punti;
-                    nomeGaraMinPt = player[j].nome_gara; //memorizzo il nome della gara
+                if (parseInt(player[j].punti) < parseInt(minPt)) { 
+                    minPt = player[j].punti; 
+                    nomeGaraMinPt = player[j].DENOMINAZIONE; //memorizzo il nome della gara
                 }
             }
         }
@@ -677,16 +677,16 @@ function updateChart(e, imageSeries, colorSet) {
     var lun = imageSeries.data.length;
     for (var i = 0; i < lun; i++) {
         for (var j = 0; j < e.length; j++) {
-            if (imageSeries.data[i].stato == e[j].nome_gara) {
-                imageSeries.data[i].punti = e[j].punti;
-                imageSeries.data[i].qp1 = e[j].qp1;
-                imageSeries.data[i].qp2 = e[j].qp2;
-                imageSeries.data[i].qp3 = e[j].qp3;
-                imageSeries.data[i].gp1 = e[j].gp1;
-                imageSeries.data[i].gp2 = e[j].gp2;
-                imageSeries.data[i].gp3 = e[j].gp3;
-                imageSeries.data[i].gv = e[j].giro_veloce;
-                imageSeries.data[i].nrit = e[j].n_ritirati;
+            if (imageSeries.data[i].stato == e[j].DENOMINAZIONE) {
+                imageSeries.data[i].punti = e[j].punti;  
+                imageSeries.data[i].qp1 = e[j].QP1;
+                imageSeries.data[i].qp2 = e[j].QP2;
+                imageSeries.data[i].qp3 = e[j].QP3;
+                imageSeries.data[i].gp1 = e[j].GP1;
+                imageSeries.data[i].gp2 = e[j].GP2;
+                imageSeries.data[i].gp3 = e[j].GP3;
+                imageSeries.data[i].gv = e[j].GIRO_VELOCE;
+                imageSeries.data[i].nrit = e[j].NRITIRATI;
                 imageSeries.data[i].sc = e[j].SC;
                 imageSeries.data[i].vsc = e[j].VSC;
             }
