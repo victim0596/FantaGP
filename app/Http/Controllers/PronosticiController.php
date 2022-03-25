@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Exception;
 use App\Classes\Time;
 use App\Classes\FormCheck;
-use App\Classes\QExec;
 use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommand;
 use App\Components\Commands\AddPronosticiGara\AddPronosticiGaraCommandHandler;
 use App\Components\Commands\AddPronosticiQualifica\AddPronosticiQualificaCommand;

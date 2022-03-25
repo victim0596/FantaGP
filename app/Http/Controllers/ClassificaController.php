@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Classes\QExec;
 use App\Components\Queries\GetClassificaGenerale\GetClassificaGeneraleQueryHandler;
 use App\Components\Queries\GetClassificaPagelle\GetClassificaPagelleQueryHandler;
 use App\Components\Queries\GetClassificaPronostici\GetClassificaPronosticiQueryHandler;

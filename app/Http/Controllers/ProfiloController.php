@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Classes\QExec;
 use App\Classes\Time;
 use App\Classes\FormCheck;
 use App\Components\Commands\UpdatePronosticiGara\UpdatePronosticiGaraCommand;
@@ -118,9 +117,10 @@ class ProfiloController extends Controller
             } else $text = "Tempo limite superato";
         } catch (Exception $ex) {
             $text = $ex->getMessage();
-        } finally {           
+        } finally {
             return redirect()->action(
-                [ProfiloController::class, 'show'], ['status' => $text]
+                [ProfiloController::class, 'show'],
+                ['status' => $text]
             );
         }
     }
@@ -154,8 +154,10 @@ class ProfiloController extends Controller
             $text = $ex->getMessage();
         } finally {
             return redirect()->action(
-                [ProfiloController::class, 'show'], ['status' => $text]
-            );        }
+                [ProfiloController::class, 'show'],
+                ['status' => $text]
+            );
+        }
     }
 
     function logout(Request $request)

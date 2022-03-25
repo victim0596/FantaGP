@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Classes\LoginAuth;
-use App\Classes\QExec;
 use App\Components\Queries\GetUserbyUsername\GetUserByUsernameQuery;
 use App\Components\Queries\GetUserbyUsername\GetUserByUsernameQueryHandler;
 use Exception;

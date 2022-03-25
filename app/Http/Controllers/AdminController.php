@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Classes\QExec;
 use App\Classes\FormCheck;
 use App\Classes\CalcoloPunteggi;
 use App\Components\Commands\AddPagelle\AddPagelleCommand;
@@ -150,10 +149,10 @@ class AdminController extends Controller
         $nome_gara = $request->nome_gara;
         try {
             $form = new FormCheck($nome_gara);
-            $calcoloPunteggi = new CalcoloPunteggi();
             $utenti = config('myGlobalVar.utenti');
             $utentiLen = config('myGlobalVar.utentiLen');
             for ($i = 0; $i < $utentiLen; $i++) {
+                $calcoloPunteggi = new CalcoloPunteggi();
                 $calcoloPunteggi->calcoloPtPronostici($nome_gara, $utenti[$i]);
                 $puntiGara = $calcoloPunteggi->ptGare;
                 $puntiQualifica = $calcoloPunteggi->ptQualifiche;
