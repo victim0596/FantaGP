@@ -16,7 +16,6 @@ class GetClassificaGeneraleQueryHandler
         foreach ($dataDBClassificaGenerale as $user) {
             $assocArrayGen[$user->USERNAME] = $user->puntiGen;
         }
-        $loadClassifiche['dataGen'] = $assocArrayGen;
-        return $loadClassifiche;
+        return $assocArrayGen;
     }
 }

@@ -16,7 +16,6 @@ class GetClassificaPronosticiQueryHandler
         foreach ($dataDBClassificaPronostici as $user) {
             $assocArrayPron[$user->USERNAME] = $user->puntiPron;
         }
-        $loadClassifiche['dataPron'] = $assocArrayPron;
-        return $loadClassifiche;
+        return $assocArrayPron;
     }
 }

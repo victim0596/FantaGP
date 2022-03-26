@@ -16,7 +16,6 @@ class GetClassificaPagelleQueryHandler
         foreach ($dataDBClassificaPagelle as $user) {
             $assocArrayPag[$user->USERNAME] = $user->puntiPag;
         }
-        $loadClassifiche['dataPag'] = $assocArrayPag;
-        return $loadClassifiche;
+        return $assocArrayPag;
     }
 }
