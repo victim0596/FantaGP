@@ -5,7 +5,7 @@ var titoloClassifica = document.getElementById('modalTitoloClassifica');
 
 /*
     CHIAMATE API
-*/ 
+*/
 btnClassificaGenerale.addEventListener('click', () => {
     titoloClassifica.innerHTML = 'Classifica Generale';
 
@@ -83,7 +83,7 @@ function setDataClassifica(classificaObj) {
         var nomeInClassifica = document.querySelectorAll('tbody tr .nameDriver')[i];
         var puntiInClassifica = document.querySelectorAll('tbody tr .ptDriver')[i];
         //imposto il nome
-        nomeInClassifica.innerHTML = '<span>I</span>'+username;
+        nomeInClassifica.innerHTML = '<span>I</span>' + username;
         //imposto i punti
         puntiInClassifica.innerHTML = punti;
         i++;
