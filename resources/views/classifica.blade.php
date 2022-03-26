@@ -8,7 +8,7 @@
   <meta name="author" content="Oliver Terzo">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/main.css?n=1.03">
-  <link rel="stylesheet" href="./css/classifica.css?n=1.02">
+  <link rel="stylesheet" href="./css/classifica.css?n=1.03">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
   <link rel="shortcut icon" href="/logo.ico" />
 
@@ -134,14 +134,14 @@
                             <thead>
                             </thead>
                             <tbody>
-                              <?php for($i=0; $i<10; $i++){?>
-                              <tr>
-                                <th class="colonna" scope="row"><?= e($i+1) ?></th>
-                                <td class="nameDriver"><span>I</span>NULL</td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alpine.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver">0</td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart" name="modalchart"><img src="element/chart.png"></button></td>
-                              </tr>
+                              <?php for ($i = 0; $i < 10; $i++) { ?>
+                                <tr>
+                                  <th class="colonna" scope="row"><?= e($i + 1) ?></th>
+                                  <td class="nameDriver"><span>I</span>NULL</td>
+                                  <td><img src="img/scuderie/scuderieClassifica/Alpine.png" class="logoScuderia" alt=""></td>
+                                  <td class="ptDriver">0</td>
+                                  <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart" name="modalchart"><img src="element/chart.png"></button></td>
+                                </tr>
                               <?php } ?>
                             </tbody>
                           </table>
@@ -160,7 +160,7 @@
             </div>
           </div>
         </div>
-        
+
 
         <!-- TABLE -->
 
@@ -189,15 +189,15 @@
   <!--- script risorse per grafici --->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
-  
-   <!--Script per cambiamenti grafici -->
-   <script src="./js/classificaEstetica.js"></script>
+
+  <!--Script per cambiamenti grafici -->
+  <script src="./js/classificaEstetica.js"></script>
   <!--Script per caricamento dati classifiche -->
   <script src="./js/classificaDati.js"></script>
   <!--Script per i chart -->
   <script src="./js/chart.js?n=1.1221"></script>
 
- 
+
 
 
   <!--Script bootstrap -->
