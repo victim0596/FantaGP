@@ -311,6 +311,7 @@
   <script src="./js/pronoValidation.js?n=1.01"></script>
   <script src="./js/actualRace.js?n=1.04"></script>
   <script src="./js/formNumeriPiloti.js?v=1.0?n=1.0"></script>
+  <script src="./js/actualProno.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
