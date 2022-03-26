@@ -1,5 +1,8 @@
 <?php
 
+use App\Components\Queries\GetClassificaGenerale\GetClassificaGeneraleQueryHandler;
+use App\Components\Queries\GetClassificaPagelle\GetClassificaPagelleQueryHandler;
+use App\Components\Queries\GetClassificaPronostici\GetClassificaPronosticiQueryHandler;
 use App\Components\Queries\GetPronosticiByRaceByUser\GetPronosticiByRaceByUserQuery;
 use App\Components\Queries\GetPronosticiByRaceByUser\GetPronosticiByRaceByUserQueryHandler;
 use App\Models\Pagelle;
@@ -65,19 +68,19 @@ Route::get('/prono/{utente}/{gara}', function (string $utente, string $gara) {
 Route::get('/pronoAllClassifica/{utente}', function (string $utente) {
     $date = Punteggi::selectRaw('USERNAME, PUNTI_GARA + PUNTI_QUALIFICA + PUNTI_PAGELLE as punti, 
     PUNTI_GARA + PUNTI_QUALIFICA as punti_pron, PUNTI_PAGELLE as punti_pag')
-    ->join('utenti', 'ID_UTENTE', '=', 'utenti.ID')
-    ->where('USERNAME', $utente)
-    ->get()->values()->all();
+        ->join('utenti', 'ID_UTENTE', '=', 'utenti.ID')
+        ->where('USERNAME', $utente)
+        ->get()->values()->all();
     return response()->json($date);
 });
 
 //Check api
 Route::get('/checkPagelle/{nomeGara}', function (string $nomeGara) {
     $date = Pagelle::select()
-    ->join('piloti', 'ID_PILOTA', '=', 'piloti.ID')
-    ->join('gare', 'ID_GARA', '=', 'gare.ID')
-    ->where('DENOMINAZIONE', $nomeGara)
-    ->get()->values()->all();
+        ->join('piloti', 'ID_PILOTA', '=', 'piloti.ID')
+        ->join('gare', 'ID_GARA', '=', 'gare.ID')
+        ->where('DENOMINAZIONE', $nomeGara)
+        ->get()->values()->all();
     return response()->json($date);
 });
 Route::get('/checkRitirati/{nomeGara}', function (string $nomeGara) {
@@ -106,3 +109,18 @@ Route::get('/checkPronostici/{nomeGara}', function (string $nomeGara) {
         ->get()->values()->all();
     return response()->json($date);
 });
+
+Route::get('/classifica/{tipo}', function (string $tipo) {
+    switch ($tipo) {
+        case 'Generale':
+            $result = GetClassificaGeneraleQueryHandler::Retrieve();
+            break;
+        case 'Pronostici':
+            $result = GetClassificaPronosticiQueryHandler::Retrieve();
+            break;
+        case 'Pagelle':
+            $result = GetClassificaPagelleQueryHandler::Retrieve();
+            break;
+    }
+    return response()->json($result);
+})->where(['tipo' => '(Generale|Pronostici|Pagelle)']);;
