@@ -81,7 +81,7 @@
         <!-- button per classifiche -->
         <div class="container_btn">
           <!-- Button Classifica generale -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificagenerale" id="class_gen">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassifica" id="class_gen">
             <div>
               <img src="./img/class_1.jpg">
               <div>
@@ -90,7 +90,7 @@
             </div>
           </button>
           <!-- Button Classifica Pagelle -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapagelle" id="class_pag">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassifica" id="class_pag">
             <div>
               <img src="./img/class_2.jpg">
               <div>
@@ -99,7 +99,7 @@
             </div>
           </button>
           <!-- Button Classifica Pronostici -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassificapronostici" id="class_pron">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalclassifica" id="class_pron">
             <div>
               <img src="./img/class_3.jpg">
               <div>
@@ -109,12 +109,12 @@
           </button>
         </div>
 
-        <!-- Modal TABLE CLASSIFICA GENERALE-->
-        <div class="modal fade" id="modalclassificagenerale" tabindex="-1" aria-labelledby="modalclassificagenerale" aria-hidden="true">
+        <!-- Modal TABLE CLASSIFICA -->
+        <div class="modal fade" id="modalclassifica" tabindex="-1" aria-labelledby="modalclassifica" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content modal_table">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalTest">Classifica Generale</h5>
+                <h5 class="modal-title" id="modalTitoloClassifica">Classifica Generale</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -134,82 +134,15 @@
                             <thead>
                             </thead>
                             <tbody>
+                              <?php for($i=0; $i<10; $i++){?>
                               <tr>
-                                <th class="colonna" scope="row">1</th>
-                                <td class="nameDriver"><span>I</span><?= e($primoG); ?></td>
+                                <th class="colonna" scope="row"><?= e($i+1) ?></th>
+                                <td class="nameDriver"><span>I</span>NULL</td>
                                 <td><img src="img/scuderie/scuderieClassifica/Alpine.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($primoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($primoG); ?>" name="chart<?= e($primoG); ?>"><img src="element/chart.png"></button></td>
+                                <td class="ptDriver">0</td>
+                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart" name="modalchart"><img src="element/chart.png"></button></td>
                               </tr>
-                              <tr>
-                                <th class="colonna" scope="row">2</th>
-                                <td class="nameDriver"><span>I</span><?= e($secondoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Mercedes.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($secondoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($secondoG); ?>" name="chart<?= e($secondoG); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">3</th>
-                                <td class="nameDriver"><span>I</span><?= e($terzoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Ferrari.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($terzoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($terzoG); ?>" name="chart<?= e($terzoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">4</th>
-                                <td class="nameDriver"><span>I</span><?= e($quartoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/redbull.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quartoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quartoG); ?>" name="chart<?= e($quartoG); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">5</th>
-                                <td class="nameDriver"><span>I</span><?= e($quintoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/haas.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quintoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quintoG); ?>" name="chart<?= e($quintoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">6</th>
-                                <td class="nameDriver"><span>I</span><?= e($sestoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/mclaren.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($sestoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($sestoG); ?>" name="chart<?= e($sestoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">7</th>
-                                <td class="nameDriver"><span>I</span><?= e($settimoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/tauri.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($settimoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($settimoG); ?>" name="chart<?= e($settimoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">8</th>
-                                <td class="nameDriver"><span>I</span><?= e($ottavoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alfa.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($ottavoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($ottavoG); ?>" name="chart<?= e($ottavoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">9</th>
-                                <td class="nameDriver"><span>I</span><?= e($nonoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/aston.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($nonoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($nonoG); ?>" name="chart<?= e($nonoG); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">10</th>
-                                <td class="nameDriver"><span>I</span><?= e($decimoG); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/williams.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($decimoGPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($decimoG); ?>" name="chart<?= e($decimoG); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
+                              <?php } ?>
                             </tbody>
                           </table>
                         </div>
@@ -227,392 +160,24 @@
             </div>
           </div>
         </div>
-
-
-        <!-- Modal TABLE CLASSIFICA PAGELLE-->
-        <div class="modal fade" id="modalclassificapagelle" tabindex="-1" aria-labelledby="modal_classifica" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal_table">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalclassificapagelle">Classifica Pagelle</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                  <div class="row row-cols-2">
-                    <div class="col">
-                      <div class="row headerClassifica">
-                        <div class="headerText">FANTAGP2022</div>
-                      </div>
-                      <div class="row row2Class row-cols-2">
-                        <div class="col bestSection">
-                          <div class="headerText headerBest">BEST</div>
-                          <img class="imgBest" src="img/piloti/Sainz.png" alt="">
-                        </div>
-                        <div class="col tabCol">
-                          <table class="table">
-                            <thead>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th class="colonna" scope="row">1</th>
-                                <td class="nameDriver"><span>I</span><?= e($primoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alpine.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($primoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($primoPg); ?>" name="chart<?= e($primoPg); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">2</th>
-                                <td class="nameDriver"><span>I</span><?= e($secondoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Mercedes.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($secondoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($secondoPg); ?>" name="chart<?= e($secondoPg); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">3</th>
-                                <td class="nameDriver"><span>I</span><?= e($terzoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Ferrari.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($terzoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($terzoPg); ?>" name="chart<?= e($terzoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">4</th>
-                                <td class="nameDriver"><span>I</span><?= e($quartoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/redbull.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quartoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quartoPg); ?>" name="chart<?= e($quartoPg); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">5</th>
-                                <td class="nameDriver"><span>I</span><?= e($quintoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/haas.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quintoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quintoPg); ?>" name="chart<?= e($quintoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">6</th>
-                                <td class="nameDriver"><span>I</span><?= e($sestoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/mclaren.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($sestoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($sestoPg); ?>" name="chart<?= e($sestoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">7</th>
-                                <td class="nameDriver"><span>I</span><?= e($settimoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/tauri.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($settimoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($settimoPg); ?>" name="chart<?= e($settimoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">8</th>
-                                <td class="nameDriver"><span>I</span><?= e($ottavoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alfa.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($ottavoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($ottavoPg); ?>" name="chart<?= e($ottavoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">9</th>
-                                <td class="nameDriver"><span>I</span><?= e($nonoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/aston.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($nonoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($nonoPg); ?>" name="chart<?= e($nonoPg); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">10</th>
-                                <td class="nameDriver"><span>I</span><?= e($decimoPg); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/williams.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($decimoPgPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($decimoPg); ?>" name="chart<?= e($decimoPg); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="row headerClassifica remHeader">
-                        <div class="headerText">_</div>
-                      </div>
-                      <div class="row row2Class"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal TABLE CLASSIFICA PRONOSTICI-->
-        <div class="modal fade" id="modalclassificapronostici" tabindex="-1" aria-labelledby="modal_classifica" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal_table">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalclassificapronostici">Classifica Pronostici</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                  <div class="row row-cols-2">
-                    <div class="col">
-                      <div class="row headerClassifica">
-                        <div class="headerText">FANTAGP2022</div>
-                      </div>
-                      <div class="row row2Class row-cols-2">
-                        <div class="col bestSection">
-                          <div class="headerText headerBest">BEST</div>
-                          <img class="imgBest" src="img/piloti/Sainz.png" alt="">
-                        </div>
-                        <div class="col tabCol">
-                          <table class="table">
-                            <thead>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th class="colonna" scope="row">1</th>
-                                <td class="nameDriver"><span>I</span><?= e($primoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alpine.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($primoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($primoP); ?>" name="chart<?= e($primoP); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">2</th>
-                                <td class="nameDriver"><span>I</span><?= e($secondoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Mercedes.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($secondoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($secondoP); ?>" name="chart<?= e($secondoP); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">3</th>
-                                <td class="nameDriver"><span>I</span><?= e($terzoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Ferrari.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($terzoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($terzoP); ?>" name="chart<?= e($terzoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">4</th>
-                                <td class="nameDriver"><span>I</span><?= e($quartoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/redbull.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quartoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quartoP); ?>" name="chart<?= e($quartoP); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">5</th>
-                                <td class="nameDriver"><span>I</span><?= e($quintoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/haas.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($quintoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($quintoP); ?>" name="chart<?= e($quintoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">6</th>
-                                <td class="nameDriver"><span>I</span><?= e($sestoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/mclaren.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($sestoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($sestoP); ?>" name="chart<?= e($sestoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">7</th>
-                                <td class="nameDriver"><span>I</span><?= e($settimoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/tauri.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($settimoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($settimoP); ?>" name="chart<?= e($settimoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">8</th>
-                                <td class="nameDriver"><span>I</span><?= e($ottavoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/Alfa.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($ottavoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($ottavoP); ?>" name="chart<?= e($ottavoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">9</th>
-                                <td class="nameDriver"><span>I</span><?= e($nonoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/aston.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($nonoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($nonoP); ?>" name="chart<?= e($nonoP); ?>"><img src="element/chart.png"></button></td>
-
-                              </tr>
-                              <tr>
-                                <th class="colonna" scope="row">10</th>
-                                <td class="nameDriver"><span>I</span><?= e($decimoP); ?></td>
-                                <td><img src="img/scuderie/scuderieClassifica/williams.png" class="logoScuderia" alt=""></td>
-                                <td class="ptDriver"><?= e($decimoPPt); ?></td>
-                                <td><button type="button" data-bs-toggle="modal" class="chart" data-bs-target="#modalchart<?= e($decimoP); ?>" name="chart<?= e($decimoP); ?>"><img src="element/chart.png"></button></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="row headerClassifica remHeader">
-                        <div class="headerText">_</div>
-                      </div>
-                      <div class="row row2Class"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <!-- TABLE -->
 
         <!-- Modal Chart -->
-
-        <!-- Chart Dario -->
-        <div class="modal fade" id="modalchartDario" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
+        <div class="modal fade" id="modalchart" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalchartDario">Andamento punti per gara Dario</h5>
+                <h5 class="modal-title" id="modalchartTitle">Andamento punti per gara </h5>
                 <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <canvas id="ChartDario" width="400" height="400"></canvas>
+                <canvas id="chart" width="400" height="400"></canvas>
               </div>
             </div>
           </div>
         </div>
-        <!-- Chart gianpaolo -->
-        <div class="modal fade" id="modalchartgianpaolo" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartgianpaolo">Andamento punti per gara gianpaolo</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="Chartgianpaolo" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart Toto -->
-        <div class="modal fade" id="modalchartToto" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartToto">Andamento punti per gara Toto</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartToto" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart Andrea -->
-        <div class="modal fade" id="modalchartAndrea" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartAndrea">Andamento punti per gara Andrea</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartAndrea" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart SpiritoBlu -->
-        <div class="modal fade" id="modalchartSpiritoBlu" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartSpiritoBlu">Andamento punti per gara SpiritoBlu</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartSpiritoBlu" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart Oliver -->
-        <div class="modal fade" id="modalchartOliver" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartOliver">Andamento punti per gara Oliver</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartOliver" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart pinguinoSquadraCorse -->
-        <div class="modal fade" id="modalchartpinguinoSquadracorse" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartpinguinoSquadracorse">Andamento punti per gara pinguinoSquadraCorse</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartpinguinoSquadraCorse" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart alessiodom97 -->
-        <div class="modal fade" id="modalchartalessiodom97" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartalessiodom97">Andamento punti per gara alessiodom97</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="Chartalessiodom97" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart Ermenegildo -->
-        <div class="modal fade" id="modalchartErmenegildo" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartErmenegildo">Andamento punti per gara Ermenegildo</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartErmenegildo" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Chart Ciccio -->
-        <div class="modal fade" id="modalchartCiccio" tabindex="-1" aria-labelledby="modalchart" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalchartCiccio">Andamento punti per gara Ciccio</h5>
-                <button type="button" class="btn-close btn-modal-chart" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <canvas id="ChartCiccio" width="400" height="400"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
 
       </div>
     </div>
@@ -624,12 +189,16 @@
   <!--- script risorse per grafici --->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
+  
+   <!--Script per cambiamenti grafici -->
+   <script src="./js/classificaEstetica.js"></script>
+  <!--Script per caricamento dati classifiche -->
+  <script src="./js/classificaDati.js"></script>
+  <!--Script per i chart -->
   <script src="./js/chart.js?n=1.1221"></script>
 
-  <!--Script per grafici -->
-  <script src="./js/classificaChart.js?n=1"></script>
-  <!--Script per cambiamenti grafici -->
-  <script src="./js/classificaEstetica.js"></script>
+ 
+
 
   <!--Script bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
